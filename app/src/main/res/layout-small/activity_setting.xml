@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".setting">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cyc"
+        android:textColor="@color/colorAccent"
+        android:text="Choose Your Country"
+        android:textSize="10sp"/>
+    <Spinner
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:backgroundTint="@color/colorAccent"
+        android:paddingTop="20dp"
+        android:layout_alignParentEnd="true"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cyc"
+        android:id="@+id/cb"
+        android:textColor="@color/colorAccent"
+        android:paddingTop="10dp"
+        android:text="Clear Bookmarks"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cb"
+        android:id="@+id/theme"
+        android:textColor="@color/colorAccent"
+        android:paddingTop="10dp"
+        android:text="Enable Dark Theme"
+        android:textSize="10sp"/>
+   <com.google.android.material.switchmaterial.SwitchMaterial
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:paddingTop="10dp"
+       android:id="@+id/sb"
+       android:backgroundTint="@color/colorAccent"
+       android:layout_alignParentEnd="true"
+       android:layout_below="@+id/cb"/>
+</RelativeLayout>

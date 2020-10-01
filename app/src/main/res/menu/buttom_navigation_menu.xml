@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/trending"
+        android:title="Trending"
+        android:icon="@drawable/ic_baseline_trending_up_24"/>
+    <item
+        android:id="@+id/entertainment"
+        android:title="Entertainment"
+        android:icon="@drawable/entertainment"/>
+    <item
+        android:id="@+id/bussiness"
+        android:title="business"
+        android:icon="@drawable/bussiness"/>
+    <item
+        android:id="@+id/tech"
+        android:title="tech"
+        android:icon="@drawable/ic_baseline_mobile_screen_share_24"/>
+
+    <item
+        android:id="@+id/sports"
+        android:title="Sports"
+        android:icon="@drawable/ic_baseline_sports_cricket_24"/>
+</menu>

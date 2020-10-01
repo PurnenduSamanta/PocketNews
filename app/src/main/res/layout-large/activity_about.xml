@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    tools:context="com.purnendu.PocketNews.About">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_round"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/icon"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.This is a simple news app.In this app we are using all free icons and pics from Internet.If any person or
+company has copyright to any of them pls let me know at joysamanta123@gmail.com,we will take necessary steps further.Feel free to give any suggestion on
+before mentioned mail address.  "/>
+
+</RelativeLayout>
+
+</RelativeLayout>

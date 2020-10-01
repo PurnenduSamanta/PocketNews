@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.purnendu.PocketNews.Category">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General News"
+        android:id="@+id/gn"
+        android:textColor="#009432"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Health "
+        android:id="@+id/hn"
+        android:textColor="#009432"
+        android:layout_below="@+id/gn"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Science News"
+        android:id="@+id/sn"
+        android:textColor="#009432"
+        android:layout_below="@+id/hn"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_border"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entertainment"
+        android:id="@+id/en"
+        android:textColor="#009432"
+        android:layout_below="@+id/sn"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Business"
+        android:id="@+id/bn"
+        android:textColor="#009432"
+        android:layout_below="@+id/en"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sports"
+        android:id="@+id/spn"
+        android:textColor="#009432"
+        android:layout_below="@+id/bn"
+        android:background="@drawable/rectangle_border"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Technology"
+        android:id="@+id/tgn"
+        android:textColor="#009432"
+        android:background="@drawable/rectangle_border"
+        android:layout_below="@+id/spn"
+        android:layout_marginTop="10dp"
+        android:textSize="40sp"/>
+
+
+
+
+
+</RelativeLayout>
