@@ -6,21 +6,25 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.monstertechno.adblocker.AdBlockerWebView;
+import com.monstertechno.adblocker.util.AdBlocker;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class news extends AppCompatActivity {
-    WebView webview;
-    String url,headline;
-    int count;
-    public     SharedPreferences sharedpreferences,sharedpreferences1;
+    protected WebView webview;
+    private String url;
+    protected String headline;
+    protected int count;
+    protected      SharedPreferences sharedpreferences,sharedpreferences1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +32,9 @@ public class news extends AppCompatActivity {
         webview=findViewById(R.id.webview);
         url=getIntent().getStringExtra("url");
         if(url!=null) {
+            webview.setWebViewClient(new Browser_home());
+            new AdBlockerWebView.init(this).initializeWebView(webview);
             webview.loadUrl(url);
-            webview.setWebViewClient(new WebViewClient());
             webview.getSettings().setJavaScriptEnabled(true);
         }
         else{
@@ -175,6 +180,20 @@ public class news extends AppCompatActivity {
             }
         }
             return true;
+
+    }
+    private static class Browser_home extends WebViewClient {
+
+        Browser_home() {}
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+
+            return AdBlockerWebView.blockAds(view,url) ? AdBlocker.createEmptyResource() :
+                    super.shouldInterceptRequest(view, url);
+
+        }
 
     }
 }

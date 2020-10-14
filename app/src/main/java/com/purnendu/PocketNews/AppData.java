@@ -18,7 +18,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class AppData extends AppCompatActivity {
-    public ArrayList<String> news_header, news_description, news_poster, date, news_url;
+    private final ArrayList<String> news_header;
+    private final ArrayList<String> news_description;
+    private final ArrayList<String> news_poster;
+    private final ArrayList<String> date;
+    private final ArrayList<String> news_url;
 
     AppData() {
         news_header = new ArrayList<>();

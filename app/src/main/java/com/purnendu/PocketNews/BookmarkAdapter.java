@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.MyBookmarkHolder>
 {
 
-    Context c;
-    ArrayList<String>news_title,news_url;
-    LayoutInflater layoutInflater;
+    private final Context c;
+    private  final ArrayList<String>news_title,news_url;
+    private final LayoutInflater layoutInflater;
 
     public BookmarkAdapter(Context c, ArrayList<String> news_title, ArrayList<String> news_url) {
         this.c = c;

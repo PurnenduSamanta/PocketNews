@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentSports extends Fragment
 {
-    RecyclerView recycler1;
-    Context context;
+    protected RecyclerView recycler1;
+    protected Context context;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

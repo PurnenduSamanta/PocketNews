@@ -22,11 +22,11 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.Objects;
 public class MainActivity extends AppCompatActivity
 {
-    NavigationView snv;
-    BottomNavigationView buttonnav;
-    FloatingActionButton fab;
-    DrawerLayout drawer;
-    Fragment fragment=null;
+    private NavigationView snv;
+    protected BottomNavigationView buttonnav;
+    protected FloatingActionButton fab;
+    protected DrawerLayout drawer;
+    protected Fragment fragment=null;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -86,10 +86,17 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                     else if (item.getItemId() == R.id.feedback) {
-                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                                "mailto","joysamanta123@gmail.com", null));
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "PocketNews");
-                        startActivity(Intent.createChooser(emailIntent, "Send Email"));
+                        try {
+                            Intent email = new Intent(Intent.ACTION_SEND);
+                            email.putExtra(Intent.EXTRA_EMAIL, new String[]{"joysamanta123@gmail.com"});
+                            email.putExtra(Intent.EXTRA_SUBJECT, "PocketNews");
+                            email.setType("message/rfc822");
+                            startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                        }
+                        catch (ActivityNotFoundException e)
+                        {
+                            Toast.makeText(MainActivity.this, "You don't have any app that can open this ", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else if (item.getItemId() == R.id.about) {
                       Intent intent =new Intent(MainActivity.this,About.class);
@@ -201,7 +208,7 @@ public class MainActivity extends AppCompatActivity
                         else
                         {
                             String keyWord=search.getText().toString();
-                            String url="https://newsapi.org/v2/everything?q="+keyWord+"&apiKey=32f70c60fc714320a48dda65beb24d94";
+                            String url="https://newsapi.org/v2/everything?q="+keyWord+"&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
                             Bundle bundle = new Bundle();
                             bundle.putString("url", url);
                             FragmentSearch fragobj = new FragmentSearch();

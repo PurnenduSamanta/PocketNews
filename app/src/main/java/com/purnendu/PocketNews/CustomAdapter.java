@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> {
 
-    Context context;
-    ArrayList<String>news_headline,news_description,news_poster,news_source,news_url;
-    LayoutInflater layoutInflater;
+    private final Context context;
+    private final ArrayList<String>news_headline,news_description,news_poster,news_source,news_url;
+    private final LayoutInflater layoutInflater;
 
     CustomAdapter(Context context,ArrayList<String>news_headline,ArrayList<String>news_description,ArrayList<String>news_poster,ArrayList<String>news_source,ArrayList<String>news_url)
     {
@@ -63,7 +63,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
         final String url=news_url.get(position);
         holder.card.setOnClickListener(new View.OnClickListener() {
 
-             String currentHeadline = news_headline.get(position);
+             final String currentHeadline = news_headline.get(position);
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context,news.class);

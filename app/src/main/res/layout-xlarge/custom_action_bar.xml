@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:paddingTop="15dp"
+           android:layout_gravity="center"
             android:id="@+id/hamburger"
             android:src="@drawable/ic_hamburger"/>
         <TextView
@@ -21,9 +21,9 @@
             android:layout_height="wrap_content"
             android:paddingStart="20dp"
             android:text="PocketNews"
-            android:textColor="@color/design_default_color_on_secondary"
+            android:textColor="@color/cardview_light_background"
             android:textStyle="italic"
-            android:textSize="50sp"
+            android:textSize="60sp"
             android:layout_toEndOf="@+id/hamburger"/>
 
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
 
-    TextView gn,hn,sn,en,bn,spn,tgn;
+    protected   TextView gn,hn,sn,en,bn,spn,tgn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

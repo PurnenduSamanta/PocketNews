@@ -17,20 +17,18 @@ import java.util.ArrayList;
 
 public class Bookmarks extends AppCompatActivity {
 
-    RecyclerView bookmark_recycler;
-    ArrayList<String>header,url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmarks);
-        bookmark_recycler=findViewById(R.id.bookmark_recycler);
+        RecyclerView bookmark_recycler=findViewById(R.id.bookmark_recycler);
         SharedPreferences sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
         Gson gson = new Gson();
         String json1 = sharedpreferences.getString("title", null);
         String json2 = sharedpreferences.getString("url", null);
         Type type = new TypeToken<ArrayList<String>>() {}.getType();
-        header=gson.fromJson(json1, type);
-        url=gson.fromJson(json2,type);
+        ArrayList<String> header=gson.fromJson(json1, type);
+        ArrayList<String> url=gson.fromJson(json2,type);
         if(header!=null && url!=null) {
             BookmarkAdapter bookmarkAdapter = new BookmarkAdapter(this, header, url);
             bookmark_recycler.setAdapter(bookmarkAdapter);
