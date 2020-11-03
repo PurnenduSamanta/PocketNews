@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AppData extends AppCompatActivity {
     private final ArrayList<String> news_header;
@@ -37,6 +39,7 @@ public class AppData extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
+                    System.out.println(response);
                     JSONObject parent = new JSONObject(response);
                     JSONArray articles = parent.getJSONArray("articles");
                     if (articles.length() != 0) {
@@ -81,7 +84,7 @@ public class AppData extends AppCompatActivity {
                         }
                         CustomAdapter customAdapter = new CustomAdapter(context, news_header, news_description, news_poster, date, news_url);
                         recycler.setLayoutManager(new LinearLayoutManager(context));
-                         recycler.setAdapter(customAdapter);
+                        recycler.setAdapter(customAdapter);
                     } else {
                         Toast.makeText(context, "No results found", Toast.LENGTH_SHORT).show();
 
@@ -118,7 +121,16 @@ public class AppData extends AppCompatActivity {
 
 
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders(){
+                Map<String, String> headers = new HashMap<>();
+                headers.put("User-agent", " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36");
+                return headers;
+            }
+        }
+                ;
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
 

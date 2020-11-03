@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -22,20 +24,25 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.Objects;
 public class MainActivity extends AppCompatActivity
 {
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private String swipe="trending";
     private NavigationView snv;
     protected BottomNavigationView buttonnav;
     protected FloatingActionButton fab;
     protected DrawerLayout drawer;
     protected Fragment fragment=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mSwipeRefreshLayout=findViewById(R.id.mSwipeRefreshLayout);
         buttonnav=findViewById(R.id.buttonnav);
         fab=findViewById(R.id.fab);
         drawer=findViewById(R.id.drawer);
-            snv = findViewById(R.id.snv);
+        snv = findViewById(R.id.snv);
+            swipe();
             Objects.requireNonNull(this.getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setCustomView(R.layout.custom_action_bar);
@@ -113,18 +120,23 @@ public class MainActivity extends AppCompatActivity
                 {
                     case(R.id.trending):
                        fragment=new FragmnentTrending();
+                       swipe="trending";
                         break;
                     case(R.id.entertainment):
                         fragment=new FragmentEntertainment();
+                        swipe="entertainment";
                         break;
                     case(R.id.bussiness):
                         fragment=new FragmentBussiness();
+                        swipe="business";
                         break;
                     case(R.id.tech):
                         fragment=new FragmentTech();
+                        swipe="tech";
                         break;
                     case(R.id.sports):
                         fragment=new FragmentSports();
+                        swipe="sports";
                         break;
 
                 }
@@ -148,24 +160,31 @@ public class MainActivity extends AppCompatActivity
                     {
                         case("general news") :
                             fragment=new FragmnentTrending();
+                            swipe="trending";
                             break;
                         case("health news") :
                             fragment=new FragmentHealth();
+                            swipe="health";
                             break;
                         case("science news") :
                             fragment=new FragmentScience();
+                            swipe="science";
                             break;
                         case("entertainment news") :
                             fragment=new FragmentEntertainment();
+                            swipe="entertainment";
                             break;
                         case("business news") :
                             fragment=new FragmentBussiness();
+                            swipe="business";
                             break;
                         case("sports news") :
                             fragment=new FragmentSports();
+                            swipe="sports";
                             break;
                         case("tech news") :
                             fragment=new FragmentTech();
+                            swipe="tech";
                             break;
                     }
             if(fragment!=null)
@@ -181,6 +200,7 @@ public class MainActivity extends AppCompatActivity
        else
         {
             Fragment fragment=new FragmnentTrending();
+            swipe="trending";
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
         }
         fab.setOnClickListener(new View.OnClickListener() {
@@ -232,5 +252,47 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         finishAffinity();
         System.exit(0);
+    }
+    private void swipe()
+    {
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fragment=null;
+                if(swipe!=null && !swipe.equals("")) {
+                    switch (swipe) {
+                        case ("trending"):
+                            fragment = new FragmnentTrending();
+                            break;
+                        case ("entertainment"):
+                            fragment = new FragmentEntertainment();
+                            break;
+                        case ("business"):
+                            fragment = new FragmentBussiness();
+                            break;
+                        case ("tech"):
+                            fragment = new FragmentTech();
+                            break;
+                        case ("sports"):
+                            fragment = new FragmentSports();
+                            break;
+                        case ("health"):
+                            fragment = new FragmentHealth();
+                            break;
+                        case ("science"):
+                            fragment = new FragmentScience();
+                            break;
+                    }
+                    if (fragment != null) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+
     }
 }

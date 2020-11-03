@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,38 +39,45 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         switch (y)
         {
             case(R.id.gn):
-                 intent=new Intent(Category.this,MainActivity.class);
+                intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","general news");
+                Toast.makeText(this, "General News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.hn):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","health news");
+                Toast.makeText(this, "Health News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.sn):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","science news");
+                Toast.makeText(this, "Science News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.en):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","entertainment news");
+                Toast.makeText(this, "Entertainment News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.bn):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","business news");
+                Toast.makeText(this, "Business News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.spn):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","sports news");
+                Toast.makeText(this, "Sports News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             case(R.id.tgn):
                 intent=new Intent(Category.this,MainActivity.class);
                 intent.putExtra("fragment","tech news");
+                Toast.makeText(this, "Tech News Selected", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
             default:

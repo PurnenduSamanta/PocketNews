@@ -25,7 +25,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="9sp"
         android:textAlignment="center"
-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PokcetNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
+        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
 
 </RelativeLayout>
 

@@ -3,7 +3,6 @@
     package="com.purnendu.PocketNews">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
