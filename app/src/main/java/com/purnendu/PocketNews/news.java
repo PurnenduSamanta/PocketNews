@@ -1,12 +1,16 @@
 package com.purnendu.PocketNews;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -18,6 +22,7 @@ import com.monstertechno.adblocker.util.AdBlocker;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class news extends AppCompatActivity {
     protected WebView webview;
@@ -25,11 +30,20 @@ public class news extends AppCompatActivity {
     protected String headline;
     protected int count;
     protected      SharedPreferences sharedpreferences,sharedpreferences1;
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
         webview=findViewById(R.id.webview);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            WebSettings webSettings = webview.getSettings();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                webSettings.setForceDark(WebSettings.FORCE_DARK_ON);
+            }
+        }
         url=getIntent().getStringExtra("url");
         if(url!=null) {
             webview.setWebViewClient(new Browser_home());
@@ -65,8 +79,8 @@ public class news extends AppCompatActivity {
                 Toast.makeText(this, "Something wrong happened", Toast.LENGTH_SHORT).show();
             }
         }
-        else {
-            headline = getIntent().getStringExtra("headline");
+        else if(item.getItemId()==R.id.bookmark) {
+               headline = getIntent().getStringExtra("headline");
             if (headline != null) {
                 ArrayList<String>header,newsurl;
                 Gson gson = new Gson();
@@ -179,6 +193,12 @@ public class news extends AppCompatActivity {
                 Toast.makeText(this, "Already in Bookmarks", Toast.LENGTH_SHORT).show();
             }
         }
+        else
+        {
+            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivityForResult(myIntent, 0);
+        }
+
             return true;
 
     }

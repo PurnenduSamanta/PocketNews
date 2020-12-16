@@ -12,6 +12,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:orientation="vertical">
 
 
@@ -33,8 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description"
-
         android:textSize="15sp"
+        android:textColor="@color/textColor"
         android:id="@+id/description"
         android:paddingBottom="15dp"/>
 
@@ -57,7 +58,6 @@
             android:layout_height="20dp"
             android:id="@+id/share"
             android:layout_alignParentEnd="true"
-
             android:src="@drawable/share"/>
 
     </RelativeLayout>

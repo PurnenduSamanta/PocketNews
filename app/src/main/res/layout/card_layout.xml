@@ -12,6 +12,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:orientation="vertical">
 
 
@@ -27,13 +28,12 @@
         android:text="News"
         android:textColor="@android:color/holo_red_light"
         android:textSize="20sp"
-
         android:id="@+id/headline"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description"
-
+        android:textColor="@color/textColor"
         android:textSize="15sp"
         android:id="@+id/description"
         android:paddingBottom="15dp"/>
@@ -57,7 +57,6 @@
             android:layout_height="20dp"
             android:id="@+id/share"
             android:layout_alignParentEnd="true"
-
             android:src="@drawable/share"/>
 
     </RelativeLayout>

@@ -39,7 +39,6 @@ public class AppData extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    System.out.println(response);
                     JSONObject parent = new JSONObject(response);
                     JSONArray articles = parent.getJSONArray("articles");
                     if (articles.length() != 0) {

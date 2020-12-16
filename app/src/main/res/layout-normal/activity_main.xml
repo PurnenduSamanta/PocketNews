@@ -32,10 +32,10 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+           android:backgroundTint="@color/buttonNavigationBarColor"
                   android:src="@drawable/search"
                   android:id="@+id/fab"
                   android:elevation="5dp"
-
                   android:layout_margin="10dp"
                   android:layout_above="@+id/buttonnav"
                   android:layout_alignParentEnd="true"/>
@@ -43,9 +43,8 @@
        <com.google.android.material.bottomnavigation.BottomNavigationView
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           app:itemBackground="@color/colorAccent"
+           app:itemBackground="@color/buttonNavigationBarColor"
            app:itemTextColor="@color/colorPrimary"
-           app:itemIconTint="#00000f"
            app:menu="@menu/buttom_navigation_menu"
            android:layout_alignParentBottom="true"
            android:id="@+id/buttonnav"/>
@@ -57,7 +56,7 @@
         app:headerLayout="@layout/navigation_header"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:itemTextColor="#00000f"
+        app:itemTextColor="@color/textColor"
         app:menu="@menu/side_navigation_ment"
         android:id="@+id/snv"
         android:layout_gravity="start" />

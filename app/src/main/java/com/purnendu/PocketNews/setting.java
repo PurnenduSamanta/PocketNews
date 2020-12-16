@@ -1,7 +1,6 @@
 package com.purnendu.PocketNews;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class setting extends AppCompatActivity {
@@ -21,24 +19,24 @@ public class setting extends AppCompatActivity {
     protected SwitchMaterial sb;
     private final String [] Country={"Argentina","Austria","Australia","Belgium","Bulgaria","Brazil","Canada","Colombia","Cuba","Czech Republic","Egypt","France","Germany","Great Britain(UK)","Greece","Hong kong","Hungary","Indonesia","Ireland","Israel","India","Italy","Japan","Korea(South)","Lithuania","Latvia","Morocco","Mexico","Malaysia","Nigeria","Netherlands","Norway","New Zealand","Philippines","Poland","Portugal","Romania","Russian Federation","Serbia","Saudi Arabia","Sweden","Singapore","Slovenia","Slovakia","Switzerland","Thailand","Turkey","Taiwan","Ukraine","United States","Venezuela","Zambia"};
     private String temp;
-    private SharedPreferences sharedpreferences,sharedpreferences1;
+    private SharedPreferences sharedpreferences,sharedPreferences1;
     private Boolean mIsSpinnerFirstCall = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        spinner=findViewById(R.id.spinner);
-        cb=findViewById(R.id.cb);
-        sb=findViewById(R.id.sb);
-        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Country);
+        spinner = findViewById(R.id.spinner);
+        cb = findViewById(R.id.cb);
+        sb = findViewById(R.id.sb);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Country);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
-                if(!mIsSpinnerFirstCall) {
-                    temp="";
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (!mIsSpinnerFirstCall) {
+                    temp = "";
                     switch (Country[position]) {
                         case ("Argentina"):
                             temp = "ar";
@@ -201,10 +199,11 @@ public class setting extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("country", temp);
                     editor.apply();
-                    Toast.makeText(setting.this, Country[position]+" selected", Toast.LENGTH_SHORT).show();
-               }
+                    Toast.makeText(setting.this, Country[position] + " selected", Toast.LENGTH_SHORT).show();
+                }
                 mIsSpinnerFirstCall = false;
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -215,22 +214,33 @@ public class setting extends AppCompatActivity {
             public void onClick(View v) {
                 sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
                 sharedpreferences.edit().clear().apply();
-                sharedpreferences1=getSharedPreferences("count",MODE_PRIVATE);
-                sharedpreferences1.edit().clear().apply();
+                sharedPreferences1 = getSharedPreferences("count", MODE_PRIVATE);
+                sharedPreferences1.edit().clear().apply();
                 Toast.makeText(setting.this, "Bookmarks Cleared Successfully", Toast.LENGTH_SHORT).show();
-
             }
         });
+        SharedPreferences sharedPrefs = getSharedPreferences("switch", MODE_PRIVATE);
+        sb.setChecked(sharedPrefs.getBoolean("nightMode", false));
         sb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (sb.isChecked())
-                {
-                    Toast.makeText(setting.this, "Some devices may not work,to use this feature manually select theme from phone's setting", Toast.LENGTH_SHORT).show();
+                if (isChecked) {
+                    Toast.makeText(setting.this, "Dark Mode may not work properly on some old devices", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
+                    editor.putBoolean("nightMode", true);
+                    editor.apply();
+                } else {
+                    SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
+                    editor.putBoolean("nightMode", false);
+                    editor.apply();
                 }
+                 Intent intent=new Intent(setting.this,SplashActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                 startActivity(intent);
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {

@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:id="@+id/bookmark"
     android:background="@drawable/rectangle_border"
-
     android:padding="10dp">
 
 
@@ -22,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/bookmark_header"
         android:textSize="10sp"
+        android:textColor="@color/textColor"
         android:layout_marginTop="10dp"
         android:id="@+id/bookmark_url"
         android:text="url"/>

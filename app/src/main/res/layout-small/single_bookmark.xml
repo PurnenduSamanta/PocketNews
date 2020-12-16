@@ -20,6 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
         android:layout_below="@+id/bookmark_header"
         android:textSize="5sp"
         android:id="@+id/bookmark_url"

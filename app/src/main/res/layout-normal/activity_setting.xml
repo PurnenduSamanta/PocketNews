@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="@color/background"
     tools:context=".setting">
 
 
@@ -52,5 +53,6 @@
        android:id="@+id/sb"
        android:backgroundTint="@color/colorAccent"
        android:layout_alignParentEnd="true"
+       android:checked="false"
        android:layout_below="@+id/cb"/>
 </RelativeLayout>

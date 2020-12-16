@@ -12,6 +12,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:orientation="vertical">
 
 
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description"
+        android:textColor="@color/textColor"
         android:textSize="20sp"
         android:id="@+id/description"
         android:paddingBottom="15dp"/>
@@ -48,7 +50,6 @@
             android:textColor="@android:color/holo_green_dark"
         android:id="@+id/date"
         android:textSize="15sp"
-
         android:text="date"/>
 
         <ImageView
@@ -56,7 +57,6 @@
             android:layout_height="25dp"
             android:id="@+id/share"
             android:layout_alignParentEnd="true"
-
             android:src="@drawable/share"/>
 
     </RelativeLayout>

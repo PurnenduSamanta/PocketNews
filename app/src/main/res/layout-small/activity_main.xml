@@ -40,7 +40,7 @@
                   android:src="@drawable/search"
                   android:id="@+id/fab"
                   android:elevation="5dp"
-
+                  android:backgroundTint="@color/buttonNavigationBarColor"
                   android:layout_margin="10dp"
                   android:layout_above="@+id/buttonnav"
                   android:layout_alignParentEnd="true"/>
@@ -48,9 +48,9 @@
        <com.google.android.material.bottomnavigation.BottomNavigationView
            android:layout_width="match_parent"
            android:layout_height="20dp"
-           app:itemBackground="@color/colorAccent"
-           app:itemTextColor="@color/colorAccent"
-           android:background="@color/design_default_color_secondary"
+           app:itemBackground="@color/buttonNavigationBarColor"
+           app:itemTextColor="@color/colorPrimary"
+           android:background="@color/buttonNavigationBarColor"
            app:menu="@menu/buttom_navigation_menu"
            android:layout_alignParentBottom="true"
            android:id="@+id/buttonnav"/>
@@ -62,7 +62,7 @@
         app:headerLayout="@layout/navigation_header"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:itemTextColor="#00000f"
+        app:itemTextColor="@color/textColor"
         app:menu="@menu/side_navigation_ment"
         android:id="@+id/snv"
         android:layout_gravity="start" />
