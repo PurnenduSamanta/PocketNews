@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,63 +8,66 @@
     app:cardCornerRadius="5dp"
     android:layout_marginBottom="4dp"
     android:padding="10dp"
-    android:elevation="5dp"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/background"
-    android:orientation="vertical">
+    android:elevation="5dp">
 
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:src="@drawable/background"
-        android:id="@+id/poster"
-        />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="News"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp"
+        android:background="@color/background"
+        android:orientation="vertical">
 
-        android:id="@+id/headline"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="15sp"
-        android:textColor="@color/textColor"
-        android:id="@+id/description"
-        android:paddingBottom="15dp"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
-
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_green_dark"
-        android:id="@+id/date"
-        android:textSize="10sp"
-
-        android:text="date"/>
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/share"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/share"/>
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/background"
+            android:id="@+id/poster"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="News"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:id="@+id/headline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="15sp"
+            android:textColor="@color/textColor"
+            android:id="@+id/description"
+            android:paddingBottom="15dp"/>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_green_dark"
+                android:id="@+id/date"
+                android:textSize="10sp"
+
+                android:text="date"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/share"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/share"/>
+
+        </RelativeLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
 
 
 </androidx.cardview.widget.CardView>

@@ -19,13 +19,45 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/icon"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/icon"
+        android:id="@+id/headline"
+        android:layout_centerHorizontal="true"
+        android:text="Powered by NewsAPI"
+        android:textColor="#FF0000"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headline"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
+        android:id="@+id/about"
+        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hyperlink"
+        android:layout_below="@+id/about"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:text="Click Here"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some of the main publishers in our News:"
+        android:textColor="#8e44ad"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/hyperlink"
+        android:id="@+id/publishers"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@+id/publishers"
+        android:text="@string/publishers"/>
 
 </RelativeLayout>
 

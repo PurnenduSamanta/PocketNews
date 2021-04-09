@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -46,13 +47,16 @@ public class news extends AppCompatActivity {
         }
         url=getIntent().getStringExtra("url");
         if(url!=null) {
+            webview.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            webview.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+            webview.setLayerType(View.LAYER_TYPE_HARDWARE, null);
             webview.setWebViewClient(new Browser_home());
             new AdBlockerWebView.init(this).initializeWebView(webview);
             webview.loadUrl(url);
             webview.getSettings().setJavaScriptEnabled(true);
         }
         else{
-            Toast.makeText(this, "Something Wrong Happend", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -195,14 +199,13 @@ public class news extends AppCompatActivity {
         }
         else
         {
-            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivityForResult(myIntent, 0);
+            onBackPressed();
         }
 
             return true;
 
     }
-    private static class Browser_home extends WebViewClient {
+    static class Browser_home extends WebViewClient {
 
         Browser_home() {}
 
@@ -215,5 +218,10 @@ public class news extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

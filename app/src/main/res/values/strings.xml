@@ -1,3 +1,98 @@
 <resources>
     <string name="app_name">PocketNews</string>
+    <string name="publishers">
+      <br>
+          1. Google News\n
+      </br>
+      <br>
+         2.BBC News\n
+      </br>
+      <br>
+         3.NDTV\n
+      </br>
+         <br>
+         4.The Hindu\n
+      </br>
+         <br>
+         5.The Times of India\n
+      </br>
+         <br>
+         6.Indian Express\n
+      </br>
+          <br>
+         7.IndiaTVNews\n
+      </br>
+          <br>
+         8.Hindustan Times\n
+      </br>
+          <br>
+         9.The Quint\n
+      </br>
+          <br>
+         10.India Times\n
+      </br>
+          <br>
+         11.Money Control\n
+      </br>
+          <br>
+         12.Deccan Herald\n
+      </br>
+          <br>
+         13.DNA India\n
+      </br>
+        <br>
+         14.Inceptive Mind\n
+      </br>
+        <br>
+         15.Sport Star\n
+      </br>
+        <br>
+         16.Buzzfeed\n
+      </br>
+        <br>
+         17.Mashable\n
+      </br>
+        <br>
+         18.MTV News\n
+      </br>
+        <br>
+         19.BBC Sports\n
+      </br>
+        <br>
+         20.ESPN Cric Info\n
+      </br>
+        <br>
+         21.TalkSport\n
+      </br>
+        <br>
+         22.Medical News Today\n
+      </br>
+         <br>
+         23.National Geographic\n
+      </br>
+         <br>
+         24.Crypto Coins News\n
+      </br>
+         <br>
+         25.Engadget\n
+      </br>
+         <br>
+         26.The Next Web\n
+      </br>
+         <br>
+         27.The Verge\n
+      </br>
+          <br>
+         28.TechCrunch\n
+      </br>
+          <br>
+         29.TechRadar\n
+      </br>
+          <br>
+         30.IGN\n
+      </br>
+          <br>
+         31.Polygon
+      </br>
+   </string>
 </resources>

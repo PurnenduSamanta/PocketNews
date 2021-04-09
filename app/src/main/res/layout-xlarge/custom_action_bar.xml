@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    app:layout_scrollFlags="scroll|enterAlways">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-           android:layout_gravity="center"
-            android:id="@+id/hamburger"
-            android:src="@drawable/ic_hamburger"/>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:text="PocketNews"
-            android:textColor="@color/cardview_light_background"
-            android:textStyle="italic"
-            android:textSize="60sp"
-            android:layout_toEndOf="@+id/hamburger"/>
+            android:orientation="horizontal">
+
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:id="@+id/hamburger"
+                android:src="@drawable/ic_hamburger"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="PocketNews"
+                android:textColor="@color/cardview_light_background"
+                android:textStyle="italic"
+                android:textSize="60sp" />
 
 
 
 
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
 
 
 
@@ -39,5 +51,4 @@
 
 
 
-
-</RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

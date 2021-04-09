@@ -1,0 +1,2668 @@
+Index: app/src/main/res/layout-xlarge/card_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/card\"\r\n    app:cardCornerRadius=\"10dp\"\r\n    android:layout_marginBottom=\"4dp\"\r\n    android:padding=\"20dp\"\r\n    android:elevation=\"10dp\"\r\n    >\r\n<LinearLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:background=\"@color/background\"\r\n    android:orientation=\"vertical\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"240dp\"\r\n        android:src=\"@drawable/background\"\r\n        android:id=\"@+id/poster\"\r\n        />\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"News\"\r\n        android:textColor=\"@android:color/holo_red_light\"\r\n        android:textSize=\"40sp\"\r\n        android:id=\"@+id/headline\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Description\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"30sp\"\r\n        android:id=\"@+id/description\"\r\n        android:paddingBottom=\"20dp\"/>\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingBottom=\"20dp\">\r\n\r\n        <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/holo_green_dark\"\r\n        android:id=\"@+id/date\"\r\n        android:textSize=\"20sp\"\r\n        android:text=\"date\"/>\r\n\r\n        <ImageView\r\n            android:layout_width=\"30dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:id=\"@+id/share\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:src=\"@drawable/share\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</LinearLayout>\r\n\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/card_layout.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/card_layout.xml	(date 1617732008828)
+@@ -19,6 +19,7 @@
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="240dp"
++        android:scaleType="fitXY"
+         android:src="@drawable/background"
+         android:id="@+id/poster"
+         />
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:4.1.1'\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        maven { url 'https://jitpack.io' }\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ build.gradle	(date 1616265976450)
+@@ -5,7 +5,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:4.1.1'
++        classpath 'com.android.tools.build:gradle:4.1.3'
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+Index: app/src/main/res/layout-large/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".SplashActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"200dp\"\r\n        android:src=\"@drawable/communication\"\r\n        android:layout_centerInParent=\"true\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"PocketNews\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"50sp\"\r\n        android:textStyle=\"italic\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:paddingBottom=\"20dp\"\r\n        android:gravity=\"center_horizontal\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/activity_splash.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/activity_splash.xml	(date 1617992198954)
+@@ -10,17 +10,19 @@
+     <ImageView
+         android:layout_width="200dp"
+         android:layout_height="200dp"
++        android:id="@+id/newsLogo"
+         android:src="@drawable/communication"
+-        android:layout_centerInParent="true"/>
++        android:layout_centerInParent="true"
++        android:layout_marginBottom="5dp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        android:layout_below="@+id/newsLogo"
++        android:id="@+id/pocketNews"
+         android:text="PocketNews"
+         android:textColor="@color/textColor"
+         android:textSize="50sp"
+         android:textStyle="italic"
+-        android:layout_alignParentBottom="true"
+-        android:paddingBottom="20dp"
+         android:gravity="center_horizontal"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-large/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:id=\"@+id/drawer\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <RelativeLayout\r\n       android:layout_width=\"match_parent\"\r\n       android:layout_height=\"match_parent\"\r\n       android:id=\"@+id/parent\">\r\n\r\n\r\n        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:id=\"@+id/mSwipeRefreshLayout\">\r\n\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:id=\"@+id/frame_container\"\r\n                android:background=\"@drawable/background1\"\r\n                android:layout_above=\"@+id/buttonnav\" >\r\n            </FrameLayout>\r\n\r\n\r\n\r\n\r\n        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n\r\n\r\n\r\n\r\n       <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:src=\"@drawable/search\"\r\n                  android:id=\"@+id/fab\"\r\n                  android:elevation=\"5dp\"\r\n                  android:backgroundTint=\"@color/buttonNavigationBarColor\"\r\n                  android:layout_margin=\"10dp\"\r\n                  android:layout_above=\"@+id/buttonnav\"\r\n                  android:layout_alignParentEnd=\"true\"/>\r\n\r\n       <com.google.android.material.bottomnavigation.BottomNavigationView\r\n           android:layout_width=\"match_parent\"\r\n           android:layout_height=\"wrap_content\"\r\n           app:itemBackground=\"@color/buttonNavigationBarColor\"\r\n           app:itemTextColor=\"@color/colorPrimary\"\r\n           android:background=\"@color/buttonNavigationBarColor\"\r\n           app:menu=\"@menu/buttom_navigation_menu\"\r\n           android:layout_alignParentBottom=\"true\"\r\n           android:id=\"@+id/buttonnav\"/>\r\n\r\n\r\n   </RelativeLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        app:headerLayout=\"@layout/navigation_header\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\"\r\n        app:itemTextColor=\"@color/textColor\"\r\n        app:menu=\"@menu/side_navigation_ment\"\r\n        android:id=\"@+id/snv\"\r\n        android:layout_gravity=\"start\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/activity_main.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/activity_main.xml	(date 1617807795775)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -7,66 +7,83 @@
+     android:id="@+id/drawer"
+     tools:context=".MainActivity">
+ 
+-    <RelativeLayout
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:id="@+id/parent">
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++        <include
++            layout="@layout/custom_action_bar"/>
++
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++
++    <androidx.drawerlayout.widget.DrawerLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:id="@+id/parent">
+ 
+ 
+-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:id="@+id/mSwipeRefreshLayout">
++            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:id="@+id/mSwipeRefreshLayout">
+ 
+-            <FrameLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:id="@+id/frame_container"
+-                android:background="@drawable/background1"
+-                android:layout_above="@+id/buttonnav" >
+-            </FrameLayout>
++                <FrameLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:id="@+id/frame_container"
++                    android:background="@drawable/background1"
++                    android:layout_above="@+id/buttonnav" >
++                </FrameLayout>
+ 
+ 
+ 
+ 
+-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ 
+ 
+ 
+ 
+ 
+-       <com.google.android.material.floatingactionbutton.FloatingActionButton
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:src="@drawable/search"
+-                  android:id="@+id/fab"
+-                  android:elevation="5dp"
+-                  android:backgroundTint="@color/buttonNavigationBarColor"
+-                  android:layout_margin="10dp"
+-                  android:layout_above="@+id/buttonnav"
+-                  android:layout_alignParentEnd="true"/>
++            <com.google.android.material.floatingactionbutton.FloatingActionButton
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:src="@drawable/search"
++                android:id="@+id/fab"
++                android:elevation="5dp"
++                android:backgroundTint="@color/buttonNavigationBarColor"
++                android:layout_margin="10dp"
++                android:layout_above="@+id/buttonnav"
++                android:layout_alignParentEnd="true"/>
+ 
+-       <com.google.android.material.bottomnavigation.BottomNavigationView
+-           android:layout_width="match_parent"
+-           android:layout_height="wrap_content"
+-           app:itemBackground="@color/buttonNavigationBarColor"
+-           app:itemTextColor="@color/colorPrimary"
+-           android:background="@color/buttonNavigationBarColor"
+-           app:menu="@menu/buttom_navigation_menu"
+-           android:layout_alignParentBottom="true"
+-           android:id="@+id/buttonnav"/>
++            <com.google.android.material.bottomnavigation.BottomNavigationView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:itemBackground="@color/buttonNavigationBarColor"
++                app:itemTextColor="@color/colorPrimary"
++                android:background="@color/buttonNavigationBarColor"
++                app:menu="@menu/buttom_navigation_menu"
++                android:layout_alignParentBottom="true"
++                android:id="@+id/buttonnav"/>
+ 
+ 
+-   </RelativeLayout>
++        </RelativeLayout>
+ 
+-    <com.google.android.material.navigation.NavigationView
+-        app:headerLayout="@layout/navigation_header"
+-        android:layout_width="wrap_content"
+-        android:layout_height="match_parent"
+-        app:itemTextColor="@color/textColor"
+-        app:menu="@menu/side_navigation_ment"
+-        android:id="@+id/snv"
+-        android:layout_gravity="start" />
++        <com.google.android.material.navigation.NavigationView
++            app:headerLayout="@layout/navigation_header"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            app:itemTextColor="@color/textColor"
++            app:menu="@menu/side_navigation_ment"
++            android:id="@+id/snv"
++            android:layout_gravity="start" />
+ 
+ 
+ 
+@@ -76,4 +93,11 @@
+ 
+ 
+ 
+-</androidx.drawerlayout.widget.DrawerLayout>
+\ No newline at end of file
++    </androidx.drawerlayout.widget.DrawerLayout>
++
++
++
++
++
++
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.2\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.purnendu.PocketNews\"\r\n        minSdkVersion 21\r\n        targetSdkVersion 30\r\n        versionCode 5\r\n        versionName \"3.1\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation 'com.github.MonsterTechnoGits:WebViewAdblock:1.1'\r\n    implementation 'com.google.code.gson:gson:2.8.6'\r\n    implementation 'com.squareup.picasso:picasso:2.5.2'\r\n    implementation 'com.android.volley:volley:1.1.1'\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'\r\n    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n    implementation 'com.google.android.material:material:1.2.1'\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/build.gradle	(date 1617994368563)
+@@ -8,8 +8,8 @@
+         applicationId "com.purnendu.PocketNews"
+         minSdkVersion 21
+         targetSdkVersion 30
+-        versionCode 5
+-        versionName "3.1"
++        versionCode 10
++        versionName "3.22"
+ 
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     }
+@@ -26,15 +26,14 @@
+     implementation 'com.github.MonsterTechnoGits:WebViewAdblock:1.1'
+     implementation 'com.google.code.gson:gson:2.8.6'
+     implementation 'com.squareup.picasso:picasso:2.5.2'
+-    implementation 'com.android.volley:volley:1.1.1'
++    implementation 'com.android.volley:volley:1.2.0'
+     implementation fileTree(dir: "libs", include: ["*.jar"])
+     implementation 'androidx.appcompat:appcompat:1.2.0'
+-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+-    testImplementation 'junit:junit:4.12'
++    testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+-    implementation 'com.google.android.material:material:1.2.1'
++    implementation 'com.google.android.material:material:1.3.0'
+ 
+ 
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout-large/activity_about.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@android:color/holo_blue_bright\"\r\n    tools:context=\"com.purnendu.PocketNews.About\">\r\n\r\n<RelativeLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_centerInParent=\"true\">\r\n\r\n    <ImageView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:src=\"@mipmap/icon_round\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:id=\"@+id/icon\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_below=\"@+id/icon\"\r\n        android:textColor=\"@color/colorPrimaryDark\"\r\n        android:textSize=\"25sp\"\r\n        android:textAlignment=\"center\"\r\n        android:text=\"Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com.\"/>\r\n\r\n</RelativeLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/activity_about.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/activity_about.xml	(date 1615624453075)
+@@ -19,13 +19,46 @@
+         android:layout_centerHorizontal="true"
+         android:id="@+id/icon"/>
+     <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/icon"
++        android:id="@+id/headline"
++        android:layout_centerHorizontal="true"
++        android:text="Powered by NewsAPI"
++        android:textColor="#FF0000"/>
++    <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:layout_below="@+id/icon"
++        android:layout_below="@+id/headline"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="25sp"
+         android:textAlignment="center"
+-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
++        android:id="@+id/about"
++        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:id="@+id/hyperlink"
++        android:layout_below="@+id/about"
++        android:textStyle="bold"
++        android:textSize="20sp"
++        android:textColor="#000000"
++        android:layout_centerHorizontal="true"
++        android:text="Click Here"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Some of the main publishers in our News:"
++        android:textColor="#8e44ad"
++        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
++        android:layout_below="@+id/hyperlink"
++        android:id="@+id/publishers"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:padding="5dp"
++        android:layout_below="@+id/publishers"
++        android:text="@string/publishers"/>
+ 
+ </RelativeLayout>
+ 
+Index: app/src/main/res/layout-large/custom_action_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n\r\n        <ImageView\r\n            android:layout_width=\"35dp\"\r\n            android:layout_height=\"35dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:id=\"@+id/hamburger\"\r\n            android:src=\"@drawable/ic_hamburger\"/>\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:paddingStart=\"10dp\"\r\n            android:text=\"PocketNews\"\r\n            android:textColor=\"@color/cardview_light_background\"\r\n            android:textStyle=\"italic\"\r\n            android:textSize=\"35sp\"\r\n            android:layout_toEndOf=\"@+id/hamburger\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/custom_action_bar.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/custom_action_bar.xml	(date 1617806584763)
+@@ -1,43 +1,57 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+-    android:layout_height="wrap_content">
++    android:layout_height="wrap_content"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@color/colorPrimary"
++    app:layout_scrollFlags="scroll|enterAlways">
++
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:orientation="horizontal">
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal">
+ 
+ 
+ 
+-        <ImageView
+-            android:layout_width="35dp"
+-            android:layout_height="35dp"
+-            android:layout_gravity="center"
+-            android:id="@+id/hamburger"
+-            android:src="@drawable/ic_hamburger"/>
+-        <TextView
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:paddingStart="10dp"
+-            android:text="PocketNews"
+-            android:textColor="@color/cardview_light_background"
+-            android:textStyle="italic"
+-            android:textSize="35sp"
+-            android:layout_toEndOf="@+id/hamburger"/>
++            <ImageView
++                android:layout_width="35dp"
++                android:layout_height="35dp"
++                android:layout_gravity="center"
++                android:id="@+id/hamburger"
++                android:src="@drawable/ic_hamburger"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:paddingStart="10dp"
++                android:text="PocketNews"
++                android:textColor="@color/cardview_light_background"
++                android:textStyle="italic"
++                android:textSize="35sp" />
+ 
+ 
+ 
+ 
+ 
+ 
+-    </LinearLayout>
++        </LinearLayout>
+ 
+ 
+ 
+ 
+ 
+ 
++    </RelativeLayout>
++
++
++
++
++
++
+ 
+ 
+-</RelativeLayout>
+\ No newline at end of file
++</androidx.appcompat.widget.Toolbar>
+\ No newline at end of file
+Index: app/src/main/res/layout-large/navigation_header.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"180dp\"\r\n    android:background=\"@drawable/background\">\r\n    \r\n    \r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\" Hi,Welcome To PocketNews\"\r\n        android:textSize=\"30sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@android:color/holo_orange_dark\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/navigation_header.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/navigation_header.xml	(date 1616268329930)
+@@ -3,17 +3,6 @@
+     android:layout_width="match_parent"
+     android:layout_height="180dp"
+     android:background="@drawable/background">
+-    
+-    
+ 
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text=" Hi,Welcome To PocketNews"
+-        android:textSize="30sp"
+-        android:textStyle="bold"
+-        android:textAlignment="center"
+-        android:textColor="@android:color/holo_orange_dark"/>
+ 
+-
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:id=\"@+id/recycler1\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/fragment.xml	(date 1616270121140)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+ 
+Index: app/src/main/res/layout-small/activity_about.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@android:color/holo_blue_bright\"\r\n    tools:context=\"com.purnendu.PocketNews.About\">\r\n\r\n<RelativeLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    >\r\n\r\n    <ImageView\r\n        android:layout_width=\"25sp\"\r\n        android:layout_height=\"25sp\"\r\n        android:src=\"@mipmap/icon_round\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:id=\"@+id/icon\"/>\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_below=\"@+id/icon\"\r\n        android:textColor=\"@color/colorPrimaryDark\"\r\n        android:textSize=\"9sp\"\r\n        android:textAlignment=\"center\"\r\n        android:text=\"Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com.\"/>\r\n\r\n</RelativeLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/activity_about.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/activity_about.xml	(date 1615624453087)
+@@ -22,10 +22,44 @@
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/icon"
++        android:id="@+id/headline"
++        android:layout_centerHorizontal="true"
++        android:text="Powered by NewsAPI"
++        android:textColor="#FF0000"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/headline"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="9sp"
+         android:textAlignment="center"
+-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
++        android:id="@+id/about"
++        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:id="@+id/hyperlink"
++        android:layout_below="@+id/about"
++        android:textStyle="bold"
++        android:textSize="10sp"
++        android:textColor="#000000"
++        android:layout_centerHorizontal="true"
++        android:text="Click Here"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Some of the main publishers in our News:"
++        android:textColor="#8e44ad"
++        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
++        android:layout_below="@+id/hyperlink"
++        android:id="@+id/publishers"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:padding="5dp"
++        android:layout_below="@+id/publishers"
++        android:text="@string/publishers"/>
++
+ 
+ </RelativeLayout>
+ 
+Index: app/src/main/res/layout-large/card_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/card\"\r\n    app:cardCornerRadius=\"5dp\"\r\n    android:layout_marginBottom=\"4dp\"\r\n    android:padding=\"10dp\"\r\n    android:elevation=\"5dp\"\r\n    >\r\n<LinearLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:background=\"@color/background\"\r\n    android:orientation=\"vertical\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"240dp\"\r\n        android:src=\"@drawable/background\"\r\n        android:id=\"@+id/poster\"\r\n        />\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"News\"\r\n        android:textColor=\"@android:color/holo_red_light\"\r\n        android:textSize=\"30sp\"\r\n\r\n        android:id=\"@+id/headline\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Description\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"20sp\"\r\n        android:id=\"@+id/description\"\r\n        android:paddingBottom=\"15dp\"/>\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingBottom=\"10dp\">\r\n\r\n        <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/holo_green_dark\"\r\n        android:id=\"@+id/date\"\r\n        android:textSize=\"15sp\"\r\n        android:text=\"date\"/>\r\n\r\n        <ImageView\r\n            android:layout_width=\"25dp\"\r\n            android:layout_height=\"25dp\"\r\n            android:id=\"@+id/share\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:src=\"@drawable/share\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</LinearLayout>\r\n\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-large/card_layout.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-large/card_layout.xml	(date 1617732008874)
+@@ -19,6 +19,7 @@
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="240dp"
++        android:scaleType="fitXY"
+         android:src="@drawable/background"
+         android:id="@+id/poster"
+         />
+Index: app/src/main/res/layout/navigation_header.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"180dp\"\r\n    android:background=\"@drawable/background\">\r\n    \r\n    \r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\" Hi,Welcome To PocketNews\"\r\n        android:textSize=\"20sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@android:color/holo_orange_dark\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/navigation_header.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/navigation_header.xml	(date 1616268329967)
+@@ -3,17 +3,5 @@
+     android:layout_width="match_parent"
+     android:layout_height="180dp"
+     android:background="@drawable/background">
+-    
+-    
+ 
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text=" Hi,Welcome To PocketNews"
+-        android:textSize="20sp"
+-        android:textStyle="bold"
+-        android:textAlignment="center"
+-        android:textColor="@android:color/holo_orange_dark"/>
+-
+-
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-small/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:id=\"@+id/drawer\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <RelativeLayout\r\n       android:layout_width=\"match_parent\"\r\n       android:layout_height=\"match_parent\"\r\n       android:id=\"@+id/parent\">\r\n\r\n\r\n        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:id=\"@+id/mSwipeRefreshLayout\">\r\n\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:id=\"@+id/frame_container\"\r\n                android:background=\"@drawable/background1\"\r\n                android:layout_above=\"@+id/buttonnav\" >\r\n            </FrameLayout>\r\n\r\n\r\n\r\n\r\n\r\n        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n\r\n\r\n       <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:src=\"@drawable/search\"\r\n                  android:id=\"@+id/fab\"\r\n                  android:elevation=\"5dp\"\r\n                  android:backgroundTint=\"@color/buttonNavigationBarColor\"\r\n                  android:layout_margin=\"10dp\"\r\n                  android:layout_above=\"@+id/buttonnav\"\r\n                  android:layout_alignParentEnd=\"true\"/>\r\n\r\n       <com.google.android.material.bottomnavigation.BottomNavigationView\r\n           android:layout_width=\"match_parent\"\r\n           android:layout_height=\"20dp\"\r\n           app:itemBackground=\"@color/buttonNavigationBarColor\"\r\n           app:itemTextColor=\"@color/colorPrimary\"\r\n           android:background=\"@color/buttonNavigationBarColor\"\r\n           app:menu=\"@menu/buttom_navigation_menu\"\r\n           android:layout_alignParentBottom=\"true\"\r\n           android:id=\"@+id/buttonnav\"/>\r\n\r\n\r\n   </RelativeLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        app:headerLayout=\"@layout/navigation_header\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\"\r\n        app:itemTextColor=\"@color/textColor\"\r\n        app:menu=\"@menu/side_navigation_ment\"\r\n        android:id=\"@+id/snv\"\r\n        android:layout_gravity=\"start\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/activity_main.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/activity_main.xml	(date 1617808182248)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -7,65 +7,79 @@
+     android:id="@+id/drawer"
+     tools:context=".MainActivity">
+ 
+-    <RelativeLayout
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:id="@+id/parent">
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++    <include
++        layout="@layout/custom_action_bar"/>
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++     <androidx.drawerlayout.widget.DrawerLayout
++         android:layout_width="match_parent"
++         android:layout_height="match_parent">
++
++         <RelativeLayout
++             android:layout_width="match_parent"
++             android:layout_height="match_parent"
++             android:id="@+id/parent">
+ 
+ 
+-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:id="@+id/mSwipeRefreshLayout">
++             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++                 android:layout_width="match_parent"
++                 android:layout_height="match_parent"
++                 android:id="@+id/mSwipeRefreshLayout">
+ 
+-            <FrameLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:id="@+id/frame_container"
+-                android:background="@drawable/background1"
+-                android:layout_above="@+id/buttonnav" >
+-            </FrameLayout>
++                 <FrameLayout
++                     android:layout_width="match_parent"
++                     android:layout_height="match_parent"
++                     android:id="@+id/frame_container"
++                     android:background="@drawable/background1"
++                     android:layout_above="@+id/buttonnav" >
++                 </FrameLayout>
+ 
+ 
+ 
+ 
+ 
+-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ 
+ 
+ 
+-       <com.google.android.material.floatingactionbutton.FloatingActionButton
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:src="@drawable/search"
+-                  android:id="@+id/fab"
+-                  android:elevation="5dp"
+-                  android:backgroundTint="@color/buttonNavigationBarColor"
+-                  android:layout_margin="10dp"
+-                  android:layout_above="@+id/buttonnav"
+-                  android:layout_alignParentEnd="true"/>
++             <com.google.android.material.floatingactionbutton.FloatingActionButton
++                 android:layout_width="wrap_content"
++                 android:layout_height="wrap_content"
++                 android:src="@drawable/search"
++                 android:id="@+id/fab"
++                 android:elevation="5dp"
++                 android:backgroundTint="@color/buttonNavigationBarColor"
++                 android:layout_margin="10dp"
++                 android:layout_above="@+id/buttonnav"
++                 android:layout_alignParentEnd="true"/>
+ 
+-       <com.google.android.material.bottomnavigation.BottomNavigationView
+-           android:layout_width="match_parent"
+-           android:layout_height="20dp"
+-           app:itemBackground="@color/buttonNavigationBarColor"
+-           app:itemTextColor="@color/colorPrimary"
+-           android:background="@color/buttonNavigationBarColor"
+-           app:menu="@menu/buttom_navigation_menu"
+-           android:layout_alignParentBottom="true"
+-           android:id="@+id/buttonnav"/>
++             <com.google.android.material.bottomnavigation.BottomNavigationView
++                 android:layout_width="match_parent"
++                 android:layout_height="20dp"
++                 app:itemBackground="@color/buttonNavigationBarColor"
++                 app:itemTextColor="@color/colorPrimary"
++                 android:background="@color/buttonNavigationBarColor"
++                 app:menu="@menu/buttom_navigation_menu"
++                 android:layout_alignParentBottom="true"
++                 android:id="@+id/buttonnav"/>
+ 
+ 
+-   </RelativeLayout>
++         </RelativeLayout>
+ 
+-    <com.google.android.material.navigation.NavigationView
+-        app:headerLayout="@layout/navigation_header"
+-        android:layout_width="wrap_content"
+-        android:layout_height="match_parent"
+-        app:itemTextColor="@color/textColor"
+-        app:menu="@menu/side_navigation_ment"
+-        android:id="@+id/snv"
+-        android:layout_gravity="start" />
++         <com.google.android.material.navigation.NavigationView
++             app:headerLayout="@layout/navigation_header"
++             android:layout_width="wrap_content"
++             android:layout_height="match_parent"
++             app:itemTextColor="@color/textColor"
++             app:menu="@menu/side_navigation_ment"
++             android:id="@+id/snv"
++             android:layout_gravity="start" />
+ 
+ 
+ 
+@@ -73,6 +87,11 @@
+ 
+ 
+ 
++     </androidx.drawerlayout.widget.DrawerLayout>
++
++
++
++
+ 
+ 
+-</androidx.drawerlayout.widget.DrawerLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-small/custom_action_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n\r\n        <ImageView\r\n            android:layout_width=\"20dp\"\r\n            android:layout_height=\"20dp\"\r\n            android:paddingTop=\"10dp\"\r\n            android:id=\"@+id/hamburger\"\r\n            android:src=\"@drawable/ic_hamburger\"/>\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:paddingStart=\"10dp\"\r\n            android:text=\"PocketNews\"\r\n            android:textColor=\"@color/design_default_color_on_secondary\"\r\n            android:textStyle=\"italic\"\r\n            android:textSize=\"20sp\"\r\n            android:layout_toEndOf=\"@+id/hamburger\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/custom_action_bar.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/custom_action_bar.xml	(date 1617806584741)
+@@ -1,39 +1,50 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+-    android:layout_height="wrap_content">
++    android:layout_height="wrap_content"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@color/colorPrimary"
++    app:layout_scrollFlags="scroll|enterAlways">
++
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:orientation="horizontal">
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal">
+ 
+ 
+ 
+-        <ImageView
+-            android:layout_width="20dp"
+-            android:layout_height="20dp"
+-            android:paddingTop="10dp"
+-            android:id="@+id/hamburger"
+-            android:src="@drawable/ic_hamburger"/>
+-        <TextView
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:paddingStart="10dp"
+-            android:text="PocketNews"
+-            android:textColor="@color/design_default_color_on_secondary"
+-            android:textStyle="italic"
+-            android:textSize="20sp"
+-            android:layout_toEndOf="@+id/hamburger"/>
++            <ImageView
++                android:layout_width="20dp"
++                android:layout_height="20dp"
++                android:paddingTop="10dp"
++                android:id="@+id/hamburger"
++                android:src="@drawable/ic_hamburger"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:paddingStart="10dp"
++                android:text="PocketNews"
++                android:textColor="@color/cardview_light_background"
++                android:textStyle="italic"
++                android:textSize="20sp" />
+ 
+ 
+ 
+ 
+ 
+ 
+-    </LinearLayout>
++        </LinearLayout>
+ 
+ 
++    </RelativeLayout>
++
++
++
+ 
+ 
+ 
+Index: app/src/main/res/layout/custom_action_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n\r\n        <ImageView\r\n            android:layout_width=\"30dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:id=\"@+id/hamburger\"\r\n            android:src=\"@drawable/ic_hamburger\"/>\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:paddingStart=\"10dp\"\r\n            android:text=\"PocketNews\"\r\n            android:textColor=\"@color/cardview_light_background\"\r\n            android:textStyle=\"italic\"\r\n            android:textSize=\"30sp\"\r\n            android:layout_toEndOf=\"@+id/hamburger\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/custom_action_bar.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/custom_action_bar.xml	(date 1617806584694)
+@@ -1,37 +1,46 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+-    android:layout_height="wrap_content">
++    android:layout_height="wrap_content"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@color/colorPrimary"
++    app:layout_scrollFlags="scroll|enterAlways">
++
++
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:orientation="horizontal">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal">
+ 
+ 
+ 
+-        <ImageView
+-            android:layout_width="30dp"
+-            android:layout_height="30dp"
+-            android:layout_gravity="center"
+-            android:id="@+id/hamburger"
+-            android:src="@drawable/ic_hamburger"/>
+-        <TextView
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:paddingStart="10dp"
+-            android:text="PocketNews"
+-            android:textColor="@color/cardview_light_background"
+-            android:textStyle="italic"
+-            android:textSize="30sp"
+-            android:layout_toEndOf="@+id/hamburger"/>
++            <ImageView
++                android:layout_width="30dp"
++                android:layout_height="30dp"
++                android:layout_gravity="center"
++                android:id="@+id/hamburger"
++                android:src="@drawable/ic_hamburger"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:paddingStart="10dp"
++                android:text="PocketNews"
++                android:textColor="@color/cardview_light_background"
++                android:textStyle="italic"
++                android:textSize="30sp" />
+ 
+ 
+ 
+ 
+ 
+ 
+-    </LinearLayout>
++        </LinearLayout>
+ 
+ 
+ 
+@@ -40,4 +49,12 @@
+ 
+ 
+ 
+-</RelativeLayout>
+\ No newline at end of file
++
++
++    </RelativeLayout>
++
++
++
++
++
++</androidx.appcompat.widget.Toolbar>
+\ No newline at end of file
+Index: app/src/main/res/layout-small/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".SplashActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"100dp\"\r\n        android:layout_height=\"100dp\"\r\n        android:src=\"@drawable/communication\"\r\n        android:layout_centerInParent=\"true\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"PocketNews\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"20sp\"\r\n        android:textStyle=\"italic\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:paddingBottom=\"20dp\"\r\n        android:gravity=\"center_horizontal\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/activity_splash.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/activity_splash.xml	(date 1617992198914)
+@@ -10,17 +10,19 @@
+     <ImageView
+         android:layout_width="100dp"
+         android:layout_height="100dp"
++        android:id="@+id/newsLogo"
+         android:src="@drawable/communication"
+-        android:layout_centerInParent="true"/>
++        android:layout_centerInParent="true"
++        android:layout_marginBottom="5dp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        android:layout_below="@+id/newsLogo"
++        android:id="@+id/pocketNews"
+         android:text="PocketNews"
+         android:textColor="@color/textColor"
+         android:textSize="20sp"
+         android:textStyle="italic"
+-        android:layout_alignParentBottom="true"
+-        android:paddingBottom="20dp"
+         android:gravity="center_horizontal"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".SplashActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"150dp\"\r\n        android:layout_height=\"150dp\"\r\n        android:src=\"@drawable/communication\"\r\n        android:layout_centerInParent=\"true\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"PocketNews\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"30sp\"\r\n        android:textStyle=\"italic\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:paddingBottom=\"20dp\"\r\n        android:gravity=\"center_horizontal\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_splash.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/activity_splash.xml	(date 1617992756896)
+@@ -6,21 +6,23 @@
+     android:background="@color/background"
+     tools:context=".SplashActivity">
+ 
+-
++    
+     <ImageView
+         android:layout_width="150dp"
+         android:layout_height="150dp"
++        android:id="@+id/newsLogo"
+         android:src="@drawable/communication"
+-        android:layout_centerInParent="true"/>
++        android:layout_centerInParent="true"
++        android:layout_marginBottom="5dp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        android:layout_below="@+id/newsLogo"
++        android:id="@+id/pocketNews"
+         android:text="PocketNews"
+         android:textColor="@color/textColor"
+-        android:textSize="30sp"
++        android:textSize="35sp"
+         android:textStyle="italic"
+-        android:layout_alignParentBottom="true"
+-        android:paddingBottom="20dp"
+         android:gravity="center_horizontal"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:id=\"@+id/drawer\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <RelativeLayout\r\n       android:layout_width=\"match_parent\"\r\n       android:layout_height=\"match_parent\"\r\n       android:id=\"@+id/parent\">\r\n\r\n        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:id=\"@+id/mSwipeRefreshLayout\">\r\n\r\n\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:id=\"@+id/frame_container\"\r\n                android:background=\"@drawable/background1\"\r\n                android:layout_above=\"@+id/buttonnav\" >\r\n            </FrameLayout>\r\n\r\n\r\n\r\n\r\n        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n\r\n\r\n\r\n\r\n       <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:src=\"@drawable/search\"\r\n                  android:id=\"@+id/fab\"\r\n                  android:elevation=\"5dp\"\r\n                  android:backgroundTint=\"@color/buttonNavigationBarColor\"\r\n                  android:layout_margin=\"10dp\"\r\n                  android:layout_above=\"@+id/buttonnav\"\r\n                  android:layout_alignParentEnd=\"true\"/>\r\n\r\n       <com.google.android.material.bottomnavigation.BottomNavigationView\r\n           android:layout_width=\"match_parent\"\r\n           android:layout_height=\"wrap_content\"\r\n           app:itemBackground=\"@color/buttonNavigationBarColor\"\r\n           app:itemTextColor=\"@color/colorPrimary\"\r\n           app:menu=\"@menu/buttom_navigation_menu\"\r\n           android:layout_alignParentBottom=\"true\"\r\n           android:id=\"@+id/buttonnav\"/>\r\n\r\n\r\n   </RelativeLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        app:headerLayout=\"@layout/navigation_header\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\"\r\n        app:itemTextColor=\"@color/textColor\"\r\n        app:menu=\"@menu/side_navigation_ment\"\r\n        android:id=\"@+id/snv\"\r\n        android:layout_gravity=\"start\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/activity_main.xml	(date 1617807577605)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -7,72 +7,94 @@
+     android:id="@+id/drawer"
+     tools:context=".MainActivity">
+ 
+-    <RelativeLayout
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:id="@+id/parent">
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++        <include
++            layout="@layout/custom_action_bar"/>
++
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++
++    <androidx.drawerlayout.widget.DrawerLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:id="@+id/parent">
+ 
+-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:id="@+id/mSwipeRefreshLayout">
++            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:id="@+id/mSwipeRefreshLayout">
+ 
+ 
+-            <FrameLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:id="@+id/frame_container"
+-                android:background="@drawable/background1"
+-                android:layout_above="@+id/buttonnav" >
+-            </FrameLayout>
++                <FrameLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:id="@+id/frame_container"
++                    android:background="@drawable/background1"
++                    android:layout_above="@+id/buttonnav" >
++                </FrameLayout>
+ 
+ 
+ 
+ 
+-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ 
+ 
+ 
+ 
+ 
+-       <com.google.android.material.floatingactionbutton.FloatingActionButton
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:src="@drawable/search"
+-                  android:id="@+id/fab"
+-                  android:elevation="5dp"
+-                  android:backgroundTint="@color/buttonNavigationBarColor"
+-                  android:layout_margin="10dp"
+-                  android:layout_above="@+id/buttonnav"
+-                  android:layout_alignParentEnd="true"/>
++            <com.google.android.material.floatingactionbutton.FloatingActionButton
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:src="@drawable/search"
++                android:id="@+id/fab"
++                android:elevation="5dp"
++                android:backgroundTint="@color/buttonNavigationBarColor"
++                android:layout_margin="10dp"
++                android:layout_above="@+id/buttonnav"
++                android:layout_alignParentEnd="true"/>
+ 
+-       <com.google.android.material.bottomnavigation.BottomNavigationView
+-           android:layout_width="match_parent"
+-           android:layout_height="wrap_content"
+-           app:itemBackground="@color/buttonNavigationBarColor"
+-           app:itemTextColor="@color/colorPrimary"
+-           app:menu="@menu/buttom_navigation_menu"
+-           android:layout_alignParentBottom="true"
+-           android:id="@+id/buttonnav"/>
++            <com.google.android.material.bottomnavigation.BottomNavigationView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:itemBackground="@color/buttonNavigationBarColor"
++                app:itemTextColor="@color/colorPrimary"
++                app:menu="@menu/buttom_navigation_menu"
++                android:layout_alignParentBottom="true"
++                android:id="@+id/buttonnav"/>
+ 
+ 
+-   </RelativeLayout>
++        </RelativeLayout>
+ 
+-    <com.google.android.material.navigation.NavigationView
+-        app:headerLayout="@layout/navigation_header"
+-        android:layout_width="wrap_content"
+-        android:layout_height="match_parent"
+-        app:itemTextColor="@color/textColor"
+-        app:menu="@menu/side_navigation_ment"
+-        android:id="@+id/snv"
+-        android:layout_gravity="start" />
++        <com.google.android.material.navigation.NavigationView
++            app:headerLayout="@layout/navigation_header"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            app:itemTextColor="@color/textColor"
++            app:menu="@menu/side_navigation_ment"
++            android:id="@+id/snv"
++            android:layout_gravity="start" />
+ 
+ 
+ 
+ 
+ 
++    </androidx.drawerlayout.widget.DrawerLayout>
++
++
++
++
++
+ 
+ 
+ 
+ 
+-</androidx.drawerlayout.widget.DrawerLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.purnendu.PocketNews\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <application\r\n        android:hardwareAccelerated=\"true\"\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/icon\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/icon_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity android:name=\"com.purnendu.PocketNews.Category\"\r\n            android:screenOrientation=\"portrait\"\r\n            android:label=\"Category\">\r\n\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.purnendu.PocketNews.About\"\r\n            android:screenOrientation=\"portrait\">\r\n\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.purnendu.PocketNews.Bookmarks\"\r\n            android:label=\"Bookmarks\"\r\n            android:screenOrientation=\"portrait\">\r\n\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.purnendu.PocketNews.setting\"\r\n            android:label=\"Settings\"\r\n            android:configChanges=\"uiMode\"\r\n            android:screenOrientation=\"portrait\">\r\n\r\n        </activity>\r\n        <activity android:name=\"com.purnendu.PocketNews.news\" />\r\n        <activity\r\n            android:name=\"com.purnendu.PocketNews.SplashActivity\"\r\n            android:screenOrientation=\"portrait\"\r\n            android:theme=\"@style/Theme.AppCompat.DayNight.NoActionBar\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n        <activity\r\n            android:name=\"com.purnendu.PocketNews.MainActivity\"\r\n            android:screenOrientation=\"portrait\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/AndroidManifest.xml	(date 1617817918191)
+@@ -3,55 +3,54 @@
+     package="com.purnendu.PocketNews">
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
++
+     <application
+         android:hardwareAccelerated="true"
+-        android:allowBackup="true"
+         android:icon="@mipmap/icon"
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/icon_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+-        <activity android:name="com.purnendu.PocketNews.Category"
+-            android:screenOrientation="portrait"
+-            android:label="Category">
++        <activity android:name=".NewsApi">
+ 
+         </activity>
+         <activity
+-            android:name="com.purnendu.PocketNews.About"
++            android:name=".Category"
++            android:label="Category"
+             android:screenOrientation="portrait">
+ 
+         </activity>
+         <activity
+-            android:name="com.purnendu.PocketNews.Bookmarks"
++            android:name=".About"
++            android:screenOrientation="portrait">
++
++        </activity>
++        <activity
++            android:name=".Bookmarks"
+             android:label="Bookmarks"
+             android:screenOrientation="portrait">
+ 
+         </activity>
+         <activity
+-            android:name="com.purnendu.PocketNews.setting"
+-            android:label="Settings"
++            android:name=".setting"
+             android:configChanges="uiMode"
++            android:label="Settings"
+             android:screenOrientation="portrait">
+ 
+         </activity>
+-        <activity android:name="com.purnendu.PocketNews.news" />
++        <activity android:name=".news"
++            android:hardwareAccelerated="true"/>
+         <activity
+-            android:name="com.purnendu.PocketNews.SplashActivity"
+-            android:screenOrientation="portrait"
+-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
++            android:name=".SplashActivity"
++            android:screenOrientation="portrait">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+-
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+         <activity
+-            android:name="com.purnendu.PocketNews.MainActivity"
++            android:name=".MainActivity"
+             android:screenOrientation="portrait">
+-            <intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-                <category android:name="android.intent.category.DEFAULT" />
+-            </intent-filter>
+         </activity>
+     </application>
+ 
+Index: app/src/main/res/layout/card_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/card\"\r\n    app:cardCornerRadius=\"5dp\"\r\n    android:layout_marginBottom=\"4dp\"\r\n    android:padding=\"10dp\"\r\n    android:elevation=\"5dp\"\r\n    >\r\n<LinearLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:background=\"@color/background\"\r\n    android:orientation=\"vertical\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"240dp\"\r\n        android:src=\"@drawable/background\"\r\n        android:id=\"@+id/poster\"\r\n        />\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"News\"\r\n        android:textColor=\"@android:color/holo_red_light\"\r\n        android:textSize=\"20sp\"\r\n        android:id=\"@+id/headline\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Description\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"15sp\"\r\n        android:id=\"@+id/description\"\r\n        android:paddingBottom=\"15dp\"/>\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingBottom=\"10dp\">\r\n\r\n        <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/holo_green_dark\"\r\n        android:id=\"@+id/date\"\r\n        android:textSize=\"10sp\"\r\n\r\n        android:text=\"date\"/>\r\n\r\n        <ImageView\r\n            android:layout_width=\"20dp\"\r\n            android:layout_height=\"20dp\"\r\n            android:id=\"@+id/share\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:src=\"@drawable/share\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</LinearLayout>\r\n\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/card_layout.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/card_layout.xml	(date 1617732008809)
+@@ -19,6 +19,7 @@
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="240dp"
++        android:scaleType="fitXY"
+         android:src="@drawable/background"
+         android:id="@+id/poster"
+         />
+Index: app/src/main/res/layout-small/card_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/card\"\r\n    app:cardCornerRadius=\"5dp\"\r\n    android:layout_marginBottom=\"4dp\"\r\n    android:padding=\"10dp\"\r\n    android:elevation=\"5dp\"\r\n    >\r\n<LinearLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:background=\"@color/background\"\r\n    android:orientation=\"vertical\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"100dp\"\r\n        android:src=\"@drawable/background\"\r\n        android:id=\"@+id/poster\"\r\n        />\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"News\"\r\n        android:textColor=\"@android:color/holo_red_light\"\r\n        android:textSize=\"15sp\"\r\n        android:id=\"@+id/headline\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Description\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"10sp\"\r\n        android:id=\"@+id/description\" />\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\">\r\n\r\n        <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/holo_green_dark\"\r\n        android:id=\"@+id/date\"\r\n        android:textSize=\"10sp\"\r\n        android:text=\"date\"/>\r\n\r\n        <ImageView\r\n            android:layout_width=\"10dp\"\r\n            android:layout_height=\"10dp\"\r\n            android:id=\"@+id/share\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:src=\"@drawable/share\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</LinearLayout>\r\n\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/card_layout.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/card_layout.xml	(date 1617732008852)
+@@ -19,6 +19,7 @@
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="100dp"
++        android:scaleType="fitXY"
+         android:src="@drawable/background"
+         android:id="@+id/poster"
+         />
+Index: app/src/main/res/values-v29/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-v29/styles.xml	(date 1617802939616)
++++ app/src/main/res/values-v29/styles.xml	(date 1617802939616)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++
++    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
++        <!-- Customize your theme here. -->
++
++        <item name="colorPrimary">@color/colorPrimary</item>
++        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
++        <item name="colorAccent">@color/colorAccent</item>
++        <item name="android:forceDarkAllowed">false</item>
++    </style>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/layout-small/navigation_header.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"100dp\"\r\n    android:background=\"@drawable/background\">\r\n    \r\n    \r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\" Hi,Welcome To PocketNews\"\r\n        android:textSize=\"10sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@android:color/holo_orange_dark\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-small/navigation_header.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-small/navigation_header.xml	(date 1616268330008)
+@@ -3,17 +3,5 @@
+     android:layout_width="match_parent"
+     android:layout_height="100dp"
+     android:background="@drawable/background">
+-    
+-    
+ 
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text=" Hi,Welcome To PocketNews"
+-        android:textSize="10sp"
+-        android:textStyle="bold"
+-        android:textAlignment="center"
+-        android:textColor="@android:color/holo_orange_dark"/>
+-
+-
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_about.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@android:color/holo_blue_bright\"\r\n    tools:context=\"com.purnendu.PocketNews.About\">\r\n\r\n<RelativeLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_centerInParent=\"true\">\r\n\r\n    <ImageView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:src=\"@mipmap/icon_round\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:id=\"@+id/icon\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_below=\"@+id/icon\"\r\n        android:textColor=\"@color/colorPrimaryDark\"\r\n        android:textSize=\"20sp\"\r\n        android:textAlignment=\"center\"\r\n        android:text=\"Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com.\"/>\r\n\r\n</RelativeLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_about.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout/activity_about.xml	(date 1615624453057)
+@@ -19,13 +19,45 @@
+         android:layout_centerHorizontal="true"
+         android:id="@+id/icon"/>
+     <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/icon"
++        android:id="@+id/headline"
++        android:layout_centerHorizontal="true"
++        android:text="Powered by NewsAPI"
++        android:textColor="#FF0000"/>
++    <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:layout_below="@+id/icon"
++        android:layout_below="@+id/headline"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="20sp"
+         android:textAlignment="center"
+-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
++        android:id="@+id/about"
++        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:id="@+id/hyperlink"
++        android:layout_below="@+id/about"
++        android:textStyle="bold"
++        android:textColor="#000000"
++        android:layout_centerHorizontal="true"
++        android:text="Click Here"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Some of the main publishers in our News:"
++        android:textColor="#8e44ad"
++        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
++        android:layout_below="@+id/hyperlink"
++        android:id="@+id/publishers"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/publishers"
++        android:text="@string/publishers"/>
++
+ 
+ </RelativeLayout>
+ 
+Index: app/src/main/res/layout/activity_news_api.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_news_api.xml	(date 1609940149958)
++++ app/src/main/res/layout/activity_news_api.xml	(date 1609940149958)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@color/background"
++    tools:context=".NewsApi">
++
++    <WebView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:id="@+id/webview_newsapi"/>
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <!-- Base application theme. -->\r\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.DayNight.DarkActionBar\">\r\n        <!-- Customize your theme here. -->\r\n\r\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\r\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\r\n        <item name=\"colorAccent\">@color/colorAccent</item>\r\n    </style>\r\n\r\n\r\n\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/values/styles.xml	(date 1617802939636)
+@@ -1,4 +1,4 @@
+-<resources>
++<resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+         <!-- Customize your theme here. -->
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">PocketNews</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/values/strings.xml	(date 1611255436396)
+@@ -1,3 +1,98 @@
+ <resources>
+     <string name="app_name">PocketNews</string>
++    <string name="publishers">
++      <br>
++          1. Google News\n
++      </br>
++      <br>
++         2.BBC News\n
++      </br>
++      <br>
++         3.NDTV\n
++      </br>
++         <br>
++         4.The Hindu\n
++      </br>
++         <br>
++         5.The Times of India\n
++      </br>
++         <br>
++         6.Indian Express\n
++      </br>
++          <br>
++         7.IndiaTVNews\n
++      </br>
++          <br>
++         8.Hindustan Times\n
++      </br>
++          <br>
++         9.The Quint\n
++      </br>
++          <br>
++         10.India Times\n
++      </br>
++          <br>
++         11.Money Control\n
++      </br>
++          <br>
++         12.Deccan Herald\n
++      </br>
++          <br>
++         13.DNA India\n
++      </br>
++        <br>
++         14.Inceptive Mind\n
++      </br>
++        <br>
++         15.Sport Star\n
++      </br>
++        <br>
++         16.Buzzfeed\n
++      </br>
++        <br>
++         17.Mashable\n
++      </br>
++        <br>
++         18.MTV News\n
++      </br>
++        <br>
++         19.BBC Sports\n
++      </br>
++        <br>
++         20.ESPN Cric Info\n
++      </br>
++        <br>
++         21.TalkSport\n
++      </br>
++        <br>
++         22.Medical News Today\n
++      </br>
++         <br>
++         23.National Geographic\n
++      </br>
++         <br>
++         24.Crypto Coins News\n
++      </br>
++         <br>
++         25.Engadget\n
++      </br>
++         <br>
++         26.The Next Web\n
++      </br>
++         <br>
++         27.The Verge\n
++      </br>
++          <br>
++         28.TechCrunch\n
++      </br>
++          <br>
++         29.TechRadar\n
++      </br>
++          <br>
++         30.IGN\n
++      </br>
++          <br>
++         31.Polygon
++      </br>
++   </string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/purnendu/PocketNews/news.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.content.res.Configuration;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.view.Menu;\r\nimport android.view.MenuItem;\r\nimport android.webkit.WebResourceResponse;\r\nimport android.webkit.WebSettings;\r\nimport android.webkit.WebView;\r\nimport android.webkit.WebViewClient;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.gson.Gson;\r\nimport com.google.gson.reflect.TypeToken;\r\nimport com.monstertechno.adblocker.AdBlockerWebView;\r\nimport com.monstertechno.adblocker.util.AdBlocker;\r\n\r\nimport java.lang.reflect.Type;\r\nimport java.util.ArrayList;\r\nimport java.util.Objects;\r\n\r\npublic class news extends AppCompatActivity {\r\n    protected WebView webview;\r\n    private String url;\r\n    protected String headline;\r\n    protected int count;\r\n    protected      SharedPreferences sharedpreferences,sharedpreferences1;\r\n    @SuppressLint(\"SetJavaScriptEnabled\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_news);\r\n        webview=findViewById(R.id.webview);\r\n        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);\r\n        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;\r\n        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {\r\n            WebSettings webSettings = webview.getSettings();\r\n            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {\r\n                webSettings.setForceDark(WebSettings.FORCE_DARK_ON);\r\n            }\r\n        }\r\n        url=getIntent().getStringExtra(\"url\");\r\n        if(url!=null) {\r\n            webview.setWebViewClient(new Browser_home());\r\n            new AdBlockerWebView.init(this).initializeWebView(webview);\r\n            webview.loadUrl(url);\r\n            webview.getSettings().setJavaScriptEnabled(true);\r\n        }\r\n        else{\r\n            Toast.makeText(this, \"Something Wrong Happend\", Toast.LENGTH_SHORT).show();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public boolean onCreateOptionsMenu(Menu menu) {\r\n       getMenuInflater().inflate(R.menu.option_menu,menu);\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean onOptionsItemSelected(@NonNull MenuItem item)\r\n    {\r\n        if(item.getItemId()==R.id.share1)\r\n        {\r\n            if(url!=null) {\r\n                Intent intent = new Intent();\r\n                intent.setAction(Intent.ACTION_SEND);\r\n                intent.putExtra(Intent.EXTRA_TEXT, url);\r\n                intent.setType(\"text/plain/\");\r\n                startActivity(intent);\r\n            }\r\n            else\r\n            {\r\n                Toast.makeText(this, \"Something wrong happened\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n        else if(item.getItemId()==R.id.bookmark) {\r\n               headline = getIntent().getStringExtra(\"headline\");\r\n            if (headline != null) {\r\n                ArrayList<String>header,newsurl;\r\n                Gson gson = new Gson();\r\n                sharedpreferences = getSharedPreferences(\"BOOKMARKS\", MODE_PRIVATE);\r\n                sharedpreferences1 = getSharedPreferences(\"COUNT\", MODE_PRIVATE);\r\n                String json1 = sharedpreferences.getString(\"title\", null);\r\n                String json2 = sharedpreferences.getString(\"url\", null);\r\n                 if(json1!=null && json2!=null) {\r\n                     SharedPreferences.Editor editor = sharedpreferences.edit();\r\n                     SharedPreferences.Editor editor1 = sharedpreferences1.edit();\r\n                     count = sharedpreferences1.getInt(\"count\", -1);\r\n                     count++;\r\n                     Type type = new TypeToken<ArrayList<String>>() {\r\n                     }.getType();\r\n                     header = gson.fromJson(json1, type);\r\n                     newsurl = gson.fromJson(json2, type);\r\n                     if (count > 9) {\r\n                         count = 0;\r\n                     }\r\n                     System.out.println(header.size());\r\n                     if (header.size() > 9) {\r\n                         header.remove(count);\r\n                         newsurl.remove(count);\r\n                     }\r\n                     switch (count) {\r\n                         case (0):\r\n                             header.add(0, headline);\r\n                             newsurl.add(0, url);\r\n                             break;\r\n                         case (1):\r\n                             header.add(1, headline);\r\n                             newsurl.add(1, url);\r\n                             break;\r\n                         case (2):\r\n                             header.add(2, headline);\r\n                             newsurl.add(2, url);\r\n                             break;\r\n                         case (3):\r\n                             header.add(3, headline);\r\n                             newsurl.add(3, url);\r\n                             break;\r\n                         case (4):\r\n                             header.add(4, headline);\r\n                             newsurl.add(4, url);\r\n                             break;\r\n                         case (5):\r\n                             header.add(5, headline);\r\n                             newsurl.add(5, url);\r\n                             break;\r\n                         case (6):\r\n                             header.add(6, headline);\r\n                             newsurl.add(6, url);\r\n                             break;\r\n                         case (7):\r\n                             header.add(7, headline);\r\n                             newsurl.add(7, url);\r\n                             break;\r\n                         case (8):\r\n                             header.add(8, headline);\r\n                             newsurl.add(8, url);\r\n                             break;\r\n                         case (9):\r\n                             header.add(9, headline);\r\n                             newsurl.add(9, url);\r\n                             break;\r\n                     }\r\n                     int t = 0;\r\n                     for (int i = 0; i < header.size(); i++) {\r\n                         for (int j = i + 1; j < header.size(); j++) {\r\n                             if (header.get(i).equals(header.get(j))) {\r\n                                 t++;\r\n                             }\r\n                         }\r\n                     }\r\n                     if (t == 0) {\r\n                         String json3 = gson.toJson(header);\r\n                         String json4 = gson.toJson(newsurl);\r\n                         editor.putString(\"title\", json3);\r\n                         editor.putString(\"url\", json4);\r\n                         editor.apply();\r\n                         editor1.putInt(\"count\", count);\r\n                         editor1.apply();\r\n                         Toast.makeText(this, \"Successfully added to Bookmark\", Toast.LENGTH_SHORT).show();\r\n                     }\r\n                     else\r\n                     {\r\n                         Toast.makeText(this, \"Already added\", Toast.LENGTH_SHORT).show();\r\n                     }\r\n                 }\r\n                 else{\r\n                     header=new ArrayList<>();\r\n                     newsurl=new ArrayList<>();\r\n                     header.add(0, headline);\r\n                     newsurl.add(0, url);\r\n                     String json3 = gson.toJson(header);\r\n                     String json4 = gson.toJson(newsurl);\r\n                     SharedPreferences.Editor editor = sharedpreferences.edit();\r\n                     editor.putString(\"title\", json3);\r\n                     editor.putString(\"url\", json4);\r\n                     editor.apply();\r\n                     count=0;\r\n                     SharedPreferences.Editor editor1 = sharedpreferences1.edit();\r\n                     editor1.putInt(\"count\", count);\r\n                     editor1.apply();\r\n                     Toast.makeText(this, \"Successfully added to Bookmark\", Toast.LENGTH_SHORT).show();\r\n                 }\r\n            }\r\n            else\r\n            {\r\n                Toast.makeText(this, \"Already in Bookmarks\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n        else\r\n        {\r\n            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);\r\n            startActivityForResult(myIntent, 0);\r\n        }\r\n\r\n            return true;\r\n\r\n    }\r\n    private static class Browser_home extends WebViewClient {\r\n\r\n        Browser_home() {}\r\n\r\n        @SuppressWarnings(\"deprecation\")\r\n        @Override\r\n        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {\r\n\r\n            return AdBlockerWebView.blockAds(view,url) ? AdBlocker.createEmptyResource() :\r\n                    super.shouldInterceptRequest(view, url);\r\n\r\n        }\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/news.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/news.java	(date 1617994368571)
+@@ -9,6 +9,7 @@
+ import android.os.Bundle;
+ import android.view.Menu;
+ import android.view.MenuItem;
++import android.view.View;
+ import android.webkit.WebResourceResponse;
+ import android.webkit.WebSettings;
+ import android.webkit.WebView;
+@@ -46,13 +47,16 @@
+         }
+         url=getIntent().getStringExtra("url");
+         if(url!=null) {
++            webview.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
++            webview.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
++            webview.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+             webview.setWebViewClient(new Browser_home());
+             new AdBlockerWebView.init(this).initializeWebView(webview);
+             webview.loadUrl(url);
+             webview.getSettings().setJavaScriptEnabled(true);
+         }
+         else{
+-            Toast.makeText(this, "Something Wrong Happend", Toast.LENGTH_SHORT).show();
++            Toast.makeText(this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
+         }
+     }
+ 
+@@ -195,14 +199,13 @@
+         }
+         else
+         {
+-            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+-            startActivityForResult(myIntent, 0);
++            onBackPressed();
+         }
+ 
+             return true;
+ 
+     }
+-    private static class Browser_home extends WebViewClient {
++    static class Browser_home extends WebViewClient {
+ 
+         Browser_home() {}
+ 
+@@ -216,4 +219,9 @@
+         }
+ 
+     }
++
++    @Override
++    public void onBackPressed() {
++        super.onBackPressed();
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/purnendu/PocketNews/AppData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\nimport android.app.AlertDialog;\r\nimport android.content.Context;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.widget.Toast;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport com.android.volley.RequestQueue;\r\nimport com.android.volley.Response;\r\nimport com.android.volley.VolleyError;\r\nimport com.android.volley.toolbox.StringRequest;\r\nimport com.android.volley.toolbox.Volley;\r\nimport org.json.JSONArray;\r\nimport org.json.JSONException;\r\nimport org.json.JSONObject;\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic class AppData extends AppCompatActivity {\r\n    private final ArrayList<String> news_header;\r\n    private final ArrayList<String> news_description;\r\n    private final ArrayList<String> news_poster;\r\n    private final ArrayList<String> date;\r\n    private final ArrayList<String> news_url;\r\n\r\n    AppData() {\r\n        news_header = new ArrayList<>();\r\n        news_description = new ArrayList<>();\r\n        news_poster = new ArrayList<>();\r\n        date = new ArrayList<>();\r\n        news_url = new ArrayList<>();\r\n    }\r\n\r\n    public void fetch(String url, final RecyclerView recycler, final Context context) {\r\n        StringRequest stringRequest = new StringRequest(StringRequest.Method.GET, url, new Response.Listener<String>() {\r\n            @Override\r\n            public void onResponse(String response) {\r\n                try {\r\n                    JSONObject parent = new JSONObject(response);\r\n                    JSONArray articles = parent.getJSONArray(\"articles\");\r\n                    if (articles.length() != 0) {\r\n                        for (int i = 0; i < articles.length(); i++)\r\n                        {\r\n                            JSONObject currentObject = articles.getJSONObject(i);\r\n                            if((!currentObject.getString(\"title\").equals(\"null\"))&&(!currentObject.getString(\"title\").equals(\"\"))) {\r\n                                news_header.add(currentObject.getString(\"title\"));\r\n                            }\r\n                            else\r\n                            {\r\n                                news_header.add(\"Title not available\");\r\n                            }\r\n                            if((!currentObject.getString(\"description\").equals(\"null\"))&&(!currentObject.getString(\"description\").equals(\"\"))) {\r\n                                news_description.add(currentObject.getString(\"description\"));\r\n                            }\r\n                            else\r\n                            {\r\n                                news_description.add(\" \");\r\n                            }\r\n                            if((!currentObject.getString(\"urlToImage\").equals(\"null\"))&&(!currentObject.getString(\"urlToImage\").equals(\"\"))) {\r\n                                news_poster.add(currentObject.getString(\"urlToImage\"));\r\n                            }\r\n                            else\r\n                            {\r\n                                news_poster.add(\"noimage\");\r\n                            }\r\n                            if((!currentObject.getString(\"publishedAt\").equals(\"null\"))&&(!currentObject.getString(\"publishedAt\").equals(\"\"))) {\r\n                                date.add(currentObject.getString(\"publishedAt\"));\r\n                            }\r\n                            else\r\n                            {\r\n                                date.add(\" \");\r\n                            }\r\n                            if((!currentObject.getString(\"url\").equals(\"null\"))&&(!currentObject.getString(\"url\").equals(\"\"))) {\r\n                                news_url.add(currentObject.getString(\"url\"));\r\n                            }\r\n                            else\r\n                            {\r\n                                news_url.add(null);\r\n                            }\r\n                        }\r\n                        CustomAdapter customAdapter = new CustomAdapter(context, news_header, news_description, news_poster, date, news_url);\r\n                        recycler.setLayoutManager(new LinearLayoutManager(context));\r\n                        recycler.setAdapter(customAdapter);\r\n                    } else {\r\n                        Toast.makeText(context, \"No results found\", Toast.LENGTH_SHORT).show();\r\n\r\n                    }\r\n                } catch (JSONException e) {\r\n                    e.printStackTrace();\r\n                    Toast.makeText(context, \"Something Wrong Happened\", Toast.LENGTH_SHORT).show();\r\n                }\r\n            }\r\n        }, new Response.ErrorListener() {\r\n            @Override\r\n            public void onErrorResponse(VolleyError error) {\r\n                AlertDialog.Builder abuilder = new AlertDialog.Builder(context);\r\n                abuilder.setTitle(\"Error\");\r\n                abuilder.setCancelable(false);\r\n                abuilder.setPositiveButton(\"Refresh\", new DialogInterface.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(DialogInterface dialog, int i) {\r\n                        Intent intent = new Intent(context, MainActivity.class);\r\n                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);\r\n                        context.startActivity(intent);\r\n\r\n                    }\r\n                });\r\n                abuilder.setNegativeButton(\"Exit\", new DialogInterface.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(DialogInterface dialog, int i) {\r\n                        AppData.this.finish();\r\n                        System.exit(0);\r\n                    }\r\n                });\r\n                AlertDialog dialog = abuilder.create();\r\n                dialog.show();\r\n\r\n\r\n            }\r\n        })\r\n        {\r\n            @Override\r\n            public Map<String, String> getHeaders(){\r\n                Map<String, String> headers = new HashMap<>();\r\n                headers.put(\"User-agent\", \" Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\");\r\n                return headers;\r\n            }\r\n        }\r\n                ;\r\n        RequestQueue requestQueue = Volley.newRequestQueue(context);\r\n        requestQueue.add(stringRequest);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/AppData.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/AppData.java	(date 1617731267528)
+@@ -5,6 +5,7 @@
+ import android.content.Intent;
+ import android.widget.Toast;
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.appcompat.widget.LinearLayoutCompat;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+ import com.android.volley.RequestQueue;
+@@ -82,7 +83,8 @@
+                             }
+                         }
+                         CustomAdapter customAdapter = new CustomAdapter(context, news_header, news_description, news_poster, date, news_url);
+-                        recycler.setLayoutManager(new LinearLayoutManager(context));
++                        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(context,RecyclerView.VERTICAL,false);
++                        recycler.setLayoutManager(layoutManager);
+                         recycler.setAdapter(customAdapter);
+                     } else {
+                         Toast.makeText(context, "No results found", Toast.LENGTH_SHORT).show();
+@@ -117,8 +119,6 @@
+                 });
+                 AlertDialog dialog = abuilder.create();
+                 dialog.show();
+-
+-
+             }
+         })
+         {
+Index: app/src/main/java/com/purnendu/PocketNews/CustomAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\n\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.cardview.widget.CardView;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.squareup.picasso.Picasso;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> {\r\n\r\n    private final Context context;\r\n    private final ArrayList<String>news_headline,news_description,news_poster,news_source,news_url;\r\n    private final LayoutInflater layoutInflater;\r\n\r\n    CustomAdapter(Context context,ArrayList<String>news_headline,ArrayList<String>news_description,ArrayList<String>news_poster,ArrayList<String>news_source,ArrayList<String>news_url)\r\n    {\r\n      this.context=context;\r\n      this.news_headline=news_headline;\r\n      this.news_source=news_source;\r\n      this.news_description=news_description;\r\n      this.news_poster=news_poster;\r\n      this.news_url=news_url;\r\n      layoutInflater=LayoutInflater.from(this.context);\r\n    }\r\n\r\n    @NonNull\r\n    @Override\r\n    public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\r\n        View myview=layoutInflater.inflate(R.layout.card_layout,parent,false);\r\n        MyHolder newholder= new MyHolder(myview);\r\n        return newholder;\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull MyHolder holder, final int position) {\r\n        try {\r\n             String currentHeadline = news_headline.get(position);\r\n            holder.headline.setText(currentHeadline);\r\n            String currentDescription = news_description.get(position);\r\n            holder.description.setText(currentDescription);\r\n            String currentSource = news_source.get(position);\r\n            holder.date.setText(currentSource);\r\n            String currentPoster = news_poster.get(position);\r\n            if (!currentPoster.equals(\"noimage\")) {\r\n                Picasso.with(context).load(currentPoster).into(holder.poster);\r\n            } else {\r\n                holder.poster.setImageResource(R.drawable.noimagefound);\r\n            }\r\n        } catch (Exception e) {\r\n            Toast.makeText(context, \"Something Wrong happened try reinstalling application\", Toast.LENGTH_LONG).show();\r\n        }\r\n        final String url=news_url.get(position);\r\n        holder.card.setOnClickListener(new View.OnClickListener() {\r\n\r\n             final String currentHeadline = news_headline.get(position);\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent=new Intent(context,news.class);\r\n                intent.putExtra(\"headline\",currentHeadline);\r\n                intent.putExtra(\"url\",url);\r\n                context.startActivity(intent);\r\n            }\r\n        });\r\n        holder.share.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v)\r\n            {\r\n                Intent intent=new Intent();\r\n                intent.setAction(Intent.ACTION_SEND);\r\n                if(url!=null) {\r\n                    intent.putExtra(Intent.EXTRA_TEXT, url);\r\n                    intent.setType(\"text/plain/\");\r\n                    context.startActivity(intent);\r\n                }\r\n                else\r\n                {\r\n                    Toast.makeText(context, \"Something wrong happened\", Toast.LENGTH_SHORT).show();\r\n                }\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return news_headline.size();\r\n    }\r\n\r\n    public static class MyHolder extends RecyclerView.ViewHolder\r\n    {\r\n       public TextView headline,date,description;\r\n       public ImageView poster,share;\r\n       public CardView card;\r\n       public MyHolder(@NonNull View itemView) {\r\n            super(itemView);\r\n            headline=itemView.findViewById(R.id.headline);\r\n            date=itemView.findViewById(R.id.date);\r\n            description=itemView.findViewById(R.id.description);\r\n            poster=itemView.findViewById(R.id.poster);\r\n            card=itemView.findViewById(R.id.card);\r\n            share=itemView.findViewById(R.id.share);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/CustomAdapter.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/CustomAdapter.java	(date 1611827851345)
+@@ -62,7 +62,6 @@
+         }
+         final String url=news_url.get(position);
+         holder.card.setOnClickListener(new View.OnClickListener() {
+-
+              final String currentHeadline = news_headline.get(position);
+             @Override
+             public void onClick(View v) {
+Index: app/src/main/java/com/purnendu/PocketNews/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.ActionBar;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.view.GravityCompat;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.swiperefreshlayout.widget.SwipeRefreshLayout;\r\n\r\nimport android.app.Dialog;\r\nimport android.content.ActivityNotFoundException;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.Toast;\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\r\nimport com.google.android.material.floatingactionbutton.FloatingActionButton;\r\nimport com.google.android.material.navigation.NavigationView;\r\nimport java.util.Objects;\r\npublic class MainActivity extends AppCompatActivity\r\n{\r\n    private SwipeRefreshLayout mSwipeRefreshLayout;\r\n    private String swipe=\"trending\";\r\n    private NavigationView snv;\r\n    protected BottomNavigationView buttonnav;\r\n    protected FloatingActionButton fab;\r\n    protected DrawerLayout drawer;\r\n    protected Fragment fragment=null;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState)\r\n    {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n        mSwipeRefreshLayout=findViewById(R.id.mSwipeRefreshLayout);\r\n        buttonnav=findViewById(R.id.buttonnav);\r\n        fab=findViewById(R.id.fab);\r\n        drawer=findViewById(R.id.drawer);\r\n        snv = findViewById(R.id.snv);\r\n            swipe();\r\n            Objects.requireNonNull(this.getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);\r\n            getSupportActionBar().setDisplayShowCustomEnabled(true);\r\n            getSupportActionBar().setCustomView(R.layout.custom_action_bar);\r\n            View view = getSupportActionBar().getCustomView();\r\n            ImageView hamburger=view.findViewById(R.id.hamburger);\r\n            hamburger.setOnClickListener(new View.OnClickListener() {\r\n                @Override\r\n                public void onClick(View v) {\r\n                   if(drawer.isDrawerOpen(snv))\r\n                   {\r\n                       drawer.closeDrawer(GravityCompat.START);\r\n                   }\r\n                   else\r\n                   {\r\n                       drawer.openDrawer(GravityCompat.START);\r\n                   }\r\n                }\r\n            });\r\n\r\n\r\n\r\n            snv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {\r\n                @Override\r\n                public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n                    if (item.getItemId() == R.id.bookmarks) {\r\n\r\n                       Intent intent=new Intent(MainActivity.this,Bookmarks.class);\r\n                       startActivity(intent);\r\n                    }\r\n                    else if(item.getItemId()==R.id.category)\r\n                    {\r\n                        Intent intent =new Intent(MainActivity.this,Category.class);\r\n                        startActivity(intent);\r\n                    }\r\n                    else if (item.getItemId() == R.id.setting) {\r\n                        Intent intent=new Intent(MainActivity.this,setting.class);\r\n                        startActivity(intent);\r\n                    }\r\n                    else if (item.getItemId() == R.id.rating) {\r\n                        try {\r\n                            Intent intent = new Intent(Intent.ACTION_VIEW);\r\n                            intent.setData(Uri.parse(\r\n                                    \"https://play.google.com/store/apps/details?id=com.purnendu.PocketNews\"));\r\n                            intent.setPackage(\"com.android.vending\");\r\n                            startActivity(intent);\r\n                        } catch (ActivityNotFoundException e) {\r\n                            Toast.makeText(MainActivity.this, \"You don't have any app that can open this \", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    }\r\n                    else if (item.getItemId() == R.id.feedback) {\r\n                        try {\r\n                            Intent email = new Intent(Intent.ACTION_SEND);\r\n                            email.putExtra(Intent.EXTRA_EMAIL, new String[]{\"joysamanta123@gmail.com\"});\r\n                            email.putExtra(Intent.EXTRA_SUBJECT, \"PocketNews\");\r\n                            email.setType(\"message/rfc822\");\r\n                            startActivity(Intent.createChooser(email, \"Choose an Email client :\"));\r\n                        }\r\n                        catch (ActivityNotFoundException e)\r\n                        {\r\n                            Toast.makeText(MainActivity.this, \"You don't have any app that can open this \", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    }\r\n                    else if (item.getItemId() == R.id.about) {\r\n                      Intent intent =new Intent(MainActivity.this,About.class);\r\n                      startActivity(intent);\r\n                    }\r\n                    return true;\r\n                }\r\n            });\r\n        buttonnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {\r\n            @Override\r\n            public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n                 fragment=null;\r\n                switch (item.getItemId())\r\n                {\r\n                    case(R.id.trending):\r\n                       fragment=new FragmnentTrending();\r\n                       swipe=\"trending\";\r\n                        break;\r\n                    case(R.id.entertainment):\r\n                        fragment=new FragmentEntertainment();\r\n                        swipe=\"entertainment\";\r\n                        break;\r\n                    case(R.id.bussiness):\r\n                        fragment=new FragmentBussiness();\r\n                        swipe=\"business\";\r\n                        break;\r\n                    case(R.id.tech):\r\n                        fragment=new FragmentTech();\r\n                        swipe=\"tech\";\r\n                        break;\r\n                    case(R.id.sports):\r\n                        fragment=new FragmentSports();\r\n                        swipe=\"sports\";\r\n                        break;\r\n\r\n                }\r\n                if(fragment!=null)\r\n                {\r\n                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();\r\n                    return true;\r\n                }\r\n                else\r\n                {\r\n                    Toast.makeText(MainActivity.this, \"Something Wrong happened\", Toast.LENGTH_SHORT).show();\r\n                    return false;\r\n                }\r\n            }\r\n        });\r\n        String categoryFragment=getIntent().getStringExtra(\"fragment\");\r\n        if(categoryFragment !=null)\r\n        {\r\n            fragment=null;\r\n            switch (categoryFragment)\r\n                    {\r\n                        case(\"general news\") :\r\n                            fragment=new FragmnentTrending();\r\n                            swipe=\"trending\";\r\n                            break;\r\n                        case(\"health news\") :\r\n                            fragment=new FragmentHealth();\r\n                            swipe=\"health\";\r\n                            break;\r\n                        case(\"science news\") :\r\n                            fragment=new FragmentScience();\r\n                            swipe=\"science\";\r\n                            break;\r\n                        case(\"entertainment news\") :\r\n                            fragment=new FragmentEntertainment();\r\n                            swipe=\"entertainment\";\r\n                            break;\r\n                        case(\"business news\") :\r\n                            fragment=new FragmentBussiness();\r\n                            swipe=\"business\";\r\n                            break;\r\n                        case(\"sports news\") :\r\n                            fragment=new FragmentSports();\r\n                            swipe=\"sports\";\r\n                            break;\r\n                        case(\"tech news\") :\r\n                            fragment=new FragmentTech();\r\n                            swipe=\"tech\";\r\n                            break;\r\n                    }\r\n            if(fragment!=null)\r\n            {\r\n                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();\r\n            }\r\n            else\r\n            {\r\n                Toast.makeText(MainActivity.this, \"Something Wrong happened\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n\r\n       else\r\n        {\r\n            Fragment fragment=new FragmnentTrending();\r\n            swipe=\"trending\";\r\n            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();\r\n        }\r\n        fab.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v)\r\n            {\r\n                final Dialog dialog = new Dialog(MainActivity.this);\r\n                dialog.setContentView(R.layout.activity_dialogbox);\r\n                final EditText search =  dialog.findViewById(R.id.search);\r\n                Button proceed= dialog.findViewById(R.id.proceed);\r\n                Button cancel= dialog.findViewById(R.id.cancel);\r\n                cancel.setOnClickListener(new View.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(View v) {\r\n                        dialog.cancel();\r\n                    }\r\n                });\r\n                proceed.setOnClickListener(new View.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(View v) {\r\n                        if(search.getText().toString().equals(\"\"))\r\n                        {\r\n                            Toast.makeText(MainActivity.this, \"Nothing Input\", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                        else\r\n                        {\r\n                            String keyWord=search.getText().toString();\r\n                            String url=\"https://newsapi.org/v2/everything?q=\"+keyWord+\"&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff\";\r\n                            Bundle bundle = new Bundle();\r\n                            bundle.putString(\"url\", url);\r\n                            FragmentSearch fragobj = new FragmentSearch();\r\n                            fragobj.setArguments(bundle);\r\n                            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragobj).commit();\r\n                            dialog.cancel();\r\n                        }\r\n                    }\r\n                });\r\n\r\n             dialog.show();\r\n\r\n            }\r\n        });\r\n\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onBackPressed() {\r\n        finishAffinity();\r\n        System.exit(0);\r\n    }\r\n    private void swipe()\r\n    {\r\n        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {\r\n            @Override\r\n            public void onRefresh() {\r\n                fragment=null;\r\n                if(swipe!=null && !swipe.equals(\"\")) {\r\n                    switch (swipe) {\r\n                        case (\"trending\"):\r\n                            fragment = new FragmnentTrending();\r\n                            break;\r\n                        case (\"entertainment\"):\r\n                            fragment = new FragmentEntertainment();\r\n                            break;\r\n                        case (\"business\"):\r\n                            fragment = new FragmentBussiness();\r\n                            break;\r\n                        case (\"tech\"):\r\n                            fragment = new FragmentTech();\r\n                            break;\r\n                        case (\"sports\"):\r\n                            fragment = new FragmentSports();\r\n                            break;\r\n                        case (\"health\"):\r\n                            fragment = new FragmentHealth();\r\n                            break;\r\n                        case (\"science\"):\r\n                            fragment = new FragmentScience();\r\n                            break;\r\n                    }\r\n                    if (fragment != null) {\r\n                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();\r\n                    } else {\r\n                        Toast.makeText(MainActivity.this, \"Something Wrong happened\", Toast.LENGTH_SHORT).show();\r\n                    }\r\n                }\r\n                mSwipeRefreshLayout.setRefreshing(false);\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/MainActivity.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/MainActivity.java	(date 1617805303110)
+@@ -1,12 +1,12 @@
+ package com.purnendu.PocketNews;
+ import androidx.annotation.NonNull;
+-import androidx.appcompat.app.ActionBar;
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.appcompat.widget.Toolbar;
+ import androidx.core.view.GravityCompat;
+ import androidx.drawerlayout.widget.DrawerLayout;
+ import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentTransaction;
+ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+-
+ import android.app.Dialog;
+ import android.content.ActivityNotFoundException;
+ import android.content.Intent;
+@@ -21,7 +21,10 @@
+ import com.google.android.material.bottomnavigation.BottomNavigationView;
+ import com.google.android.material.floatingactionbutton.FloatingActionButton;
+ import com.google.android.material.navigation.NavigationView;
+-import java.util.Objects;
++
++
++
++
+ public class MainActivity extends AppCompatActivity
+ {
+     private SwipeRefreshLayout mSwipeRefreshLayout;
+@@ -42,12 +45,13 @@
+         fab=findViewById(R.id.fab);
+         drawer=findViewById(R.id.drawer);
+         snv = findViewById(R.id.snv);
++        Toolbar toolbar=findViewById(R.id.toolbar);//Custom ActionBar
++
+             swipe();
+-            Objects.requireNonNull(this.getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+-            getSupportActionBar().setDisplayShowCustomEnabled(true);
+-            getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+-            View view = getSupportActionBar().getCustomView();
+-            ImageView hamburger=view.findViewById(R.id.hamburger);
++
++        getSupportActionBar().hide();//Hiding original Action bar
++
++            ImageView hamburger=toolbar.findViewById(R.id.hamburger);
+             hamburger.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+@@ -142,7 +146,7 @@
+                 }
+                 if(fragment!=null)
+                 {
+-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
++                    getSupportFragmentManager().beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).replace(R.id.frame_container, fragment).commit();
+                     return true;
+                 }
+                 else
+Index: app/src/main/res/layout-normal/activity_about.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@android:color/holo_blue_bright\"\r\n    tools:context=\"com.purnendu.PocketNews.About\">\r\n\r\n<RelativeLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_centerInParent=\"true\">\r\n\r\n    <ImageView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:src=\"@mipmap/icon_round\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:id=\"@+id/icon\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_below=\"@+id/icon\"\r\n        android:textColor=\"@color/colorPrimaryDark\"\r\n        android:textSize=\"20sp\"\r\n        android:textAlignment=\"center\"\r\n        android:text=\"Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com.\"/>\r\n\r\n</RelativeLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/activity_about.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/activity_about.xml	(date 1615624453065)
+@@ -19,13 +19,45 @@
+         android:layout_centerHorizontal="true"
+         android:id="@+id/icon"/>
+     <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/icon"
++        android:id="@+id/headline"
++        android:layout_centerHorizontal="true"
++        android:text="Powered by NewsAPI"
++        android:textColor="#FF0000"/>
++    <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:layout_below="@+id/icon"
++        android:layout_below="@+id/headline"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="20sp"
+         android:textAlignment="center"
+-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
++        android:id="@+id/about"
++        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:id="@+id/hyperlink"
++        android:layout_below="@+id/about"
++        android:textStyle="bold"
++        android:textColor="#000000"
++        android:layout_centerHorizontal="true"
++        android:text="Click Here"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Some of the main publishers in our News:"
++        android:textColor="#8e44ad"
++        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
++        android:layout_below="@+id/hyperlink"
++        android:id="@+id/publishers"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:padding="5dp"
++        android:layout_below="@+id/publishers"
++        android:text="@string/publishers"/>
+ 
+ </RelativeLayout>
+ 
+Index: app/src/main/java/com/purnendu/PocketNews/SplashActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.appcompat.app.AppCompatDelegate;\r\n\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\n\r\npublic class SplashActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        SharedPreferences sharedPreferences =getSharedPreferences(\"switch\", Context.MODE_PRIVATE);\r\n        boolean isNightMode = sharedPreferences.getBoolean(\"nightMode\", false);\r\n        if (isNightMode) {\r\n            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);\r\n        }\r\n        else\r\n        {\r\n            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);\r\n        }\r\n        setContentView(R.layout.activity_splash);\r\n        Handler handler=new Handler();\r\n        handler.postDelayed(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                Intent i=new Intent(SplashActivity.this,MainActivity.class);\r\n                startActivity(i);\r\n                finish();\r\n            }\r\n        },3000);\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/SplashActivity.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/SplashActivity.java	(date 1617804624768)
+@@ -6,14 +6,25 @@
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.SharedPreferences;
++import android.os.Build;
+ import android.os.Bundle;
+ import android.os.Handler;
++import android.view.WindowInsets;
++import android.view.WindowInsetsController;
++import android.view.WindowManager;
++import android.view.animation.Animation;
++import android.view.animation.AnimationUtils;
++import android.widget.ImageView;
++import android.widget.TextView;
+ 
+ public class SplashActivity extends AppCompatActivity {
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
++
+         super.onCreate(savedInstanceState);
++
++        //Setting dark mode will work or not
+         SharedPreferences sharedPreferences =getSharedPreferences("switch", Context.MODE_PRIVATE);
+         boolean isNightMode = sharedPreferences.getBoolean("nightMode", false);
+         if (isNightMode) {
+@@ -23,7 +34,35 @@
+         {
+             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+         }
++
+         setContentView(R.layout.activity_splash);
++
++        getSupportActionBar().hide(); //Hiding Original Action Bar
++
++        //Phone will go full screen mode with no status bar
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
++            final WindowInsetsController insetsController = getWindow().getInsetsController();
++            if (insetsController != null) {
++                insetsController.hide(WindowInsets.Type.statusBars());
++            }
++        } else {
++            getWindow().setFlags(
++                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
++                    WindowManager.LayoutParams.FLAG_FULLSCREEN
++            );
++        }
++
++        //Creating Animation
++        ImageView newsLogo=findViewById(R.id.newsLogo);
++        TextView pocketNews=findViewById(R.id.pocketNews);
++        Animation animation_down = AnimationUtils.loadAnimation(getApplicationContext(),
++                R.anim.move_down);
++        Animation animation_up = AnimationUtils.loadAnimation(getApplicationContext(),
++                R.anim.move_up);
++        newsLogo.setAnimation(animation_down);
++        pocketNews.setAnimation(animation_up);
++
++        //Creating delay
+         Handler handler=new Handler();
+         handler.postDelayed(new Runnable() {
+             @Override
+Index: app/src/main/res/layout-normal/custom_action_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n\r\n        <ImageView\r\n            android:layout_width=\"30dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:layout_gravity=\"center\"\r\n            android:id=\"@+id/hamburger\"\r\n            android:src=\"@drawable/ic_hamburger\"/>\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:paddingStart=\"10dp\"\r\n            android:text=\"PocketNews\"\r\n            android:textColor=\"@color/cardview_light_background\"\r\n            android:textStyle=\"italic\"\r\n            android:textSize=\"30sp\"\r\n            android:layout_toEndOf=\"@+id/hamburger\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/custom_action_bar.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/custom_action_bar.xml	(date 1617805838158)
+@@ -1,5 +1,13 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:id="@+id/toolbar"
++    android:background="@color/colorPrimary"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    app:layout_scrollFlags="scroll|enterAlways">
++
++<RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+ 
+@@ -7,9 +15,6 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal">
+-
+-
+-
+         <ImageView
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+@@ -23,21 +28,9 @@
+             android:text="PocketNews"
+             android:textColor="@color/cardview_light_background"
+             android:textStyle="italic"
+-            android:textSize="30sp"
+-            android:layout_toEndOf="@+id/hamburger"/>
+-
+-
+-
+-
+-
+-
++            android:textSize="30sp" />
+     </LinearLayout>
+ 
+-
+-
+-
+-
+-
+-
++</RelativeLayout>
+ 
+-</RelativeLayout>
+\ No newline at end of file
++</androidx.appcompat.widget.Toolbar>
+\ No newline at end of file
+Index: app/src/main/res/layout-normal/navigation_header.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"180dp\"\r\n    android:background=\"@drawable/background\">\r\n    \r\n    \r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\" Hi,Welcome To PocketNews\"\r\n        android:textSize=\"20sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@android:color/holo_orange_dark\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/navigation_header.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/navigation_header.xml	(date 1616268329988)
+@@ -3,17 +3,5 @@
+     android:layout_width="match_parent"
+     android:layout_height="180dp"
+     android:background="@drawable/background">
+-    
+-    
+ 
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text=" Hi,Welcome To PocketNews"
+-        android:textSize="20sp"
+-        android:textStyle="bold"
+-        android:textAlignment="center"
+-        android:textColor="@android:color/holo_orange_dark"/>
+-
+-
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/purnendu/PocketNews/About.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.purnendu.PocketNews;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\npublic class About extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_about);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/About.java	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/java/com/purnendu/PocketNews/About.java	(date 1615624115547)
+@@ -2,13 +2,26 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Intent;
++import android.graphics.Paint;
+ import android.os.Bundle;
++import android.view.View;
++import android.widget.TextView;
+ 
+ public class About extends AppCompatActivity {
+-
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_about);
++        TextView hyperlink=findViewById(R.id.hyperlink);
++        hyperlink.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
++        hyperlink.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent=new Intent(About.this,NewsApi.class);
++                intent.putExtra("NewsPublisherInformationDetails","https://purnendusamanta.blogspot.com/p/news-publisher-information-details.html");
++                startActivity(intent);
++            }
++        });
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout-normal/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".SplashActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"150dp\"\r\n        android:layout_height=\"150dp\"\r\n        android:src=\"@drawable/communication\"\r\n        android:layout_centerInParent=\"true\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"PocketNews\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"30sp\"\r\n        android:textStyle=\"italic\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:paddingBottom=\"20dp\"\r\n        android:gravity=\"center_horizontal\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/activity_splash.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/activity_splash.xml	(date 1617992271998)
+@@ -10,17 +10,20 @@
+     <ImageView
+         android:layout_width="150dp"
+         android:layout_height="150dp"
++        android:id="@+id/newsLogo"
+         android:src="@drawable/communication"
+-        android:layout_centerInParent="true"/>
++        android:layout_centerInParent="true"
++        android:layout_marginBottom="5dp"
++      />
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        android:layout_below="@+id/newsLogo"
+         android:text="PocketNews"
++        android:id="@+id/pocketNews"
+         android:textColor="@color/textColor"
+-        android:textSize="30sp"
++        android:textSize="35sp"
+         android:textStyle="italic"
+-        android:layout_alignParentBottom="true"
+-        android:paddingBottom="20dp"
+         android:gravity="center_horizontal"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-normal/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:id=\"@+id/drawer\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <RelativeLayout\r\n       android:layout_width=\"match_parent\"\r\n       android:layout_height=\"match_parent\"\r\n       android:id=\"@+id/parent\">\r\n\r\n\r\n        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:id=\"@+id/mSwipeRefreshLayout\">\r\n\r\n            <FrameLayout\r\n                android:id=\"@+id/frame_container\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_above=\"@+id/buttonnav\"\r\n                android:background=\"@drawable/background1\">\r\n                \r\n            </FrameLayout>\r\n\r\n        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n        <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n           android:backgroundTint=\"@color/buttonNavigationBarColor\"\r\n                  android:src=\"@drawable/search\"\r\n                  android:id=\"@+id/fab\"\r\n                  android:elevation=\"5dp\"\r\n                  android:layout_margin=\"10dp\"\r\n                  android:layout_above=\"@+id/buttonnav\"\r\n                  android:layout_alignParentEnd=\"true\"/>\r\n\r\n       <com.google.android.material.bottomnavigation.BottomNavigationView\r\n           android:layout_width=\"match_parent\"\r\n           android:layout_height=\"wrap_content\"\r\n           app:itemBackground=\"@color/buttonNavigationBarColor\"\r\n           app:itemTextColor=\"@color/colorPrimary\"\r\n           app:menu=\"@menu/buttom_navigation_menu\"\r\n           android:layout_alignParentBottom=\"true\"\r\n           android:id=\"@+id/buttonnav\"/>\r\n\r\n\r\n   </RelativeLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        app:headerLayout=\"@layout/navigation_header\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\"\r\n        app:itemTextColor=\"@color/textColor\"\r\n        app:menu=\"@menu/side_navigation_ment\"\r\n        android:id=\"@+id/snv\"\r\n        android:layout_gravity=\"start\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/activity_main.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/activity_main.xml	(date 1617806912520)
+@@ -1,72 +1,95 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:id="@+id/drawer"
+     tools:context=".MainActivity">
+ 
+-    <RelativeLayout
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:id="@+id/parent">
++
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++        <include
++            layout="@layout/custom_action_bar"/>
++
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++
++    <androidx.drawerlayout.widget.DrawerLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:id="@+id/drawer">
++
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:id="@+id/parent">
+ 
+ 
+-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:id="@+id/mSwipeRefreshLayout">
++            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:id="@+id/mSwipeRefreshLayout">
+ 
+-            <FrameLayout
+-                android:id="@+id/frame_container"
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:layout_above="@+id/buttonnav"
+-                android:background="@drawable/background1">
+-                
+-            </FrameLayout>
++                <FrameLayout
++                    android:id="@+id/frame_container"
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:layout_above="@+id/buttonnav"
++                    android:background="@drawable/background1">
++
++                </FrameLayout>
+ 
+-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ 
+-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-           android:backgroundTint="@color/buttonNavigationBarColor"
+-                  android:src="@drawable/search"
+-                  android:id="@+id/fab"
+-                  android:elevation="5dp"
+-                  android:layout_margin="10dp"
+-                  android:layout_above="@+id/buttonnav"
+-                  android:layout_alignParentEnd="true"/>
++            <com.google.android.material.floatingactionbutton.FloatingActionButton
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:backgroundTint="@color/buttonNavigationBarColor"
++                android:src="@drawable/search"
++                android:id="@+id/fab"
++                android:elevation="5dp"
++                android:layout_margin="10dp"
++                android:layout_above="@+id/buttonnav"
++                android:layout_alignParentEnd="true"/>
+ 
+-       <com.google.android.material.bottomnavigation.BottomNavigationView
+-           android:layout_width="match_parent"
+-           android:layout_height="wrap_content"
+-           app:itemBackground="@color/buttonNavigationBarColor"
+-           app:itemTextColor="@color/colorPrimary"
+-           app:menu="@menu/buttom_navigation_menu"
+-           android:layout_alignParentBottom="true"
+-           android:id="@+id/buttonnav"/>
++            <com.google.android.material.bottomnavigation.BottomNavigationView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:itemBackground="@color/buttonNavigationBarColor"
++                app:itemTextColor="@color/colorPrimary"
++                app:menu="@menu/buttom_navigation_menu"
++                android:layout_alignParentBottom="true"
++                android:id="@+id/buttonnav"/>
+ 
+ 
+-   </RelativeLayout>
++        </RelativeLayout>
+ 
+-    <com.google.android.material.navigation.NavigationView
+-        app:headerLayout="@layout/navigation_header"
+-        android:layout_width="wrap_content"
+-        android:layout_height="match_parent"
+-        app:itemTextColor="@color/textColor"
+-        app:menu="@menu/side_navigation_ment"
+-        android:id="@+id/snv"
+-        android:layout_gravity="start" />
++        <com.google.android.material.navigation.NavigationView
++            app:headerLayout="@layout/navigation_header"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            app:itemTextColor="@color/textColor"
++            app:menu="@menu/side_navigation_ment"
++            android:id="@+id/snv"
++            android:layout_gravity="start" />
+ 
+ 
+ 
+ 
+ 
++    </androidx.drawerlayout.widget.DrawerLayout>
++
++
++
++
+ 
+ 
+ 
+ 
+-</androidx.drawerlayout.widget.DrawerLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-normal/card_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/card\"\r\n    app:cardCornerRadius=\"5dp\"\r\n    android:layout_marginBottom=\"4dp\"\r\n    android:padding=\"10dp\"\r\n    android:elevation=\"5dp\"\r\n    >\r\n<LinearLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:background=\"@color/background\"\r\n    android:orientation=\"vertical\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"240dp\"\r\n        android:src=\"@drawable/background\"\r\n        android:id=\"@+id/poster\"\r\n        />\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"News\"\r\n        android:textColor=\"@android:color/holo_red_light\"\r\n        android:textSize=\"20sp\"\r\n\r\n        android:id=\"@+id/headline\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Description\"\r\n        android:textSize=\"15sp\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:id=\"@+id/description\"\r\n        android:paddingBottom=\"15dp\"/>\r\n\r\n    <RelativeLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:paddingBottom=\"10dp\">\r\n\r\n        <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n            android:textColor=\"@android:color/holo_green_dark\"\r\n        android:id=\"@+id/date\"\r\n        android:textSize=\"10sp\"\r\n\r\n        android:text=\"date\"/>\r\n\r\n        <ImageView\r\n            android:layout_width=\"20dp\"\r\n            android:layout_height=\"20dp\"\r\n            android:id=\"@+id/share\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            android:src=\"@drawable/share\"/>\r\n\r\n    </RelativeLayout>\r\n\r\n\r\n</LinearLayout>\r\n\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-normal/card_layout.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-normal/card_layout.xml	(date 1617805677671)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.cardview.widget.CardView
++    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+@@ -7,63 +8,66 @@
+     app:cardCornerRadius="5dp"
+     android:layout_marginBottom="4dp"
+     android:padding="10dp"
+-    android:elevation="5dp"
+-    >
+-<LinearLayout
+-    android:layout_width="match_parent"
+-    android:layout_height="wrap_content"
+-    android:background="@color/background"
+-    android:orientation="vertical">
++    android:elevation="5dp">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@color/background"
++        android:orientation="vertical">
+ 
+ 
+-    <ImageView
+-        android:layout_width="match_parent"
+-        android:layout_height="240dp"
+-        android:src="@drawable/background"
+-        android:id="@+id/poster"
+-        />
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="News"
+-        android:textColor="@android:color/holo_red_light"
+-        android:textSize="20sp"
+-
+-        android:id="@+id/headline"/>
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="Description"
+-        android:textSize="15sp"
+-        android:textColor="@color/textColor"
+-        android:id="@+id/description"
+-        android:paddingBottom="15dp"/>
++        <ImageView
++            android:layout_width="match_parent"
++            android:layout_height="240dp"
++            android:scaleType="fitXY"
++            android:src="@drawable/background"
++            android:id="@+id/poster"
++            />
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="News"
++            android:textColor="@android:color/holo_red_light"
++            android:textSize="20sp"
++            android:id="@+id/headline"/>
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Description"
++            android:textSize="15sp"
++            android:textColor="@color/textColor"
++            android:id="@+id/description"
++            android:paddingBottom="15dp"/>
+ 
+-    <RelativeLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:paddingBottom="10dp">
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:paddingBottom="10dp">
+ 
+-        <TextView
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-            android:textColor="@android:color/holo_green_dark"
+-        android:id="@+id/date"
+-        android:textSize="10sp"
++            <TextView
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:textColor="@android:color/holo_green_dark"
++                android:id="@+id/date"
++                android:textSize="10sp"
+ 
+-        android:text="date"/>
++                android:text="date"/>
+ 
+-        <ImageView
+-            android:layout_width="20dp"
+-            android:layout_height="20dp"
+-            android:id="@+id/share"
+-            android:layout_alignParentEnd="true"
+-            android:src="@drawable/share"/>
++            <ImageView
++                android:layout_width="20dp"
++                android:layout_height="20dp"
++                android:id="@+id/share"
++                android:layout_alignParentEnd="true"
++                android:src="@drawable/share"/>
+ 
+-    </RelativeLayout>
++        </RelativeLayout>
+ 
+ 
+-</LinearLayout>
++    </LinearLayout>
+ 
+ 
++
++
++
+ </androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/java/com/purnendu/PocketNews/NewsApi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/purnendu/PocketNews/NewsApi.java	(date 1615624115541)
++++ app/src/main/java/com/purnendu/PocketNews/NewsApi.java	(date 1615624115541)
+@@ -0,0 +1,41 @@
++package com.purnendu.PocketNews;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.annotation.SuppressLint;
++import android.content.res.Configuration;
++import android.os.Build;
++import android.os.Bundle;
++import android.webkit.WebSettings;
++import android.webkit.WebView;
++import android.widget.Toast;
++
++import com.monstertechno.adblocker.AdBlockerWebView;
++
++public class NewsApi extends AppCompatActivity {
++
++    @SuppressLint("SetJavaScriptEnabled")
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_news_api);
++       WebView webview_newsapi=findViewById(R.id.webview_newsapi);
++        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
++        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
++            WebSettings webSettings = webview_newsapi.getSettings();
++            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
++                webSettings.setForceDark(WebSettings.FORCE_DARK_ON);
++            }
++        }
++        String url=getIntent().getStringExtra("NewsPublisherInformationDetails");
++        if(url!=null) {
++            webview_newsapi.setWebViewClient(new news.Browser_home());
++            new AdBlockerWebView.init(this).initializeWebView(webview_newsapi);
++            webview_newsapi.loadUrl(url);
++            webview_newsapi.getSettings().setJavaScriptEnabled(true);
++        }
++        else{
++            Toast.makeText(this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
++        }
++    }
++    }
+Index: app/src/main/res/layout-xlarge/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/background\"\r\n    tools:context=\".SplashActivity\">\r\n\r\n\r\n    <ImageView\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"300dp\"\r\n        android:src=\"@drawable/communication\"\r\n        android:layout_centerInParent=\"true\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"PocketNews\"\r\n        android:textColor=\"@color/textColor\"\r\n        android:textSize=\"80sp\"\r\n        android:textStyle=\"italic\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:paddingBottom=\"20dp\"\r\n        android:gravity=\"center_horizontal\"/>\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/activity_splash.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/activity_splash.xml	(date 1617992199038)
+@@ -10,17 +10,19 @@
+     <ImageView
+         android:layout_width="300dp"
+         android:layout_height="300dp"
++        android:id="@+id/newsLogo"
+         android:src="@drawable/communication"
+-        android:layout_centerInParent="true"/>
++        android:layout_centerInParent="true"
++        android:layout_marginBottom="5dp"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
++        android:layout_below="@+id/newsLogo"
++        android:id="@+id/pocketNews"
+         android:text="PocketNews"
+         android:textColor="@color/textColor"
+         android:textSize="80sp"
+         android:textStyle="italic"
+-        android:layout_alignParentBottom="true"
+-        android:paddingBottom="20dp"
+         android:gravity="center_horizontal"/>
+ 
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-xlarge/activity_about.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@android:color/holo_blue_bright\"\r\n    tools:context=\"com.purnendu.PocketNews.About\">\r\n\r\n<RelativeLayout\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_centerInParent=\"true\">\r\n\r\n    <ImageView\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"200dp\"\r\n        android:src=\"@mipmap/icon_round\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:id=\"@+id/icon\"/>\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_below=\"@+id/icon\"\r\n        android:textColor=\"@color/colorPrimaryDark\"\r\n        android:textSize=\"40sp\"\r\n        android:textAlignment=\"center\"\r\n        android:text=\"Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com.\"/>\r\n\r\n</RelativeLayout>\r\n\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/activity_about.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/activity_about.xml	(date 1615624453083)
+@@ -19,14 +19,49 @@
+         android:layout_centerHorizontal="true"
+         android:id="@+id/icon"/>
+     <TextView
+-        android:layout_width="match_parent"
++        android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/icon"
++        android:id="@+id/headline"
++        android:layout_centerHorizontal="true"
++        android:text="Powered by NewsAPI"
++        android:textSize="30sp"
++        android:textColor="#FF0000"/>
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/headline"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="40sp"
+         android:textAlignment="center"
+-        android:text="Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.We are using all free icons and pics from Internet.Do write to us with your feedback or copyright queries at joysamanta123@gmail.com."/>
+-
++        android:id="@+id/about"
++        android:text='Hi,I am Purnendu Samanta,I am the man behind this app and Mr.Swarnendu also helps me for designing purpose.PocketNews works to provide you with fast,reliable,and accurate news updates of Business,Entertainment,Tech,Health,Science and Sports from all over the world.We ensure you get the best possible updates about world news and breaking news in a snap.All news are coming from NewsAPI.For more information'/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:id="@+id/hyperlink"
++        android:layout_below="@+id/about"
++        android:textStyle="bold"
++        android:textSize="35sp"
++        android:textColor="#000000"
++        android:layout_centerHorizontal="true"
++        android:text="Click Here"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Some of the main publishers in our News:"
++        android:textSize="40sp"
++        android:textColor="#8e44ad"
++        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
++        android:layout_below="@+id/hyperlink"
++        android:id="@+id/publishers"/>
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:padding="5dp"
++        android:textSize="30sp"
++        android:layout_below="@+id/publishers"
++        android:text="@string/publishers"/>
+ </RelativeLayout>
+ 
+ </ScrollView>
+\ No newline at end of file
+Index: app/src/main/res/layout-xlarge/navigation_header.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"300dp\"\r\n    android:background=\"@drawable/background\">\r\n    \r\n    \r\n\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\" Hi,Welcome To PocketNews\"\r\n        android:textSize=\"50sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textAlignment=\"center\"\r\n        android:textColor=\"@android:color/holo_orange_dark\"/>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/navigation_header.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/navigation_header.xml	(date 1616268329950)
+@@ -3,17 +3,6 @@
+     android:layout_width="match_parent"
+     android:layout_height="300dp"
+     android:background="@drawable/background">
+-    
+-    
+ 
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text=" Hi,Welcome To PocketNews"
+-        android:textSize="50sp"
+-        android:textStyle="bold"
+-        android:textAlignment="center"
+-        android:textColor="@android:color/holo_orange_dark"/>
+ 
+-
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-xlarge/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:id=\"@+id/drawer\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <RelativeLayout\r\n       android:layout_width=\"match_parent\"\r\n       android:layout_height=\"match_parent\"\r\n       android:id=\"@+id/parent\">\r\n\r\n\r\n        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:id=\"@+id/mSwipeRefreshLayout\">\r\n\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:id=\"@+id/frame_container\"\r\n                android:background=\"@drawable/background1\"\r\n                android:layout_above=\"@+id/buttonnav\" >\r\n            </FrameLayout>\r\n\r\n\r\n\r\n\r\n        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n\r\n\r\n       <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n                  android:layout_width=\"wrap_content\"\r\n                  android:layout_height=\"wrap_content\"\r\n                  android:src=\"@drawable/search\"\r\n                  android:id=\"@+id/fab\"\r\n                  android:elevation=\"5dp\"\r\n                  android:layout_margin=\"20dp\"\r\n           android:backgroundTint=\"@color/buttonNavigationBarColor\"\r\n                  android:layout_above=\"@+id/buttonnav\"\r\n                  android:layout_alignParentEnd=\"true\"/>\r\n\r\n       <com.google.android.material.bottomnavigation.BottomNavigationView\r\n           android:layout_width=\"match_parent\"\r\n           android:layout_height=\"wrap_content\"\r\n           app:itemBackground=\"@color/buttonNavigationBarColor\"\r\n           app:itemTextColor=\"@color/colorPrimary\"\r\n           android:background=\"@color/buttonNavigationBarColor\"\r\n           app:menu=\"@menu/buttom_navigation_menu\"\r\n           android:layout_alignParentBottom=\"true\"\r\n           android:id=\"@+id/buttonnav\"/>\r\n\r\n\r\n   </RelativeLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        app:headerLayout=\"@layout/navigation_header\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"match_parent\"\r\n        app:itemTextColor=\"@color/textColor\"\r\n        app:menu=\"@menu/side_navigation_ment\"\r\n        android:id=\"@+id/snv\"\r\n        android:layout_gravity=\"start\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/activity_main.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/activity_main.xml	(date 1617808182267)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -7,71 +7,94 @@
+     android:id="@+id/drawer"
+     tools:context=".MainActivity">
+ 
+-    <RelativeLayout
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:id="@+id/parent">
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++        <include
++            layout="@layout/custom_action_bar"/>
++
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++
++
++    <androidx.drawerlayout.widget.DrawerLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:id="@+id/parent">
+ 
+ 
+-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:id="@+id/mSwipeRefreshLayout">
++            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:id="@+id/mSwipeRefreshLayout">
+ 
+-            <FrameLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                android:id="@+id/frame_container"
+-                android:background="@drawable/background1"
+-                android:layout_above="@+id/buttonnav" >
+-            </FrameLayout>
++                <FrameLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:id="@+id/frame_container"
++                    android:background="@drawable/background1"
++                    android:layout_above="@+id/buttonnav" >
++                </FrameLayout>
+ 
+ 
+ 
+ 
+-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
++            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ 
+ 
+ 
+-       <com.google.android.material.floatingactionbutton.FloatingActionButton
+-                  android:layout_width="wrap_content"
+-                  android:layout_height="wrap_content"
+-                  android:src="@drawable/search"
+-                  android:id="@+id/fab"
+-                  android:elevation="5dp"
+-                  android:layout_margin="20dp"
+-           android:backgroundTint="@color/buttonNavigationBarColor"
+-                  android:layout_above="@+id/buttonnav"
+-                  android:layout_alignParentEnd="true"/>
++            <com.google.android.material.floatingactionbutton.FloatingActionButton
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:src="@drawable/search"
++                android:id="@+id/fab"
++                android:elevation="5dp"
++                android:layout_margin="20dp"
++                android:backgroundTint="@color/buttonNavigationBarColor"
++                android:layout_above="@+id/buttonnav"
++                android:layout_alignParentEnd="true"/>
+ 
+-       <com.google.android.material.bottomnavigation.BottomNavigationView
+-           android:layout_width="match_parent"
+-           android:layout_height="wrap_content"
+-           app:itemBackground="@color/buttonNavigationBarColor"
+-           app:itemTextColor="@color/colorPrimary"
+-           android:background="@color/buttonNavigationBarColor"
+-           app:menu="@menu/buttom_navigation_menu"
+-           android:layout_alignParentBottom="true"
+-           android:id="@+id/buttonnav"/>
++            <com.google.android.material.bottomnavigation.BottomNavigationView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                app:itemBackground="@color/buttonNavigationBarColor"
++                app:itemTextColor="@color/colorPrimary"
++                android:background="@color/buttonNavigationBarColor"
++                app:menu="@menu/buttom_navigation_menu"
++                android:layout_alignParentBottom="true"
++                android:id="@+id/buttonnav"/>
+ 
+ 
+-   </RelativeLayout>
++        </RelativeLayout>
+ 
+-    <com.google.android.material.navigation.NavigationView
+-        app:headerLayout="@layout/navigation_header"
+-        android:layout_width="wrap_content"
+-        android:layout_height="match_parent"
+-        app:itemTextColor="@color/textColor"
+-        app:menu="@menu/side_navigation_ment"
+-        android:id="@+id/snv"
+-        android:layout_gravity="start" />
++        <com.google.android.material.navigation.NavigationView
++            app:headerLayout="@layout/navigation_header"
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            app:itemTextColor="@color/textColor"
++            app:menu="@menu/side_navigation_ment"
++            android:id="@+id/snv"
++            android:layout_gravity="start" />
+ 
+ 
+ 
+ 
+ 
++    </androidx.drawerlayout.widget.DrawerLayout>
++
++
++
++
++
+ 
+ 
+ 
+ 
+-</androidx.drawerlayout.widget.DrawerLayout>
+\ No newline at end of file
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout-xlarge/custom_action_bar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n\r\n        <ImageView\r\n            android:layout_width=\"50dp\"\r\n            android:layout_height=\"50dp\"\r\n           android:layout_gravity=\"center\"\r\n            android:id=\"@+id/hamburger\"\r\n            android:src=\"@drawable/ic_hamburger\"/>\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:paddingStart=\"20dp\"\r\n            android:text=\"PocketNews\"\r\n            android:textColor=\"@color/cardview_light_background\"\r\n            android:textStyle=\"italic\"\r\n            android:textSize=\"60sp\"\r\n            android:layout_toEndOf=\"@+id/hamburger\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout-xlarge/custom_action_bar.xml	(revision fd465d7fa43a121ba29011675a004647cf436864)
++++ app/src/main/res/layout-xlarge/custom_action_bar.xml	(date 1617806584718)
+@@ -1,43 +1,54 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+-    android:layout_height="wrap_content">
++    android:layout_height="wrap_content"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@color/colorPrimary"
++    app:layout_scrollFlags="scroll|enterAlways">
++
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:orientation="horizontal">
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal">
+ 
+ 
+ 
+-        <ImageView
+-            android:layout_width="50dp"
+-            android:layout_height="50dp"
+-           android:layout_gravity="center"
+-            android:id="@+id/hamburger"
+-            android:src="@drawable/ic_hamburger"/>
+-        <TextView
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:paddingStart="20dp"
+-            android:text="PocketNews"
+-            android:textColor="@color/cardview_light_background"
+-            android:textStyle="italic"
+-            android:textSize="60sp"
+-            android:layout_toEndOf="@+id/hamburger"/>
++            <ImageView
++                android:layout_width="50dp"
++                android:layout_height="50dp"
++                android:layout_gravity="center"
++                android:id="@+id/hamburger"
++                android:src="@drawable/ic_hamburger"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:paddingStart="20dp"
++                android:text="PocketNews"
++                android:textColor="@color/cardview_light_background"
++                android:textStyle="italic"
++                android:textSize="60sp" />
+ 
+ 
+ 
+ 
+ 
+ 
+-    </LinearLayout>
++        </LinearLayout>
+ 
+ 
+ 
+ 
++    </RelativeLayout>
++
++
++
+ 
+ 
+ 
+ 
+-</RelativeLayout>
+\ No newline at end of file
++</androidx.appcompat.widget.Toolbar>
+\ No newline at end of file

@@ -62,7 +62,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
         }
         final String url=news_url.get(position);
         holder.card.setOnClickListener(new View.OnClickListener() {
-
              final String currentHeadline = news_headline.get(position);
             @Override
             public void onClick(View v) {

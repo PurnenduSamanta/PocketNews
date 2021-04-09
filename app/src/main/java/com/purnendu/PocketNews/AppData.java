@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
@@ -82,7 +83,8 @@ public class AppData extends AppCompatActivity {
                             }
                         }
                         CustomAdapter customAdapter = new CustomAdapter(context, news_header, news_description, news_poster, date, news_url);
-                        recycler.setLayoutManager(new LinearLayoutManager(context));
+                        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(context,RecyclerView.VERTICAL,false);
+                        recycler.setLayoutManager(layoutManager);
                         recycler.setAdapter(customAdapter);
                     } else {
                         Toast.makeText(context, "No results found", Toast.LENGTH_SHORT).show();
@@ -117,8 +119,6 @@ public class AppData extends AppCompatActivity {
                 });
                 AlertDialog dialog = abuilder.create();
                 dialog.show();
-
-
             }
         })
         {

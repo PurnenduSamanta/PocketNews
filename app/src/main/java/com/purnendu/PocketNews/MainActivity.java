@@ -1,12 +1,12 @@
 package com.purnendu.PocketNews;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -21,7 +21,10 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import java.util.Objects;
+
+
+
+
 public class MainActivity extends AppCompatActivity
 {
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -42,12 +45,13 @@ public class MainActivity extends AppCompatActivity
         fab=findViewById(R.id.fab);
         drawer=findViewById(R.id.drawer);
         snv = findViewById(R.id.snv);
+        Toolbar toolbar=findViewById(R.id.toolbar);//Custom ActionBar
+
             swipe();
-            Objects.requireNonNull(this.getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-            getSupportActionBar().setDisplayShowCustomEnabled(true);
-            getSupportActionBar().setCustomView(R.layout.custom_action_bar);
-            View view = getSupportActionBar().getCustomView();
-            ImageView hamburger=view.findViewById(R.id.hamburger);
+
+        getSupportActionBar().hide();//Hiding original Action bar
+
+            ImageView hamburger=toolbar.findViewById(R.id.hamburger);
             hamburger.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -142,7 +146,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(fragment!=null)
                 {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
+                    getSupportFragmentManager().beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).replace(R.id.frame_container, fragment).commit();
                     return true;
                 }
                 else

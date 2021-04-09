@@ -3,55 +3,54 @@
     package="com.purnendu.PocketNews">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:hardwareAccelerated="true"
-        android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.purnendu.PocketNews.Category"
-            android:screenOrientation="portrait"
-            android:label="Category">
+        <activity android:name=".NewsApi">
 
         </activity>
         <activity
-            android:name="com.purnendu.PocketNews.About"
+            android:name=".Category"
+            android:label="Category"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.purnendu.PocketNews.Bookmarks"
+            android:name=".About"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".Bookmarks"
             android:label="Bookmarks"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.purnendu.PocketNews.setting"
-            android:label="Settings"
+            android:name=".setting"
             android:configChanges="uiMode"
+            android:label="Settings"
             android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name="com.purnendu.PocketNews.news" />
+        <activity android:name=".news"
+            android:hardwareAccelerated="true"/>
         <activity
-            android:name="com.purnendu.PocketNews.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.purnendu.PocketNews.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
     </application>
 

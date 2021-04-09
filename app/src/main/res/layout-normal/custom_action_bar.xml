@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbar"
+    android:background="@color/colorPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_scrollFlags="scroll|enterAlways">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -7,9 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-
-
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -23,21 +28,9 @@
             android:text="PocketNews"
             android:textColor="@color/cardview_light_background"
             android:textStyle="italic"
-            android:textSize="30sp"
-            android:layout_toEndOf="@+id/hamburger"/>
-
-
-
-
-
-
+            android:textSize="30sp" />
     </LinearLayout>
 
-
-
-
-
-
-
-
 </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>
