@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     tools:context=".SplashActivity">
 
@@ -24,5 +25,13 @@
         android:textSize="80sp"
         android:textStyle="italic"
         android:gravity="center_horizontal"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:lottie_rawRes="@raw/leaves"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="true"/>
 
 </RelativeLayout>

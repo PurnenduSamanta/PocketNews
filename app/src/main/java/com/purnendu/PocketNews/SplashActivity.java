@@ -17,7 +17,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class SplashActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-        getSupportActionBar().hide(); //Hiding Original Action Bar
+        Objects.requireNonNull(getSupportActionBar()).hide(); //Hiding Original Action Bar
 
         //Phone will go full screen mode with no status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -71,7 +74,8 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        },3000);
+        },4000);
 
     }
+
 }

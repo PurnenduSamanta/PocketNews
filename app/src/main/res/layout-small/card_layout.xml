@@ -18,10 +18,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:scaleType="fitXY"
         android:src="@drawable/background"
         android:id="@+id/poster"
+        android:paddingBottom="10dp"
         />
     <TextView
         android:layout_width="match_parent"

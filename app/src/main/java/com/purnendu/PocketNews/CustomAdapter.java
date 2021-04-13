@@ -3,8 +3,11 @@ package com.purnendu.PocketNews;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,8 +91,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
                 }
             }
         });
-
-
     }
 
     @Override
@@ -102,7 +103,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
        public TextView headline,date,description;
        public ImageView poster,share;
        public CardView card;
-       public MyHolder(@NonNull View itemView) {
+       public MyHolder(@NonNull final View itemView) {
             super(itemView);
             headline=itemView.findViewById(R.id.headline);
             date=itemView.findViewById(R.id.date);
@@ -110,6 +111,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
             poster=itemView.findViewById(R.id.poster);
             card=itemView.findViewById(R.id.card);
             share=itemView.findViewById(R.id.share);
+
+          //For zoom animation
+          poster.setOnTouchListener(new View.OnTouchListener() {
+               @Override
+               public boolean onTouch(View v, MotionEvent event) {
+                   Animation animation_zoom = AnimationUtils.loadAnimation(itemView.getContext(),R.anim.news_zoom);
+                   poster.startAnimation(animation_zoom);
+                   return false;
+               }
+           });
         }
     }
 }

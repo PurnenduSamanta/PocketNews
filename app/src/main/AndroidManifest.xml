@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsApi">
 
-        </activity>
         <activity
             android:name=".Category"
             android:label="Category"
