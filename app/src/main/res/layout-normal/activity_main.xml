@@ -25,50 +25,78 @@
         android:id="@+id/drawer">
 
 
-        <RelativeLayout
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/parent">
+            android:id="@+id/mSwipeRefreshLayout">
 
 
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            <FrameLayout
+                android:id="@+id/frame_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/mSwipeRefreshLayout">
+                android:layout_above="@+id/buttonnav"
+                android:background="@drawable/background1">
 
-                <FrameLayout
-                    android:id="@+id/frame_container"
+            </FrameLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bottomAppBar"
+                android:layout_gravity="bottom"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="8dp"
+                app:fabCradleRoundedCornerRadius="10dp"
+                app:fabCradleVerticalOffset="1dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetEnd="0dp"
+                app:hideOnScroll="true"
+                >
+
+
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/buttonnav"
-                    android:background="@drawable/background1">
+                    android:layout_height="wrap_content"
+                    app:menu="@menu/buttom_navigation_menu"
+                    app:itemIconTint="@color/buttonNavigationBarTextColor"
+                    app:itemTextColor="@color/buttonNavigationBarTextColor"
+                    android:elevation="10dp"
+                    android:id="@+id/buttonnav" />
 
-                </FrameLayout>
 
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/buttonNavigationBarColor"
+                android:backgroundTint="@color/fabColor"
+                android:elevation="5dp"
                 android:src="@drawable/search"
                 android:id="@+id/fab"
-                android:elevation="5dp"
-                android:layout_margin="10dp"
-                android:layout_above="@+id/buttonnav"
-                android:layout_alignParentEnd="true"/>
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:itemBackground="@color/buttonNavigationBarColor"
-                app:itemTextColor="@color/colorPrimary"
-                app:menu="@menu/buttom_navigation_menu"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/buttonnav"/>
+                app:layout_anchor="@id/bottomAppBar"/>
 
 
-        </RelativeLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
 
         <com.google.android.material.navigation.NavigationView
             app:headerLayout="@layout/navigation_header"
@@ -93,3 +121,6 @@
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

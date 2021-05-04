@@ -21,8 +21,8 @@ public class FragmentSearch extends Fragment
             View view = inflater.inflate(R.layout.fragment, container, false);
             recycler1 = view.findViewById(R.id.recycler1);
             context = getActivity();
-            AppData appData = new AppData();
-            appData.fetch(url, recycler1, context);
+            SearchingKeyword searchingKeyword=new SearchingKeyword();
+            searchingKeyword.fetch(url, recycler1, context);
             return view;
         }
         else

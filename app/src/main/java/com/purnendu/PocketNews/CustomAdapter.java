@@ -1,7 +1,9 @@
 package com.purnendu.PocketNews;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,13 +13,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> {
@@ -68,10 +67,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
              final String currentHeadline = news_headline.get(position);
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context,news.class);
-                intent.putExtra("headline",currentHeadline);
-                intent.putExtra("url",url);
-                context.startActivity(intent);
+                if(isNetworkConnected())
+                {
+                    Intent intent=new Intent(context,news.class);
+                    intent.putExtra("headline",currentHeadline);
+                    intent.putExtra("url",url);
+                    context.startActivity(intent);
+
+                }
+               else
+                {
+                    Toast.makeText(context, "Check your network connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         holder.share.setOnClickListener(new View.OnClickListener() {
@@ -98,11 +105,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
         return news_headline.size();
     }
 
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
     public static class MyHolder extends RecyclerView.ViewHolder
     {
        public TextView headline,date,description;
        public ImageView poster,share;
        public CardView card;
+       @SuppressLint("ClickableViewAccessibility")
        public MyHolder(@NonNull final View itemView) {
             super(itemView);
             headline=itemView.findViewById(R.id.headline);

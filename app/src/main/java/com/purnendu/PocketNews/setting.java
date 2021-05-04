@@ -12,11 +12,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.purnendu.PocketNews.SqliteDatabase.NewsDbHelper;
 
 public class setting extends AppCompatActivity {
     protected  Spinner spinner;
-    protected TextView cb;
-    protected SwitchMaterial sb;
+    protected TextView cb,cd;
+    protected SwitchMaterial sb,javascriptSwitch;
     private final String [] Country={"Argentina","Austria","Australia","Belgium","Bulgaria","Brazil","Canada","Colombia","Cuba","Czech Republic","Egypt","France","Germany","Great Britain(UK)","Greece","Hong kong","Hungary","Indonesia","Ireland","Israel","India","Italy","Japan","Korea(South)","Lithuania","Latvia","Morocco","Mexico","Malaysia","Nigeria","Netherlands","Norway","New Zealand","Philippines","Poland","Portugal","Romania","Russian Federation","Serbia","Saudi Arabia","Sweden","Singapore","Slovenia","Slovakia","Switzerland","Thailand","Turkey","Taiwan","Ukraine","United States","Venezuela","Zambia"};
     private String temp;
     private SharedPreferences sharedpreferences,sharedPreferences1;
@@ -28,7 +29,9 @@ public class setting extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
         spinner = findViewById(R.id.spinner);
         cb = findViewById(R.id.cb);
+        cd=findViewById(R.id.cd);
         sb = findViewById(R.id.sb);
+        javascriptSwitch=findViewById(R.id.javascriptSwitch);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Country);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -198,8 +201,19 @@ public class setting extends AppCompatActivity {
                     sharedpreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("country", temp);
-                    editor.apply();
-                    Toast.makeText(setting.this, Country[position] + " selected", Toast.LENGTH_SHORT).show();
+                    boolean check=editor.commit();
+                    if(check)
+                    {
+                        NewsDbHelper newsDbHelper=new NewsDbHelper(setting.this);
+                        newsDbHelper.deleteAllTableTogether();//Cleaning all records in previous database
+                        clearBookmark(1);//Clearing Bookmarks
+                        Toast.makeText(setting.this, Country[position] + " selected", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(setting.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 mIsSpinnerFirstCall = false;
             }
@@ -209,16 +223,24 @@ public class setting extends AppCompatActivity {
 
             }
         });
+        //Clearing Bookmarks
         cb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
-                sharedpreferences.edit().clear().apply();
-                sharedPreferences1 = getSharedPreferences("count", MODE_PRIVATE);
-                sharedPreferences1.edit().clear().apply();
-                Toast.makeText(setting.this, "Bookmarks Cleared Successfully", Toast.LENGTH_SHORT).show();
+                clearBookmark(2);
             }
         });
+
+        //Clearing Sqlite Database
+        cd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewsDbHelper newsDbHelper=new NewsDbHelper(setting.this);
+                newsDbHelper.deleteAllTableTogether();
+                Toast.makeText(setting.this, "Database Clear Successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         SharedPreferences sharedPrefs = getSharedPreferences("switch", MODE_PRIVATE);
         sb.setChecked(sharedPrefs.getBoolean("nightMode", false));
         sb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -236,9 +258,32 @@ public class setting extends AppCompatActivity {
                 }
                  Intent intent=new Intent(setting.this,SplashActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                 startActivity(intent);
+                startActivity(intent);
             }
         });
+        //For enabling javascript on WebView
+        SharedPreferences javascriptSharedPreference = getSharedPreferences("javaScriptSwitch", MODE_PRIVATE);
+        javascriptSwitch.setChecked(javascriptSharedPreference.getBoolean("js", false));
+        javascriptSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    Toast.makeText(setting.this, "JavaScript Enabled", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editor = getSharedPreferences("javaScriptSwitch", MODE_PRIVATE).edit();
+                    editor.putBoolean("js", true);
+                    editor.apply();
+                }
+                else{
+                    Toast.makeText(setting.this, "JavaScript Disabled", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editor = getSharedPreferences("javaScriptSwitch", MODE_PRIVATE).edit();
+                    editor.putBoolean("js",false);
+                    editor.apply();
+                }
+            }
+        });
+
+
     }
 
 
@@ -246,5 +291,24 @@ public class setting extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent=new Intent(setting.this,MainActivity.class);
         startActivity(intent);
+    }
+    public void clearBookmark(int i)
+    {
+        if(i==1)
+        {
+            sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
+            sharedpreferences.edit().clear().apply();
+            sharedPreferences1 = getSharedPreferences("count", MODE_PRIVATE);
+            sharedPreferences1.edit().clear().apply();
+        }
+        else if(i==2)
+        {
+            sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
+            sharedpreferences.edit().clear().apply();
+            sharedPreferences1 = getSharedPreferences("count", MODE_PRIVATE);
+            sharedPreferences1.edit().clear().apply();
+            Toast.makeText(setting.this, "Bookmarks Cleared Successfully", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -4,11 +4,11 @@
     android:fillAfter="true">
 
     <alpha
-        android:duration="2000"
+        android:duration="1000"
         android:fromAlpha="0.0"
         android:interpolator="@android:anim/accelerate_interpolator"
         android:toAlpha="1.0" />
     <translate
         android:fromYDelta="-50%p"
-        android:duration="2000" />
+        android:duration="1000" />
 </set>

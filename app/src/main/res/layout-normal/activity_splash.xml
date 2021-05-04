@@ -37,9 +37,32 @@
             android:layout_centerInParent="true"
             app:lottie_rawRes="@raw/leaves"
             app:lottie_loop="false"
-            app:lottie_autoPlay="true"/>
+            app:lottie_autoPlay="true"
+            app:lottie_speed="2.0" />
 
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+                <com.trncic.library.DottedProgressBar
+                    android:id="@+id/dotProgress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintWidth_percent="0.4"
+                    android:visibility="invisible"
+                    android:paddingBottom="10dp"
+                    app:activeDot="@drawable/active_dot"
+                    app:dotSize="10dp"
+                    app:inactiveDot="@drawable/inactive_dot"
+                    app:jumpingSpeed="250"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:spacing="10dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>

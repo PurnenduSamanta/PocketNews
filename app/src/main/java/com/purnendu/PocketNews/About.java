@@ -19,7 +19,6 @@ public class About extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(About.this,NewsApi.class);
-                intent.putExtra("NewsPublisherInformationDetails","https://purnendusamanta.blogspot.com/p/news-publisher-information-details.html");
                 startActivity(intent);
             }
         });

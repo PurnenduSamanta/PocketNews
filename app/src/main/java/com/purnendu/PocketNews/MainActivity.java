@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -22,7 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity
@@ -45,11 +47,14 @@ public class MainActivity extends AppCompatActivity
         fab=findViewById(R.id.fab);
         drawer=findViewById(R.id.drawer);
         snv = findViewById(R.id.snv);
+
+        buttonnav.setBackground(null);//  Setting no background color on button navigation bar
+
         Toolbar toolbar=findViewById(R.id.toolbar);//Custom ActionBar
 
             swipe();
 
-        getSupportActionBar().hide();//Hiding original Action bar
+        Objects.requireNonNull(getSupportActionBar()).hide();//Hiding original Action bar
 
             ImageView hamburger=toolbar.findViewById(R.id.hamburger);
             hamburger.setOnClickListener(new View.OnClickListener() {
@@ -134,10 +139,6 @@ public class MainActivity extends AppCompatActivity
                         fragment=new FragmentBussiness();
                         swipe="business";
                         break;
-                    case(R.id.tech):
-                        fragment=new FragmentTech();
-                        swipe="tech";
-                        break;
                     case(R.id.sports):
                         fragment=new FragmentSports();
                         swipe="sports";
@@ -146,6 +147,8 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(fragment!=null)
                 {
+                    if(!isNetworkConnected())
+                        Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                     getSupportFragmentManager().beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).replace(R.id.frame_container, fragment).commit();
                     return true;
                 }
@@ -193,6 +196,8 @@ public class MainActivity extends AppCompatActivity
                     }
             if(fragment!=null)
             {
+                if(!isNetworkConnected())
+                    Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
             }
             else
@@ -200,9 +205,10 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
             }
         }
-
        else
         {
+            if(!isNetworkConnected())
+                Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
             Fragment fragment=new FragmnentTrending();
             swipe="trending";
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
@@ -288,6 +294,8 @@ public class MainActivity extends AppCompatActivity
                             break;
                     }
                     if (fragment != null) {
+                        if(!isNetworkConnected())
+                            Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
                     } else {
                         Toast.makeText(MainActivity.this, "Something Wrong happened", Toast.LENGTH_SHORT).show();
@@ -298,5 +306,9 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+    }
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 }

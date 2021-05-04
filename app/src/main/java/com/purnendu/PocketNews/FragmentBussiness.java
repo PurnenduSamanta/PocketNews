@@ -23,21 +23,17 @@ public class FragmentBussiness extends Fragment
         if (context != null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             String str = sharedPreferences.getString("country", null);
+            String url;
             if (str != null) {
-                String url = "https://newsapi.org/v2/top-headlines?country="+str+"&category=business&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
-                View view = inflater.inflate(R.layout.fragment, container, false);
-                recycler1 = view.findViewById(R.id.recycler1);
-                AppData appData = new AppData();
-                appData.fetch(url, recycler1, context);
-                return view;
+                url = "https://newsapi.org/v2/top-headlines?country=" + str + "&category=business&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
             } else {
-                String url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
-                View view = inflater.inflate(R.layout.fragment, container, false);
-                recycler1 = view.findViewById(R.id.recycler1);
-                AppData appData = new AppData();
-                appData.fetch(url, recycler1, context);
-                return view;
+                url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
             }
+            View view = inflater.inflate(R.layout.fragment, container, false);
+            recycler1 = view.findViewById(R.id.recycler1);
+            AppData appData = new AppData();
+            appData.fetch(url, recycler1, context,"business");
+            return view;
         }
         return null;
     }

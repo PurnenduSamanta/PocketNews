@@ -8,20 +8,16 @@
         android:title="Trending"
         android:icon="@drawable/ic_baseline_trending_up_24"/>
     <item
-        android:id="@+id/entertainment"
-        android:title="Entertainment"
-        android:icon="@drawable/entertainment"/>
+        android:id="@+id/sports"
+        android:title="Sports"
+        android:icon="@drawable/ic_baseline_sports_cricket_24"/>
     <item
         android:id="@+id/bussiness"
         android:title="Business"
         android:icon="@drawable/bussiness"/>
     <item
-        android:id="@+id/tech"
-        android:title="Tech"
-        android:icon="@drawable/ic_baseline_mobile_screen_share_24"/>
+        android:id="@+id/entertainment"
+        android:title="Recreation"
+        android:icon="@drawable/entertainment"/>
 
-    <item
-        android:id="@+id/sports"
-        android:title="Sports"
-        android:icon="@drawable/ic_baseline_sports_cricket_24"/>
 </menu>

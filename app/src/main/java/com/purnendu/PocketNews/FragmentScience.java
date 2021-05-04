@@ -21,21 +21,17 @@ public class FragmentScience extends Fragment
         if (context != null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             String str = sharedPreferences.getString("country", null);
+            String url;
             if (str != null) {
-                String url = "https://newsapi.org/v2/top-headlines?country=" + str + "&category=science&apiKey=32f70c60fc714320a48dda65beb24d94";
-                View view = inflater.inflate(R.layout.fragment, container, false);
-                recycler1 = view.findViewById(R.id.recycler1);
-                AppData appData = new AppData();
-                appData.fetch(url, recycler1, context);
-                return view;
+                url = "https://newsapi.org/v2/top-headlines?country=" + str + "&category=science&apiKey=32f70c60fc714320a48dda65beb24d94";
             } else {
-                String url = "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=32f70c60fc714320a48dda65beb24d94";
-                View view = inflater.inflate(R.layout.fragment, container, false);
-                recycler1 = view.findViewById(R.id.recycler1);
-                AppData appData = new AppData();
-                appData.fetch(url, recycler1, context);
-                return view;
+                url = "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=32f70c60fc714320a48dda65beb24d94";
             }
+            View view = inflater.inflate(R.layout.fragment, container, false);
+            recycler1 = view.findViewById(R.id.recycler1);
+            AppData appData = new AppData();
+            appData.fetch(url, recycler1, context,"science");
+            return view;
         }
         return null;
     }
