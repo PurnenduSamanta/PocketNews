@@ -4,9 +4,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="15dp"
     android:layout_marginBottom="4dp"
-    android:padding="20dp"
+   app:contentPadding="10dp"
     android:elevation="10dp"
     >
 <LinearLayout
@@ -17,16 +17,18 @@
 
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/background"
         android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:background="@drawable/image_radius"
+        android:layout_height="550dp"
         android:paddingBottom="40dp"
-        />
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="News"
         android:textColor="@android:color/holo_red_light"
         android:textSize="50sp"

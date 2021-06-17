@@ -7,16 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.purnendu.PocketNews.SqliteDatabase.NewsDbHelper;
 
 public class setting extends AppCompatActivity {
     protected  Spinner spinner;
-    protected TextView cb,cd;
+    protected Button cb,cd;
     protected SwitchMaterial sb,javascriptSwitch;
     private final String [] Country={"Argentina","Austria","Australia","Belgium","Bulgaria","Brazil","Canada","Colombia","Cuba","Czech Republic","Egypt","France","Germany","Great Britain(UK)","Greece","Hong kong","Hungary","Indonesia","Ireland","Israel","India","Italy","Japan","Korea(South)","Lithuania","Latvia","Morocco","Mexico","Malaysia","Nigeria","Netherlands","Norway","New Zealand","Philippines","Poland","Portugal","Romania","Russian Federation","Serbia","Saudi Arabia","Sweden","Singapore","Slovenia","Slovakia","Switzerland","Thailand","Turkey","Taiwan","Ukraine","United States","Venezuela","Zambia"};
     private String temp;
@@ -28,8 +28,8 @@ public class setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         spinner = findViewById(R.id.spinner);
-        cb = findViewById(R.id.cb);
-        cd=findViewById(R.id.cd);
+        cb = findViewById(R.id.cbb);
+        cd=findViewById(R.id.cdb);
         sb = findViewById(R.id.sb);
         javascriptSwitch=findViewById(R.id.javascriptSwitch);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Country);
@@ -246,17 +246,14 @@ public class setting extends AppCompatActivity {
         sb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
                 if (isChecked) {
-                    Toast.makeText(setting.this, "Dark Mode may not work properly on some old devices", Toast.LENGTH_SHORT).show();
-                    SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
                     editor.putBoolean("nightMode", true);
-                    editor.apply();
                 } else {
-                    SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
                     editor.putBoolean("nightMode", false);
-                    editor.apply();
                 }
-                 Intent intent=new Intent(setting.this,SplashActivity.class);
+                editor.apply();
+                Intent intent=new Intent(setting.this,SplashActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -285,8 +282,6 @@ public class setting extends AppCompatActivity {
 
 
     }
-
-
     @Override
     public void onBackPressed() {
         Intent intent=new Intent(setting.this,MainActivity.class);

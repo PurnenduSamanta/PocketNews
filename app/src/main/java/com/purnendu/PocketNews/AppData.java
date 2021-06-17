@@ -1,5 +1,6 @@
 package com.purnendu.PocketNews;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,9 +20,12 @@ import com.purnendu.PocketNews.SqliteDatabase.NewsDbHelper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class AppData  {
     private final ArrayList<String> news_header;
@@ -52,9 +56,8 @@ public class AppData  {
                         {
                             if(newsDbHelper.getAllNews(tableName).size()!=0)
                             {
-                                ArrayList<NewsModel>data;
-                                data=newsDbHelper.getAllNews(tableName);
-                                if((data.get(data.size()-1).getTitle()).equals(jsonObject.getString("title")))
+                                String lastNews=newsDbHelper.getLastNews(tableName);
+                                if(lastNews.equals(jsonObject.getString("title")))
                                 {
                                     count=1;
                                 }
@@ -160,7 +163,28 @@ public class AppData  {
                 news_poster.add("noimage");
             }
             if((!currentObject.getString("publishedAt").equals("null"))&&(!currentObject.getString("publishedAt").equals(""))) {
-                date.add(currentObject.getString("publishedAt"));
+
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat(
+                        "yyyy-MM-dd'T'HH:mm:ss'Z'");
+                format.setTimeZone(TimeZone.getTimeZone("UTC"));
+                java.util.Date dateObj = null;
+                try
+                {
+                    dateObj = format.parse(currentObject.getString("publishedAt"));
+                }
+                catch ( ParseException ignored)
+                { }
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat postFormat = new SimpleDateFormat("dd MMMM HH:mm");
+                if(dateObj!=null)
+                {
+                    String newDateStr = postFormat.format(dateObj);
+                    date.add(newDateStr);
+                }
+                else
+                {
+                    date.add(currentObject.getString("publishedAt"));
+                }
+
             }
             else
             {

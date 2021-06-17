@@ -3,8 +3,10 @@ package com.purnendu.PocketNews;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.animation.Animator;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -62,6 +64,12 @@ public class SplashActivity extends AppCompatActivity  {
             public void onAnimationEnd(Animator animation) {
                 FirstTimeTrendingLaunch firstTimeTrendingLaunch=new FirstTimeTrendingLaunch(SplashActivity.this);
                 firstTimeTrendingLaunch.UpToDateDatabase();
+
+                //Handling schedule notification
+                EnablingReceiver();
+                AlarmHelper alarmHelper=new AlarmHelper(SplashActivity.this);
+                alarmHelper.SetAlarm();
+
                 newsLogo.clearAnimation();
                 pocketNews.clearAnimation();
             }
@@ -83,5 +91,14 @@ public class SplashActivity extends AppCompatActivity  {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(color);
         }
+    }
+
+    private void EnablingReceiver()
+    {
+        ComponentName receiver = new ComponentName(this, BackgroundService.class);
+        PackageManager pm = this.getPackageManager();
+        pm.setComponentEnabledSetting(receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
     }
 }

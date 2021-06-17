@@ -7,4 +7,5 @@
     <color name="textColor">#ffffff</color>
     <color name="fabColor">#fecd1a</color>
     <color name="buttonNavigationBarTextColor">#ffffff</color>
+    <color name="categoryBackgroundColor">#636e72</color>
 </resources>

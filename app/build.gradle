@@ -8,8 +8,8 @@ android {
         applicationId "com.purnendu.PocketNews"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 11
-        versionName "4.0"
+        versionCode 12
+        versionName "4.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,10 +25,10 @@ android {
 dependencies {
     implementation 'com.github.MonsterTechnoGits:WebViewAdblock:1.1'//Blocking Adds in WebView
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.squareup.picasso:picasso:2.5.2'//For loading image from Internet
+    implementation 'com.squareup.picasso:picasso:2.71828'//For loading image from Internet
     implementation 'com.android.volley:volley:1.2.0' //Do networking stuff
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'  //For swiping to refresh
     implementation 'com.google.android.material:material:1.3.0'
     implementation "com.airbnb.android:lottie:3.4.0"//Lottie for beautiful animation

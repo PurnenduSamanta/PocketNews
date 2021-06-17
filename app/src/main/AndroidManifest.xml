@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -59,6 +59,20 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
+
+        <receiver android:name=".BackgroundService"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:enabled="false"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".Services" />
     </application>
 
 </manifest>

@@ -6,5 +6,6 @@
     <color name="background">#ffffff</color>
     <color name="textColor">#000000</color>
     <color name="fabColor">#54e346</color>
+    <color name="categoryBackgroundColor">#d5dfed</color>
     <color name="buttonNavigationBarTextColor">#6200EE</color>
 </resources>

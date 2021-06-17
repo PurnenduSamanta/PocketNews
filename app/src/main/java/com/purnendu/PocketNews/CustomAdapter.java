@@ -44,10 +44,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
         return newholder;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, final int position) {
-        try {
-             String currentHeadline = news_headline.get(position);
+
+            String currentHeadline = news_headline.get(position);
             holder.headline.setText(currentHeadline);
             String currentDescription = news_description.get(position);
             holder.description.setText(currentDescription);
@@ -55,13 +56,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
             holder.date.setText(currentSource);
             String currentPoster = news_poster.get(position);
             if (!currentPoster.equals("noimage")) {
-                Picasso.with(context).load(currentPoster).into(holder.poster);
+                Picasso.get().load(currentPoster).placeholder(R.drawable.loading).into(holder.poster);
             } else {
                 holder.poster.setImageResource(R.drawable.noimagefound);
             }
-        } catch (Exception e) {
-            Toast.makeText(context, "Something Wrong happened try reinstalling application", Toast.LENGTH_LONG).show();
-        }
         final String url=news_url.get(position);
         holder.card.setOnClickListener(new View.OnClickListener() {
              final String currentHeadline = news_headline.get(position);
@@ -98,6 +96,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
                 }
             }
         });
+        holder.poster.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (!currentPoster.equals("noimage"))
+                {
+                    Animation animation_zoom = AnimationUtils.loadAnimation(context,R.anim.news_zoom);
+                    holder.poster.startAnimation(animation_zoom);
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override
@@ -125,15 +135,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyHolder> 
             card=itemView.findViewById(R.id.card);
             share=itemView.findViewById(R.id.share);
 
-          //For zoom animation
-          poster.setOnTouchListener(new View.OnTouchListener() {
-               @Override
-               public boolean onTouch(View v, MotionEvent event) {
-                   Animation animation_zoom = AnimationUtils.loadAnimation(itemView.getContext(),R.anim.news_zoom);
-                   poster.startAnimation(animation_zoom);
-                   return false;
-               }
-           });
+            poster.setClipToOutline(true);    //To make imageview with rounded corner
         }
     }
 }

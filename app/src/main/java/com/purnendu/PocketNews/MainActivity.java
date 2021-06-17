@@ -9,8 +9,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -168,30 +170,37 @@ public class MainActivity extends AppCompatActivity
                         case("general news") :
                             fragment=new FragmnentTrending();
                             swipe="trending";
+                            buttonnav.getMenu().findItem(R.id.trending).setChecked(true);
                             break;
                         case("health news") :
                             fragment=new FragmentHealth();
                             swipe="health";
+                            buttonnav.getMenu().findItem(R.id.menu_none).setChecked(true);
                             break;
                         case("science news") :
                             fragment=new FragmentScience();
                             swipe="science";
+                            buttonnav.getMenu().findItem(R.id.menu_none).setChecked(true);
                             break;
                         case("entertainment news") :
                             fragment=new FragmentEntertainment();
                             swipe="entertainment";
+                            buttonnav.getMenu().findItem(R.id.entertainment).setChecked(true);
                             break;
                         case("business news") :
                             fragment=new FragmentBussiness();
                             swipe="business";
+                            buttonnav.getMenu().findItem(R.id.bussiness).setChecked(true);
                             break;
                         case("sports news") :
                             fragment=new FragmentSports();
                             swipe="sports";
+                            buttonnav.getMenu().findItem(R.id.sports).setChecked(true);
                             break;
                         case("tech news") :
                             fragment=new FragmentTech();
                             swipe="tech";
+                            buttonnav.getMenu().findItem(R.id.menu_none).setChecked(true);
                             break;
                     }
             if(fragment!=null)
@@ -237,7 +246,8 @@ public class MainActivity extends AppCompatActivity
                         }
                         else
                         {
-                            String keyWord=search.getText().toString();
+                            buttonnav.getMenu().findItem(R.id.menu_none).setChecked(true);
+                            String keyWord=search.getText().toString().trim();
                             String url="https://newsapi.org/v2/everything?q="+keyWord+"&apiKey=Ff4fdc1a967240ca9d03b810d90e64ff";
                             Bundle bundle = new Bundle();
                             bundle.putString("url", url);

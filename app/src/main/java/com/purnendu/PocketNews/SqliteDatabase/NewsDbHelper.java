@@ -147,6 +147,19 @@ public class NewsDbHelper extends SQLiteOpenHelper {
         return array_list;
     }
 
+    public  String getLastNews(String tableName)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery("SELECT * FROM "+tableName+ " WHERE Id = (SELECT MAX(Id) FROM "+tableName+")", null);
+        if( res != null && res.moveToFirst() ) {
+            String title = res.getString(1);
+            res.close();
+            return  title;
+        }
+        return null;
+
+    }
+
    private void deleteNews(String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM "+tableName+ " WHERE " +"Id = (SELECT MIN(Id) FROM "+ tableName+")");

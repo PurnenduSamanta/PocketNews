@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
 
-    protected   TextView gn,hn,sn,en,bn,spn,tgn;
+    protected ImageButton gn,hn,sn,en,bn,spn,tgn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

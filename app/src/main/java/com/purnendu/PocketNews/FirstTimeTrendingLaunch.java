@@ -1,5 +1,6 @@
 package com.purnendu.PocketNews;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,9 +26,12 @@ import com.trncic.library.DottedProgressBar;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class FirstTimeTrendingLaunch extends AppCompatActivity {
 
@@ -59,9 +63,9 @@ public class FirstTimeTrendingLaunch extends AppCompatActivity {
         String url;
         if (str != null)
         {
-            url = "https://newsapi.org/v2/top-headlines?country=" + str + "&apiKey=57fdf3bd8e234c4185cb19e585be76e6";
+            url = "https://newsapi.org/v2/top-headlines?country=" + str + "&apiKey=56641f7a6ad548e58cb9bf96c03e9174";
         } else {
-            url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=57fdf3bd8e234c4185cb19e585be76e6";
+            url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=56641f7a6ad548e58cb9bf96c03e9174";
         }
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(StringRequest.Method.GET, url, new Response.Listener<String>() {
@@ -79,10 +83,9 @@ public class FirstTimeTrendingLaunch extends AppCompatActivity {
                     {
                         if(newsDbHelper.getAllNews(tableName).size()!=0)
                         {
-                            ArrayList<NewsModel>data;
-                            data=newsDbHelper.getAllNews(tableName);
                             ClearArrayList();
-                            if(!((data.get(data.size()-1).getTitle()).equals(jsonObject.getString("title"))))
+                            String lastNews=newsDbHelper.getLastNews(tableName);
+                            if(!(lastNews.equals(jsonObject.getString("title"))))
                             {
                                 AddOperation(articles);
                             }
@@ -228,7 +231,26 @@ public class FirstTimeTrendingLaunch extends AppCompatActivity {
                 news_poster.add("noimage");
             }
             if((!currentObject.getString("publishedAt").equals("null"))&&(!currentObject.getString("publishedAt").equals(""))) {
-                date.add(currentObject.getString("publishedAt"));
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat(
+                        "yyyy-MM-dd'T'HH:mm:ss'Z'");
+                format.setTimeZone(TimeZone.getTimeZone("UTC"));
+                java.util.Date dateObj = null;
+                try
+                {
+                    dateObj = format.parse(currentObject.getString("publishedAt"));
+                }
+                catch ( ParseException ignored)
+                { }
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat postFormat = new SimpleDateFormat("dd MMMM HH:mm");
+                if(dateObj!=null)
+                {
+                    String newDateStr = postFormat.format(dateObj);
+                    date.add(newDateStr);
+                }
+                else
+                {
+                    date.add(currentObject.getString("publishedAt"));
+                }
             }
             else
             {
