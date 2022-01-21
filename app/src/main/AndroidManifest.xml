@@ -17,50 +17,51 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
-        <activity android:name=".QuitApplicationActivity"/>
-        <activity android:name=".NewsApi"
+        <activity android:name=".Activities.QuitApplicationActivity"/>
+        <activity android:name=".Activities.NewsApi"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Category"
+            android:name=".Activities.Category"
             android:label="Category"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".About"
+            android:name=".Activities.About"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".Bookmarks"
+            android:name=".Activities.Bookmarks"
             android:label="Bookmarks"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".setting"
+            android:name=".Activities.setting"
             android:configChanges="uiMode"
             android:label="Settings"
             android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".news"
+        <activity android:name=".Activities.news"
             android:hardwareAccelerated="true"/>
         <activity
-            android:name=".SplashActivity"
-            android:screenOrientation="portrait">
+            android:name=".Activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <receiver android:name=".BackgroundService"
+        <receiver android:name=".BackgroundServices.BackgroundService"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
             android:enabled="false"
             android:exported="true"
@@ -72,7 +73,7 @@
             </intent-filter>
         </receiver>
         <service
-            android:name=".Services" />
+            android:name=".BackgroundServices.Services" />
     </application>
 
 </manifest>

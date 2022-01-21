@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
-    tools:context="com.purnendu.PocketNews.About">
+    tools:context="com.purnendu.PocketNews.Activities.About">
 
 <RelativeLayout
     android:layout_width="match_parent"

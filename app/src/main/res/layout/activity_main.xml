@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/frame_container"
                     android:background="@drawable/background1"
-                    android:layout_above="@+id/buttonnav" >
+                    android:layout_above="@+id/fab" >
                 </FrameLayout>
 
 
