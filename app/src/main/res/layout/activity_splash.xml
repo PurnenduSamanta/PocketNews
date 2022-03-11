@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background"
     tools:context=".Activities.SplashActivity">
 
-    
+
     <ImageView
+        android:id="@+id/newsLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/newsLogo"
-        android:src="@drawable/communication"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/communication" />
+
     <TextView
+        android:id="@+id/pocketNews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/newsLogo"
-        android:id="@+id/pocketNews"
+        android:gravity="center_horizontal"
         android:text="PocketNews"
         android:textColor="@color/textColor"
         android:textSize="35sp"
-        android:textStyle="italic"
-        android:gravity="center_horizontal"/>
+        android:textStyle="italic" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:lottie_rawRes="@raw/leaves"
-        app:lottie_loop="false"
         app:lottie_autoPlay="true"
-        app:lottie_speed="2.0"/>
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/leaves"
+        app:lottie_speed="2.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,9 +49,8 @@
             android:id="@+id/dotProgress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintWidth_percent="0.4"
-            android:visibility="invisible"
             android:paddingBottom="10dp"
+            android:visibility="invisible"
             app:activeDot="@drawable/active_dot"
             app:dotSize="10dp"
             app:inactiveDot="@drawable/inactive_dot"
@@ -55,6 +58,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.4"
             app:spacing="10dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

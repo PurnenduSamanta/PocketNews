@@ -1,17 +1,14 @@
 package com.purnendu.PocketNews.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
-
-import com.purnendu.PocketNews.Others.Operations;
+import androidx.appcompat.app.AppCompatActivity;
 import com.purnendu.PocketNews.R;
+import com.purnendu.PocketNews.Utility;
 
 public class NewsApi extends AppCompatActivity {
 
@@ -21,7 +18,7 @@ public class NewsApi extends AppCompatActivity {
         setContentView(R.layout.activity_news_api);
         WebView webview=findViewById(R.id.webview_newsapi);
 
-        if(!Operations.isNetworkConnected(NewsApi.this))
+        if(!Utility.Companion.checkConnection(this))
         {
             Toast.makeText(NewsApi.this, "Connection not available", Toast.LENGTH_SHORT).show();
             return;

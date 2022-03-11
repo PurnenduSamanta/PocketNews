@@ -9,4 +9,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:forceDarkAllowed">false</item>
     </style>
+
+
+    <style name="HiddenTitleTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>

@@ -1,21 +1,22 @@
 package com.purnendu.PocketNews.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.purnendu.PocketNews.Adapters.BookmarkAdapter;
+import com.purnendu.PocketNews.PocketNewsApplication;
 import com.purnendu.PocketNews.R;
-
-import java.lang.reflect.Type;
+import com.purnendu.PocketNews.Repository;
+import com.purnendu.PocketNews.RoomDb.BookmarksTableModel;
+import com.purnendu.PocketNews.ViewModel.BookmarkViewModel;
+import com.purnendu.PocketNews.ViewModel.ViewModelFactory.BookmarkViewModelFactory;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Bookmarks extends AppCompatActivity {
 
@@ -23,24 +24,26 @@ public class Bookmarks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmarks);
-        RecyclerView bookmark_recycler = findViewById(R.id.bookmark_recycler);
-        SharedPreferences sharedpreferences = getSharedPreferences("BOOKMARKS", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json1 = sharedpreferences.getString("title", null);
-        String json2 = sharedpreferences.getString("url", null);
-        Type type = new TypeToken<ArrayList<String>>() {
-        }.getType();
-        ArrayList<String> header = gson.fromJson(json1, type);
-        ArrayList<String> url = gson.fromJson(json2, type);
-        if (header != null && url != null) {
-            BookmarkAdapter bookmarkAdapter = new BookmarkAdapter(this, header, url);
-            bookmark_recycler.setAdapter(bookmarkAdapter);
-            bookmark_recycler.setLayoutManager(new LinearLayoutManager(this));
-        } else {
-            Toast.makeText(this, "No Bookmarks ", Toast.LENGTH_SHORT).show();
-        }
 
+        //Initializing ViewModel
+        Repository repository = ((PocketNewsApplication) this.getApplication()).repository;
+        BookmarkViewModel viewModel = new ViewModelProvider(this, new BookmarkViewModelFactory(repository)).get(BookmarkViewModel.class);
 
+        RecyclerView bookmarkRecycler = findViewById(R.id.bookmark_recycler);
+        bookmarkRecycler.setLayoutManager(new LinearLayoutManager(Bookmarks.this));
+
+        //Set observer
+        viewModel.getBookMarkList().observe(this, bookmarks -> {
+            if(bookmarks.size()==0)
+            {
+                Toast.makeText(Bookmarks.this, "No Bookmarks ", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            ArrayList<BookmarksTableModel>list=new ArrayList<>(bookmarks);
+            Collections.reverse(list);
+            BookmarkAdapter bookmarkAdapter = new BookmarkAdapter(Bookmarks.this,list);
+            bookmarkRecycler.setAdapter(bookmarkAdapter);
+        });
     }
 
     @Override

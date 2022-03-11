@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.purnendu.PocketNews.Activities.SingleNewsActivity;
 import com.purnendu.PocketNews.R;
-import com.purnendu.PocketNews.Activities.news;
+import com.purnendu.PocketNews.RoomDb.BookmarksTableModel;
+import com.purnendu.PocketNews.Utility;
 
 import java.util.ArrayList;
 
@@ -20,37 +23,40 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.MyBook
 {
 
     private final Context c;
-    private  final ArrayList<String>news_title,news_url;
+    private  final ArrayList<BookmarksTableModel>bookmarks;
     private final LayoutInflater layoutInflater;
 
-    public BookmarkAdapter(Context c, ArrayList<String> news_title, ArrayList<String> news_url) {
+    public BookmarkAdapter(Context c, ArrayList<BookmarksTableModel> bookmarks) {
         this.c = c;
-        this.news_title = news_title;
-        this.news_url = news_url;
+        this.bookmarks=bookmarks;
         layoutInflater= LayoutInflater.from(this.c);
     }
 
     @NonNull
     @Override
     public MyBookmarkHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View myview=layoutInflater.inflate(R.layout.single_bookmark,parent,false);
-        BookmarkAdapter.MyBookmarkHolder newholder= new MyBookmarkHolder(myview);
-        return newholder;
+        View myView=layoutInflater.inflate(R.layout.single_bookmark,parent,false);
+        MyBookmarkHolder newHolder= new MyBookmarkHolder(myView);
+        return newHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyBookmarkHolder holder, int position) {
-        String currentHeadline=news_title.get(position);
+        String currentHeadline=bookmarks.get(position).getTitle();
         holder.bookmark_header.setText(currentHeadline);
-        final String currentUrl=news_url.get(position);
+        String currentUrl=bookmarks.get(position).getNewsUrl();
         holder.bookmark_url.setText(currentUrl);
-        holder.bookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(c, news.class);
-                intent.putExtra("url",currentUrl);
-                c.startActivity(intent);
+        holder.bookmark.setOnClickListener(v -> {
+
+            if(!Utility.Companion.checkConnection(c))
+            {
+                Toast.makeText(c, "Connection not available", Toast.LENGTH_SHORT).show();
+                return;
             }
+            Intent intent=new Intent(c, SingleNewsActivity.class);
+            intent.putExtra("url",currentUrl);
+            intent.putExtra("headline",currentHeadline);
+            c.startActivity(intent);
         });
 
 
@@ -59,7 +65,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.MyBook
     @Override
     public int getItemCount() {
 
-        return news_title.size();
+        return bookmarks.size();
     }
 
     public static class MyBookmarkHolder extends RecyclerView.ViewHolder
