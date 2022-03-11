@@ -1,5 +1,9 @@
 # PocketNews
-News Application with some interesting features.
+An Android News App using [NewsApi](https://newsapi.org/), which has 7 different categories with news 
+of 30 countries, bookmark and keyword search facility,offline browsing news,Dark mode features available.\
+The code written here is following MVVM architecture using Room,ViewModel,Retrofit,Coroutine,Workmanager,RecyclerView Using DiffUtil.\
+N.B.-To use the App,please provide API_KEY in API_KEYS.java file which is under Retrofit.
+
 Check out the app at https://play.google.com/store/apps/details?id=com.purnendu.PocketNews&hl=en_US&gl=US
 
 ![screenshot1](https://user-images.githubusercontent.com/69786552/103310473-bb412000-4a3d-11eb-9de8-c268b89bad38.jpg)
