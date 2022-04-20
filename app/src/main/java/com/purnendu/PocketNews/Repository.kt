@@ -1,10 +1,10 @@
 package com.purnendu.PocketNews
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.purnendu.PocketNews.Retrofit.Api
+import com.purnendu.PocketNews.Retrofit.ApiServices
+import com.purnendu.PocketNews.Retrofit.ResponseHandle
 import com.purnendu.PocketNews.Retrofit.ResponseNewsModel
 import com.purnendu.PocketNews.RoomDb.*
 import kotlinx.coroutines.CoroutineScope
@@ -15,7 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Repository(
-    private val api: Api,
+    private val apiServices: ApiServices,
     private val database: NewsDatabase,
     private val applicationContext: Context
 ) {
@@ -23,47 +23,51 @@ class Repository(
     private val newsDao = database.newsDao()
     val trendingNewsData: LiveData<List<TrendingNewsTableModel>>
         get() = newsDao.getTrendingNewsList()
+
     val entertainmentNewsData: LiveData<List<EntertainmentNewsTableModel>>
         get() = newsDao.getEntertainmentNewsList()
+
     val sportsNewsData: LiveData<List<SportsNewsTableModel>>
         get() = newsDao.getSportsNewsList()
+
     val businessNewsData: LiveData<List<BusinessNewsTableModel>>
         get() = newsDao.getBusinessNewsList()
+
     val techNewsData: LiveData<List<TechNewsTableModel>>
         get() = newsDao.getTechNewsList()
+
     val healthNewsData: LiveData<List<HealthNewsTableModel>>
         get() = newsDao.getHealthNewsList()
+
     val scienceNewsData: LiveData<List<ScienceNewsTableModel>>
         get() = newsDao.getScienceNewsList()
+
     val bookmarks: LiveData<List<BookmarksTableModel>>
         get() = newsDao.getBookmarksList()
 
-    private val mutableSearchNewsData = MutableLiveData<ArrayList<ResponseNewsModel.Article>>()
-    val searchNewsData: LiveData<ArrayList<ResponseNewsModel.Article>>
+    private val mutableSearchNewsData =
+        MutableLiveData<ResponseHandle<ArrayList<ResponseNewsModel.Article>>>()
+    val searchNewsData: LiveData<ResponseHandle<ArrayList<ResponseNewsModel.Article>>>
         get() = mutableSearchNewsData
 
 
-    suspend fun getLiveNewsData(countryCode: String, category: String, KEY: String) {
-        if (Utility.checkConnection(applicationContext)) {
-            CoroutineScope(Dispatchers.IO).launch {
-                doNetworkCallAndUpdateDatabase(countryCode, category, KEY)
-            }
-        }
-    }
 
-
-    private suspend fun doNetworkCallAndUpdateDatabase(
+    //Updating Database
+    suspend fun getLiveNewsData(
         countryCode: String,
         category: String,
         KEY: String
     ) {
-        val response = api.getCategorisedNews(countryCode, category, KEY)
+
+        if (!Utility.checkConnection(applicationContext))
+         return
+
+        val response = apiServices.getCategorisedNews(countryCode, category, KEY)
         response.enqueue(object : Callback<ResponseNewsModel> {
             override fun onResponse(
                 call: Call<ResponseNewsModel>,
                 response: Response<ResponseNewsModel>
             ) {
-
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         val newsList = response.body()?.articles
@@ -97,11 +101,13 @@ class Repository(
 
     }
 
+    //checking if last news is equal to or not to last news of recent list response
     private suspend fun isUpToDate(category: String, title: String): Boolean {
         val dao = newsDao
         when (category) {
-            NewsCategories.GENERAL.categoryName -> if (dao.getLastTrendingNewsTitle() == title)
-                return true
+            NewsCategories.GENERAL.categoryName ->
+                if (dao.getLastTrendingNewsTitle() == title)
+                    return true
             NewsCategories.TECHNOLOGY.categoryName ->
                 if (dao.getLastTechNewsTitle() == title)
                     return true
@@ -124,6 +130,7 @@ class Repository(
         return false
     }
 
+    //Insert news in db
     private suspend fun insertNewsInDatabase(
         category: String,
         title: String,
@@ -209,46 +216,51 @@ class Repository(
         }
     }
 
+
+    //Search functionalities
     fun search(KeyWord: String, KEY: String) {
 
+        mutableSearchNewsData.postValue(ResponseHandle.Loading())
         if (!Utility.checkConnection(applicationContext))
+        {
+            mutableSearchNewsData.postValue(ResponseHandle.Error("No Connection"))
             return
-        val response = api.getEverythingFromSearch(KeyWord, KEY)
+        }
+
+        val response = apiServices.getEverythingFromSearch(KeyWord, KEY)
         response.enqueue(object : Callback<ResponseNewsModel> {
             override fun onResponse(
                 call: Call<ResponseNewsModel>,
                 response: Response<ResponseNewsModel>
             ) {
-                if (response.isSuccessful) {
-                    if (response.body() != null) {
-                        val list = response.body()?.articles
-                        if (list != null) {
-                            val newList = mutableListOf<ResponseNewsModel.Article>()
-                            for (e in list) {
-                                val formattedDate = Utility.getProperDateInFormat(e.publishedAt)
-                                newList.add(
-                                    ResponseNewsModel.Article(
-                                        e.title,
-                                        e.description,
-                                        e.urlToImage,
-                                        e.url,
-                                        formattedDate
-                                    )
-                                )
-                            }
-                            mutableSearchNewsData.postValue(newList as ArrayList<ResponseNewsModel.Article>)
-                        }
-                    }
+                if (!response.isSuccessful)
+                    return
+                if (response.body() == null)
+                    return
+                val list = response.body()?.articles ?: return
+                val newList = mutableListOf<ResponseNewsModel.Article>()
+                for (e in list) {
+                    val formattedDate = Utility.getProperDateInFormat(e.publishedAt)
+                    newList.add(
+                        ResponseNewsModel.Article(
+                            e.title,
+                            e.description,
+                            e.urlToImage,
+                            e.url,
+                            formattedDate
+                        )
+                    )
                 }
-
+                mutableSearchNewsData.postValue(ResponseHandle.Success(newList as ArrayList<ResponseNewsModel.Article>))
             }
 
             override fun onFailure(call: Call<ResponseNewsModel>, t: Throwable) {
-
+                mutableSearchNewsData.postValue(ResponseHandle.Error(t.message.toString()))
             }
         })
     }
 
+    //Inserting news to Bookmarks
     suspend fun insertBookmark(title: String, newsUrl: String): Int {
         val dao = newsDao
         return if (dao.isBookmarkPresent(newsUrl) == 0) {
@@ -259,53 +271,59 @@ class Repository(
             -1
     }
 
+    //Clear all news from db
     suspend fun clearAllNews() {
         val dao = newsDao
-        dao.deleteTrendingNewsData()
-        dao.deleteTechNewsData()
-        dao.deleteSportsNewsData()
-        dao.deleteScienceNewsData()
-        dao.deleteBusinessNewsData()
-        dao.deleteEntertainmentNewsData()
-        dao.deleteHealthNewsData()
+        dao.apply {
+            deleteTrendingNewsData()
+            deleteTechNewsData()
+            deleteSportsNewsData()
+            deleteScienceNewsData()
+            deleteBusinessNewsData()
+            deleteEntertainmentNewsData()
+            deleteHealthNewsData()
+        }
     }
 
+    //Delete all bookmarks from db
     suspend fun clearBookmark() {
         newsDao.deleteBookmarksData()
     }
 
 
+    //This function will delete last 20 news if news number will be more than 100
     suspend fun deleteOldNews() {
         val dao = database.newsDao()
         val limit = 100
         val deletingNewsNo = 20
-        if (dao.trendingNewsSize() > limit)
-            dao.deleteOldNewsFromTrending(deletingNewsNo)
+        dao.apply {
 
-        if (dao.entertainmentNewsSize() > limit)
-            dao.deleteOldNewsFromEntertainment(deletingNewsNo)
+            if (trendingNewsSize() > limit)
+                deleteOldNewsFromTrending(deletingNewsNo)
 
-        if (dao.businessNewsSize() > limit)
-            dao.deleteOldNewsFromBusiness(deletingNewsNo)
+            if (entertainmentNewsSize() > limit)
+                deleteOldNewsFromEntertainment(deletingNewsNo)
 
-        if (dao.healthNewsSize() > limit)
-            dao.deleteOldNewsFromHealth(deletingNewsNo)
+            if (businessNewsSize() > limit)
+                deleteOldNewsFromBusiness(deletingNewsNo)
 
-        if (dao.scienceNewsSize() > limit)
-            dao.deleteOldNewsFromScience(deletingNewsNo)
+            if (healthNewsSize() > limit)
+                deleteOldNewsFromHealth(deletingNewsNo)
 
-        if (dao.sportsNewsSize() > limit)
-            dao.deleteOldNewsFromSports(deletingNewsNo)
+            if (scienceNewsSize() > limit)
+                deleteOldNewsFromScience(deletingNewsNo)
 
-        if (dao.techNewsSize() > limit)
-            dao.deleteOldNewsFromTech(deletingNewsNo)
+            if (sportsNewsSize() > limit)
+                deleteOldNewsFromSports(deletingNewsNo)
+
+            if (techNewsSize() > limit)
+                deleteOldNewsFromTech(deletingNewsNo)
+        }
     }
 
-    suspend fun setCountryCode(CountryCode: String): Boolean {
-        val preference = applicationContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = preference.edit()
-        editor.putString("country", CountryCode)
-        val check = editor.commit()
+    //Change country code and clear Bookmarks and DB
+    suspend fun setCountryCode(countryCode: String): Boolean {
+        val check: Boolean = Utility.setCountryCode(applicationContext, countryCode)
         return if (check) {
             CoroutineScope(Dispatchers.IO).launch {
                 clearAllNews()
@@ -317,19 +335,12 @@ class Repository(
         }
     }
 
-    fun setNightMode(state: Boolean): Boolean {
-        val editor: SharedPreferences.Editor =
-            applicationContext.getSharedPreferences("switch", Context.MODE_PRIVATE).edit()
-        editor.putBoolean("nightMode", state)
-        return editor.commit()
-    }
+    //Set night mode status
+    fun setNightMode(state: Boolean): Boolean = Utility.setNightMode(applicationContext, state)
 
-    fun setJavaScriptStatus(state: Boolean): Boolean {
-        val editor: SharedPreferences.Editor =
-            applicationContext.getSharedPreferences("javaScriptSwitch", Context.MODE_PRIVATE).edit()
-        editor.putBoolean("js", state)
-        return editor.commit()
-    }
+    //Set night mode status
+    fun setJavaScriptStatus(state: Boolean): Boolean =
+        Utility.setJavaScriptStatus(applicationContext, state)
 
 
 }

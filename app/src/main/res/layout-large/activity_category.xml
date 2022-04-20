@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/categoryBackgroundColor"
     android:padding="10dp"
-    tools:context="com.purnendu.PocketNews.Activities.Category">
+    tools:context=".Ui.Activities.Category">
 
 
     <ImageButton

@@ -4,44 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Ui.Activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/custom_action_bar"/>
+        <include layout="@layout/custom_action_bar" />
 
 
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawer">
+        android:layout_height="match_parent">
 
 
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/mSwipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <FrameLayout
+                android:id="@+id/frame_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/mSwipeRefreshLayout">
+                android:layout_above="@+id/fab"
+                android:background="@drawable/background1">
 
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/frame_container"
-                    android:background="@drawable/background1"
-                    android:layout_above="@+id/fab" >
-                </FrameLayout>
+                <ProgressBar
+                    android:id="@+id/circularProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="invisible" />
 
 
+            </FrameLayout>
 
 
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -50,68 +57,56 @@
 
 
             <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bottomAppBar"
                 android:layout_gravity="bottom"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
                 app:fabAlignmentMode="center"
                 app:fabCradleMargin="8dp"
                 app:fabCradleRoundedCornerRadius="10dp"
                 app:fabCradleVerticalOffset="1dp"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                app:contentInsetRight="0dp"
-                app:contentInsetEnd="0dp"
                 app:hideOnScroll="true">
 
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/buttonnav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:menu="@menu/buttom_navigation_menu"
+                    android:elevation="10dp"
                     app:itemIconTint="@color/buttonNavigationBarTextColor"
                     app:itemTextColor="@color/buttonNavigationBarTextColor"
-                    android:elevation="10dp"
-                    android:id="@+id/buttonnav" />
-
+                    app:menu="@menu/buttom_navigation_menu" />
 
 
             </com.google.android.material.bottomappbar.BottomAppBar>
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/fabColor"
                 android:elevation="5dp"
                 android:src="@drawable/search"
-                android:id="@+id/fab"
-                app:layout_anchor="@id/bottomAppBar"/>
+                app:layout_anchor="@id/bottomAppBar" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-
         <com.google.android.material.navigation.NavigationView
-            app:headerLayout="@layout/navigation_header"
+            android:id="@+id/snv"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/navigation_header"
             app:itemTextColor="@color/textColor"
-            app:menu="@menu/side_navigation_ment"
-            android:id="@+id/snv"
-            android:layout_gravity="start" />
-
-
-
+            app:menu="@menu/side_navigation_ment" />
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
-
-
-
-
-
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

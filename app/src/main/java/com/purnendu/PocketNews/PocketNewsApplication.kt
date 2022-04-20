@@ -3,8 +3,8 @@ package com.purnendu.PocketNews
 import android.app.Application
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
-import com.purnendu.PocketNews.Retrofit.Api
-import com.purnendu.PocketNews.Retrofit.Client
+import com.purnendu.PocketNews.Retrofit.ApiServices
+import com.purnendu.PocketNews.Retrofit.RetrofitInstance
 import com.purnendu.PocketNews.RoomDb.NewsDatabase.Companion.getDataBase
 import java.util.concurrent.TimeUnit
 
@@ -18,7 +18,7 @@ class PocketNewsApplication: Application() {
 
         //Creating repository Object
         val database = getDataBase(applicationContext)
-        val api = Client.getRetrofitInstance().create(Api::class.java)
+        val api = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
         repository = Repository(api, database, applicationContext)
 
         //SetUp workManager for deleting old news

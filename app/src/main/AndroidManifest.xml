@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.purnendu.PocketNews">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,15 +13,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        android:theme="@style/AppTheme">
 
-        <activity android:name=".Activities.QuitApplicationActivity" />
+        <activity android:name="com.purnendu.PocketNews.Ui.Activities.QuitApplicationActivity" />
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name="com.purnendu.PocketNews.Ui.Activities.SplashActivity"
             android:theme="@style/HiddenTitleTheme"
             android:exported="true"
+            android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,39 +29,38 @@
         </activity>
 
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.purnendu.PocketNews.Ui.Activities.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Activities.Bookmarks"
+            android:name="com.purnendu.PocketNews.Ui.Activities.Bookmarks"
             android:label="Bookmarks"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".Activities.SingleNewsActivity"
+            android:name="com.purnendu.PocketNews.Ui.Activities.SingleNewsActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Activities.Category"
+            android:name="com.purnendu.PocketNews.Ui.Activities.Category"
             android:label="Category"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Activities.SettingActivity"
-            android:configChanges="uiMode"
+            android:name="com.purnendu.PocketNews.Ui.Activities.SettingActivity"
             android:label="Settings"
             android:screenOrientation="portrait">
 
         </activity>
 
         <activity
-            android:name=".Activities.About"
+            android:name="com.purnendu.PocketNews.Ui.Activities.About"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".Activities.NewsApi"
+        <activity android:name="com.purnendu.PocketNews.Ui.Activities.NewsApiWebPage"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="true"/>
 

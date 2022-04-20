@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="20dp"
-    tools:context=".Activities.SettingActivity">
+    tools:context=".Ui.Activities.SettingActivity">
 
     <TextView
         android:layout_width="wrap_content"

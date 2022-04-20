@@ -2,22 +2,13 @@ package com.purnendu.PocketNews.Retrofit;
 
 public class API_KEYS {
 
-    public static final String firstKey =  "Put your API_KEY here";
-    public static final String secondKey = "Put your API_KEY here";
-    public static final String thirdKey =  "Put your API_KEY here";
-    public static final String fourthKey = "Put your API_KEY here";
-    public static final String fifthKey =  "Put your API_KEY here";
+    //Do not confuse.I have many keys,and using in different place.If you have single key then place your key every places(firstKey->fifthKey).
 
-
-  /*  sports:joysamanta123@gmail.com
-    tech:  joysamanta123@gmail.com
-    First time trending launch:joysamanta84@gmail.com
-    trending:jeet
-    health:jeet
-    bussiness:Nitish sir
-    search:Nitish sir
-    entertainment:asijit
-    science:asijit   */
+    public static final String firstKey = "";     //Splash Screen Key
+    public static final String secondKey = "";    //Business and search Key
+    public static final String thirdKey = "";    //Entertainment and science key
+    public static final String fourthKey = "";  //Trending and Health Key
+    public static final String fifthKey = "";  //Sports and Tech Key
 
 
 }
