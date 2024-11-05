@@ -1,19 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+    //id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 
 android {
     namespace 'com.purnendu.PocketNews'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 26
-        targetSdk 34
-        versionCode 16
-        versionName "6.1"
+        targetSdk 35
+        versionCode 17
+        versionName "6.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -49,35 +50,36 @@ android {
 dependencies {
     implementation 'com.github.MonsterTechnoGits:WebViewAdblock:1.1'//Blocking Adds in WebView
     implementation 'com.squareup.picasso:picasso:2.71828'//For loading image from Internet
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'  //For swiping to refresh
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'com.airbnb.android:lottie:6.1.0'//Lottie for beautiful animation
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.airbnb.android:lottie:6.6.0'//Lottie for beautiful animation
     implementation 'com.github.igortrncic.dotted-progress-bar:library:1.0.0'//Dotted loading bar
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'//Retrofit support
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'//gson converter
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'//Retrofit support
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'//gson converter
 
     //Kotlin support
-    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:1.15.0'
 
     //Room support
-    implementation 'androidx.room:room-runtime:2.6.0-alpha03'
-    implementation 'androidx.room:room-ktx:2.6.0-alpha03'
-    kapt 'androidx.room:room-compiler:2.6.0-alpha03'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.room:room-ktx:2.6.1'
+    //kapt 'androidx.room:room-compiler:2.6.1'
+    ksp 'androidx.room:room-compiler:2.6.1'
 
     //Coroutine support
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
 
     //LiveData and ViewModel support
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.7'
 
 
     //WorkManager
-    implementation 'androidx.work:work-runtime:2.8.1'
+    implementation 'androidx.work:work-runtime:2.10.0'
 
 
 

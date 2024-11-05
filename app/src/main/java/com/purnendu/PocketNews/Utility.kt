@@ -94,7 +94,7 @@ class Utility {
                 "MyPrefs",
                 Application.MODE_PRIVATE
             )
-            return sharedPreferences.getString("country", "in")!!
+            return sharedPreferences.getString("country", "us")!!
         }
 
         //Set JavaScript status

@@ -71,6 +71,10 @@ class Repository(
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         val newsList = response.body()?.articles
+                        if (newsList != null) {
+                            if(newsList.isEmpty())
+                                return
+                        }
                         CoroutineScope(Dispatchers.IO).launch {
                             if (!isUpToDate(
                                     category,
